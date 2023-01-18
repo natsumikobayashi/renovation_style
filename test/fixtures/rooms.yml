@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  catchphrase: MyText
+  user_comment: MyText
+  owner_comment: MyText
+
+two:
+  catchphrase: MyText
+  user_comment: MyText
+  owner_comment: MyText

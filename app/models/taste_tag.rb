@@ -1,0 +1,2 @@
+class TasteTag < ApplicationRecord
+end

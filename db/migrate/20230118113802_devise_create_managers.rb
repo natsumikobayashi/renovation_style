@@ -6,6 +6,14 @@ class DeviseCreateManagers < ActiveRecord::Migration[6.1]
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
+      t.string :company_id,         null: false
+      t.string :name,               null: false
+      t.string :address,            null: false
+      t.string :telephone_number,   null: false
+      t.string :home_page,          null: false
+      t.text   :catchphrase,        null: false
+      t.string :reqular_holiday,    null: false
+      t.boolean :is_deleted,        null: false, default: false
 
       ## Recoverable
       t.string   :reset_password_token
