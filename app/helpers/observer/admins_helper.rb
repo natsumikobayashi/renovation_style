@@ -1,0 +1,2 @@
+module Observer::AdminsHelper
+end

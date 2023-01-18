@@ -1,0 +1,2 @@
+module Observer::TasteTagsHelper
+end
