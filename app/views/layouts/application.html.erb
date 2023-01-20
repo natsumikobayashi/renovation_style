@@ -6,11 +6,42 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            Renovation Style
+            <% if observer_signed_in? %>
+             <% if request.fullpath.include? "/observer" %>
+              <button type="button" class="btn btn-default">
+                <%= link_to 'ユーザー一覧', observer_customers_path %>
+              </button>
+              <button type="button" class="btn btn-default">
+                <%= link_to 'リフォーム会社一覧', observer_admins_path, class: "btn btn-outline-dark" %>
+               </button>
+              <button type="button" class="btn btn-default">
+                <%= link_to 'テイストタグ一覧', observer_taste_tags_path, class: "btn btn-outline-dark" %>
+              </button>
+              <button type="button" class="btn btn-default">
+                <%= button_to 'ログアウト', destroy_observer_session_path, method: :delete, class: "btn btn-outline-dark" %>
+              </button>
+              <% else %>
+              <button type="button" class="btn btn-default">
+                <%= link_to 'ログイン', new_observer_session_path %>
+              </button>
+              <% end %>
+             <% end %>
+          </div>
+        </div>
+      </div>
+    </header>
+
+
     <%= yield %>
   </body>
 </html>
