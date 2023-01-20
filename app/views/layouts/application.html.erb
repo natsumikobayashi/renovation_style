@@ -17,8 +17,7 @@
           <div class="col">
             Renovation Style
             <% if observer_signed_in? %>
-             <% if request.fullpath.include? "/observer" %>
-              <button type="button" class="btn btn-default">
+             <button type="button" class="btn btn-default">
                 <%= link_to 'ユーザー一覧', observer_customers_path %>
               </button>
               <button type="button" class="btn btn-default">
@@ -30,10 +29,21 @@
               <button type="button" class="btn btn-default">
                 <%= button_to 'ログアウト', destroy_observer_session_path, method: :delete, class: "btn btn-outline-dark" %>
               </button>
+              <% elsif manager_signed_in? %>
+               <!--managerがサインインしている時の処理を書く-->
+              <% elsif customer_signed_in? %>
+               <!--customerがサインインしている時の処理を書く-->
               <% else %>
-              <button type="button" class="btn btn-default">
-                <%= link_to 'ログイン', new_observer_session_path %>
-              </button>
+               <% if request.fullpath.include? "/observer" %>
+                <button type="button" class="btn btn-default">
+                 <%= link_to 'ログイン', new_observer_session_path %>
+                </button>
+                <% elsif request.fullpath.include? "/manager" %>
+                <button type="button" class="btn btn-default">
+                 <%= link_to '新規登録', new_manager_registration_path %>
+                </botton>
+              <% else %>
+                <!--customerがログインしていないときの処理を書く-->
               <% end %>
              <% end %>
           </div>
