@@ -30,7 +30,9 @@
                 <%= button_to 'ログアウト', destroy_observer_session_path, method: :delete, class: "btn btn-outline-dark" %>
               </button>
               <% elsif manager_signed_in? %>
-               <!--managerがサインインしている時の処理を書く-->
+                <button type="button" class="btn btn-default">
+                <%= button_to 'ログアウト', destroy_manager_session_path, method: :delete, class: "btn btn-outline-dark" %>
+              </button>
               <% elsif customer_signed_in? %>
                <!--customerがサインインしている時の処理を書く-->
               <% else %>

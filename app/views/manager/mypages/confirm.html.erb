@@ -1,2 +1,12 @@
-<h1>Admin::Managers#confirm</h1>
-<p>Find me in app/views/admin/managers/confirm.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      一度退会すると投稿したデータも削除されます。
+      再開される場合は、新規会員登録が必要です。
+      本当に退会しますか？
+
+      <%= link_to "退会しない", manager_mypage_path %>
+      <%= link_to "退会する", manager_mypage_subscribe_path, method: :patch, data: {confirm: "本当に退会しますか？"} %>
+    </div>
+  </div>
+</div>

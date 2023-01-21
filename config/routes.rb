@@ -25,9 +25,9 @@ Rails.application.routes.draw do
   }
     namespace :manager do
     get '/top' => 'homes#top'
+    patch 'mypage/subscribe' => 'mypages#subscribe'
      resource :mypage, only:[:show] do
-       get 'confirm' => 'managers#confirm'
-       patch 'subscribe' => 'managers#subscribe'
+       get 'confirm' => 'mypages#confirm'
      end
     resources :enquiries, only:[:index, :update, :show]
     get 'rooms/confirm' => 'rooms#confirm'
