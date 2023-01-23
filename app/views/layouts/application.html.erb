@@ -27,22 +27,31 @@
                 <%= link_to 'テイストタグ一覧', observer_taste_tags_path, class: "btn btn-outline-dark" %>
               </button>
               <button type="button" class="btn btn-default">
-                <%= button_to 'ログアウト', destroy_observer_session_path, method: :delete, class: "btn btn-outline-dark" %>
+                <%= link_to 'ログアウト', destroy_observer_session_path, method: :delete, class: "btn btn-outline-dark" %>
               </button>
               <% elsif manager_signed_in? %>
-                <button type="button" class="btn btn-default">
-                <%= button_to 'ログアウト', destroy_manager_session_path, method: :delete, class: "btn btn-outline-dark" %>
-              </button>
+                 <button type="button" class="btn btn-default">
+                  <%= link_to 'ログアウト', destroy_manager_session_path, method: :delete, class: "btn btn-outline-dark" %>
+                 </button>
+                 <button type="button" class="btn btn-default">
+                  <%= link_to '問い合わせ一覧', manager_enquiries_path, class: "btn btn-outline-dark" %>
+                 </button>
+                 <button type="button" class="btn btn-default">
+                  <%= link_to '投稿一覧', manager_rooms_path, class: "btn btn-outline-dark" %>
+                 </button
+                 ><button type="button" class="btn btn-default">
+                  <%= link_to 'マイページ', manager_mypage_path, class: "btn btn-outline-dark" %>
+                 </button>
               <% elsif customer_signed_in? %>
                <!--customerがサインインしている時の処理を書く-->
               <% else %>
                <% if request.fullpath.include? "/observer" %>
                 <button type="button" class="btn btn-default">
-                 <%= link_to 'ログイン', new_observer_session_path %>
+                 <%= link_to 'ログイン', new_observer_session_path, class: "btn btn-outline-dark" %>
                 </button>
                 <% elsif request.fullpath.include? "/manager" %>
                 <button type="button" class="btn btn-default">
-                 <%= link_to '新規登録', new_manager_registration_path %>
+                 <%= link_to '新規登録', new_manager_registration_path, class: "btn btn-outline-dark" %>
                 </botton>
               <% else %>
                 <!--customerがログインしていないときの処理を書く-->
