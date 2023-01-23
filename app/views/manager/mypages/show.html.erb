@@ -1,7 +1,62 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      マイページ
+      登録情報詳細
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <table>
+        <tbody>
+          <tr>
+            <td>会社名</td>
+            <td><%= @manager.name %></td>
+          </tr>
+          <tr>
+            <td>会員ID</td>
+            <td><%= @manager.company_id %></td>
+          </tr>
+          <tr>
+            <td>住所</td>
+            <td><%= @manager.address %></td>
+          </tr>
+          <tr>
+            <td>電話番号</td>
+            <td><%= @manager.email %></td>
+          </tr>
+          <tr>
+            <td>ホームページ</td>
+            <td><%= @manager.home_page %></td>
+          </tr>
+          <tr>
+            <td>写真</td>
+            <td>
+              <% if @manager.images.attached? %>
+               <% @manager.images.each do |image| %>
+                <%= image_tag image.variant(resize_to_limit: [200, 150]) %>
+               <% end %>
+               <% else %>
+                <%= image_tag 'no_image.jpg', :size => '200x150' %>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td>キャッチコピー</td>
+            <td><%= @manager.catchphrase %></td>
+          </tr>
+          <tr>
+            <td>対応エリア</td>
+            <td><%= @manager.area.name %></td>
+          </tr>
+          <tr>
+            <td>定休日</td>
+            <td><%= @manager.reqular_holiday %></td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" class="btn btn-default">
+       <%= link_to '退会', confirm_manager_mypage_path, class: "btn btn-outline-dark" %>
+      </button>
     </div>
   </div>
 </div>
