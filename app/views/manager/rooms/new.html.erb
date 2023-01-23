@@ -1,2 +1,38 @@
-<h1>Admin::Rooms#new</h1>
-<p>Find me in app/views/admin/rooms/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      新規投稿
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= form_with model: @room, url: manager_rooms_path, method: :post do |room| %>
+      <table>
+        <tbody>
+          <tr>
+            <td>キャッチコピー</td>
+            <td><%= room.text_field :catchphrase %></td>
+          </tr>
+          <tr>
+           <td>間取り図を選択ください</td>
+           <td><%= room.file_field :images, multiple: true, accept: "image/*" %></td>
+          </tr>
+          <tr>
+            <td>室内写真選択ください</td>
+            <td><%= room.file_field :images, multiple: true, accept: "image/*" %></td>
+          </tr>
+          <tr>
+            <td>お客様の要望</td>
+            <td><%= room.text_field :user_comment %></td>
+          </tr>
+          <tr>
+            <td>御社のこだわりポイント</td>
+            <td><%= room.text_field :owner_comment %></td>
+          </tr>
+        </tbody>
+      </table>
+      <%= room.submit "確認する", class: "btn btn-success" %>
+     <% end %>
+    </div>
+  </div>
+</div>

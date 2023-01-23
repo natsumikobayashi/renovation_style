@@ -1,5 +1,5 @@
 Sign Up
-<%= form_with model: @manager, url: manager_registration_path, method: :post do |f| %>
+<%= form_with model: @manager, url: manager_registration_path, method: :get do |f| %>
   <%= render "manager/shared/error_messages", resource: resource %>
 
   <div class="field">

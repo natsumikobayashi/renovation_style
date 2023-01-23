@@ -30,7 +30,7 @@ Rails.application.routes.draw do
        get 'confirm' => 'mypages#confirm'
      end
     resources :enquiries, only:[:index, :update, :show]
-    get 'rooms/confirm' => 'rooms#confirm'
+    post 'rooms/confirm' => 'rooms#confirm'
     resources :rooms, only:[:index, :new, :create, :show]
   end
 
