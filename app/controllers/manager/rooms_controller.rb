@@ -1,5 +1,6 @@
 class Manager::RoomsController < ApplicationController
   def index
+    @rooms = Room.page(params[:page])
   end
 
   def new
@@ -8,19 +9,28 @@ class Manager::RoomsController < ApplicationController
 
   def create
     @room = Room.new(room_params)
-    @room.manager_id = current_manager.id #
-    @room.taste_tag_id = 1 #
-    @room.fllor_plan_id = 1 #
+    @room.manager_id = current_manager.id
     @room.save!
-    redirect_to  manager_room_path[:id]
+    redirect_to  manager_room_path(@room.id)
   end
 
   def show
+    @room = Room.find(params[:id])
+  end
+
+  def edit
+    @room = Room.find(params[:id])
+  end
+
+  def update
+    @room = Room.find(params[:id])
+    @room.update(room_params)
+    redirect_to manager_room_path(@room.id)
   end
 
   private
 
   def room_params
-    params.require(:room).permit(:catchphrase, :user_comment, :owner_comment, :taste_tag_id, :manager_id, :foor_plan_id, images: [])
+    params.require(:room).permit(:catchphrase, :user_comment, :owner_comment, :taste_tag_id, :manager_id, :floor_plan_id, images: [])
   end
 end

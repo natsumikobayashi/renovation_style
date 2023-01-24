@@ -1,2 +1,29 @@
-<h1>Public::Mypages#show</h1>
-<p>Find me in app/views/public/customers/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      マイページ
+      <table>
+        <tbody>
+          <tr>
+            <td>名前</td>
+            <td><%= @customer.name %></td>
+          </tr>
+          <tr>
+            <td>メールアドレス</td>
+            <td><%= @customer.email %></td>
+          </tr>
+          <tr>
+            <td>電話番号</td>
+            <td><%= @customer.telephone_number %></td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" class="btn btn-default">
+       <%= link_to "編集", edit_customer_mypage_path, class: "btn btn-outline-dark" %>
+      </button>
+      <button type="button" class="btn btn-default">
+       <%= link_to "問い合わせ履歴", customer_enquiries_path, class: "btn btn-outline-dark" %>
+      </button>
+    </div>
+  </div>
+</div>

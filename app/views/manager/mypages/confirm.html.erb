@@ -4,9 +4,12 @@
       一度退会すると投稿したデータも削除されます。<br>
       再開される場合は、新規会員登録が必要です。<br>
       本当に退会しますか？<br>
-
-      <%= link_to "退会しない", manager_mypage_path %>
-      <%= link_to "退会する", manager_mypage_subscribe_path, method: :patch, data: {confirm: "本当に退会しますか？"} %>
+      <button type="button" class="btn btn-default">
+       <%= link_to "退会しない", manager_mypage_path, class: "btn btn-primary" %>
+      </button>
+      <button type="button" class="btn btn-default">
+       <%= link_to "退会する", manager_mypage_subscribe_path, method: :patch, data: {confirm: "本当に退会しますか？"}, class: "btn btn-danger" %>
+      </button>
     </div>
   </div>
 </div>

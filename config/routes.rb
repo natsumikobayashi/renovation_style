@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   root to: "customer/homes#top"
 
   namespace :customer do
-    resource :mypage, only: [:show, :edit, :update] do
-      patch 'subscribe' => 'mypage#subscribe'
+    resource :mypage, only: [:show, :edit, :update, :index] do
+      patch 'subscribe' => 'mypages#subscribe'
     end
     resources :enquiries, only: [:index, :show, :new, :create] do
       get 'confirm' => 'enquiries#confirm'
@@ -31,7 +31,7 @@ Rails.application.routes.draw do
      end
     resources :enquiries, only:[:index, :update, :show]
     post 'rooms/confirm' => 'rooms#confirm'
-    resources :rooms, only:[:index, :new, :create, :show]
+    resources :rooms, only:[:index, :new, :create, :show, :edit, :destroy, :update]
   end
 
   #管理者用

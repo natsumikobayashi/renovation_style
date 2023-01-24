@@ -18,8 +18,16 @@
            <td><%= room.file_field :images, multiple: true, accept: "image/*" %></td>
           </tr>
           <tr>
-            <td>室内写真選択ください</td>
+            <td>室内写真を選択ください</td>
             <td><%= room.file_field :images, multiple: true, accept: "image/*" %></td>
+          </tr>
+          <tr>
+            <td>間取りを選択ください</td>
+            <td> <%= room.collection_select(:floor_plan_id, FloorPlan.all, :id, :floor_name) %></td>
+          </tr>
+          <tr>
+            <td>テイストを選択ください</td>
+            <td> <%= room.collection_select(:taste_tag_id, TasteTag.all, :id, :name) %></td>
           </tr>
           <tr>
             <td>お客様の要望</td>
@@ -31,7 +39,7 @@
           </tr>
         </tbody>
       </table>
-      <%= room.submit "確認する", class: "btn btn-success" %>
+      <%= room.submit "確認する", data: {confirm: "登録しますか？"}, class: "btn btn-success" %>
      <% end %>
     </div>
   </div>

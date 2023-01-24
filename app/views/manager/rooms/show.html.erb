@@ -1,2 +1,32 @@
-<h1>Admin::Rooms#show</h1>
-<p>Find me in app/views/admin/rooms/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      投稿詳細
+      <div>
+       <b><%= @room.catchphrase %></b>
+      </div>
+      <div>
+       <% @room.images.each do |image| %>
+        <%= image_tag image.variant(resize_to_limit: [300, 200]) %>
+       <% end %>
+    </div>
+    <div>
+      お客様の要望<br>
+      <%= @room.user_comment %>
+    </div>
+    <div>
+      こだわりポイント<br>
+      <%= @room.owner_comment %>
+    </div>
+    <div>
+      #<%= @room.floor_plan.floor_name %>
+    </div>
+    <div>
+      #<%= @room.taste_tag.name %>
+    </div>
+    <button type="button" class="btn btn-default">
+      <%= link_to '編集', edit_manager_room_path(@room.id), class: "btn btn-outline-dark" %>
+    </button>
+   </div>
+  </div>
+</div>

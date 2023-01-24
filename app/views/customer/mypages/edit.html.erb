@@ -1,2 +1,32 @@
-<h1>Public::Mypage#edit</h1>
-<p>Find me in app/views/public/customers/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      会員情報編集
+      <%= form_with model: @customer, url: customer_mypage_path, metod: :patch  do |f| %>
+      <table>
+        <tbody>
+          <tr>
+            <td>名前</td>
+            <td><%= f.text_field :name %></td>
+          </tr>
+          <tr>
+            <td>メールアドレス</td>
+            <td><%= f.text_field :email %></td>
+          </tr>
+          <tr>
+            <td>電話番号</td>
+            <td><%= f.text_field :telephone_number %></td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" class="btn btn-default">
+       <%= f.submit "変更を保存する", class: "btn btn-outline-dark" %>
+      </button>
+      <% end %>
+       </table>
+      <button type="button" class="btn btn-default">
+       <%= link_to '退会', subscribe_customer_mypage_path, method: :patch, data: {confirm: "退会すると過去の問い合わせ履歴が見れなくなります。本当に退会しますか？"}, class: "btn btn-danger" %>
+      </button>
+    </div>
+  </div>
+</div>

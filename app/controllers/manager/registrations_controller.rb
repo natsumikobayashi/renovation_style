@@ -1,19 +1,19 @@
 # frozen_string_literal: true
 
 class Manager::RegistrationsController < Devise::RegistrationsController
-  
+
   before_action :configure_permitted_parameters, if: :devise_controller?
-  
+
   def after_sign_up_path_for(resource)
     manager_mypage_path
   end
-  
+
   protected
-  
+
   def configure_permitted_parameters
    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :company_id, :address, :telephone_number, :home_page, :catchphrase, :area_id, :reqular_holiday, :password_confirmation, :email, :password, images: []])
   end
-  
+
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 

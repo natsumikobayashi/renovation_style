@@ -2,13 +2,25 @@
   <div class="row">
     <div class="col">
       投稿一覧
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
       <button type="button" class="btn btn-default">
        <%= link_to '新規投稿', new_manager_room_path, class: "btn btn-outline-dark" %>
       </button>
+      <table>
+        <thead>
+          <th>投稿日</th>
+          <th>キャッチコピー</th>
+          <th></th>
+        </thead>
+        <tbody>
+          <% @rooms.each do |room| %>
+          <tr>
+            <td><%= room.created_at.strftime('%Y年%m月%d日') %></td>
+            <td><%= room.catchphrase %></td>
+            <td><%= link_to '詳細', manager_room_path(room.id), class: "btn btn-primary" %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

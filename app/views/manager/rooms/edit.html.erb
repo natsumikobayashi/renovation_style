@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      投稿編集
+      <%= form_with model: @room, url: manager_room_path(@room.id), method: :patch do |f| %>
+      <div>
+        キャッチフレーズ<br>
+       <%= f.text_field :catchphrase %>
+      </div>
+      <div>
+       間取り図を選択ください<br>
+       <%= f.file_field :images, multiple: true, accept: "image/*" %>
+     </div>
+      <div>
+       室内写真を選択ください<br>
+       <%= f.file_field :images, multiple: true, accept: "image/*" %>
+     </div>
+     <div>
+       間取りを選択ください<br>
+       <%= f.collection_select(:floor_plan_id, FloorPlan.all, :id, :floor_name) %>
+     </div>
+     <div>
+       テイストを選択ください<br>
+       <%= f.collection_select(:taste_tag_id, TasteTag.all, :id, :name) %>
+     </div>
+     <div>
+      お客様の要望<br>
+      <%= f.text_field :user_comment %>
+     </div>
+     <div>
+      こだわりポイント<br>
+      <%= f.text_field :owner_comment %>
+     </div>
+     <button type="button" class="btn btn-default">
+      <%= f.submit "変更を保存する", class: "btn btn-outline-dark" %>
+     </button>
+    <% end %>
+   </div>
+  </div>
+</div>
