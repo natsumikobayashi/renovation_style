@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_23_145054) do
+ActiveRecord::Schema.define(version: 2023_01_21_121724) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -63,8 +63,12 @@ ActiveRecord::Schema.define(version: 2023_01_23_145054) do
 
   create_table "enquiries", force: :cascade do |t|
     t.text "content", null: false
+    t.integer "customer_id", null: false
+    t.integer "room_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_enquiries_on_customer_id"
+    t.index ["room_id"], name: "index_enquiries_on_room_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -89,13 +93,13 @@ ActiveRecord::Schema.define(version: 2023_01_23_145054) do
     t.text "catchphrase", null: false
     t.string "reqular_holiday", null: false
     t.boolean "is_deleted", default: false, null: false
+    t.integer "area_id", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "area_id"
-    t.integer "taste_tag_id"
+    t.index ["area_id"], name: "index_managers_on_area_id"
     t.index ["email"], name: "index_managers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_managers_on_reset_password_token", unique: true
   end
@@ -117,8 +121,14 @@ ActiveRecord::Schema.define(version: 2023_01_23_145054) do
     t.text "catchphrase", null: false
     t.text "user_comment", null: false
     t.text "owner_comment", null: false
+    t.integer "manager_id", null: false
+    t.integer "taste_tag_id", null: false
+    t.integer "floor_plan_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["floor_plan_id"], name: "index_rooms_on_floor_plan_id"
+    t.index ["manager_id"], name: "index_rooms_on_manager_id"
+    t.index ["taste_tag_id"], name: "index_rooms_on_taste_tag_id"
   end
 
   create_table "taste_tags", force: :cascade do |t|

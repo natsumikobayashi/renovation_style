@@ -14,6 +14,7 @@ class DeviseCreateManagers < ActiveRecord::Migration[6.1]
       t.text   :catchphrase,        null: false
       t.string :reqular_holiday,    null: false
       t.boolean :is_deleted,        null: false, default: false
+      t.references :area,           null: false
 
       ## Recoverable
       t.string   :reset_password_token
