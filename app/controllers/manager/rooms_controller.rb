@@ -5,6 +5,8 @@ class Manager::RoomsController < ApplicationController
 
   def new
     @room = Room.new
+    @room.room_images.build
+    #@roomが保存されたときにroom_imageも保存をかけるためのbuild
   end
 
   def create
@@ -31,6 +33,6 @@ class Manager::RoomsController < ApplicationController
   private
 
   def room_params
-    params.require(:room).permit(:catchphrase, :user_comment, :owner_comment, :taste_tag_id, :manager_id, :floor_plan_id, images: [])
+    params.require(:room).permit(:catchphrase, :user_comment, :owner_comment, :taste_tag_id, :manager_id, :floor_plan_id, room_images_attributes:[:id, :genre, images: []])
   end
 end

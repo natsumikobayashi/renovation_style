@@ -8,12 +8,18 @@
        <%= f.text_field :catchphrase %>
       </div>
       <div>
-       間取り図を選択ください<br>
-       <%= f.file_field :images, multiple: true, accept: "image/*" %>
+       <%= f.fields_for :room_images, @room.room_images do |room_image| %>
+         <%= room_image.hidden_field :genre, :value => "間取り" %>
+           間取り図<br>
+         <%= room_image.file_field :images, multiple: true, accept: "image/*" %>
+      <% end %>
      </div>
-      <div>
-       室内写真を選択ください<br>
-       <%= f.file_field :images, multiple: true, accept: "image/*" %>
+     <div>
+       <%= f.fields_for :room_images, @room.room_images do |room_image| %>
+         <%= room_image.hidden_field :genre, :value => "室内写真" %>
+           室内写真を選択ください(複数選択可)<br>
+         <%= room_image.file_field :images, multiple: true, accept: "image/*" %>
+       <% end %>
      </div>
      <div>
        間取りを選択ください<br>

@@ -6,8 +6,12 @@
        <b><%= @room.catchphrase %></b>
       </div>
       <div>
-       <% @room.images.each do |image| %>
+       <% @room.room_images.each do |room_image| %>
+       <%= room_image.genre %>
+       <% room_image.images.each do |image| %>
         <%= image_tag image.variant(resize_to_limit: [300, 200]) %>
+        <% end %>
+        <br>
        <% end %>
     </div>
     <div>
