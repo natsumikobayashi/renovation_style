@@ -7,12 +7,21 @@
        理想のお部屋を見つけることができ、更にお客様のお住まいを<br>
        リノベーションしてくれるリフォーム会社を見つけることができます<br>
       </p>
+      <div class="rooms">
+        <% @rooms.each do |room| %>
+         <%= link_to customer_room_path(room.id) do %>
+          <% room.room_images.find(genre: '間取り') %>
+           
+          <%= room.catchphrase %>
+         <% end %>
+        <% end %>
+      </div>
       部屋３件表示
       <p>
         ヘッダーの検索をクリックすると<br>
         よりご希望に近いお部屋が見つけられます<br>
       </p>
-      
+
     </div>
   </div>
 </div>

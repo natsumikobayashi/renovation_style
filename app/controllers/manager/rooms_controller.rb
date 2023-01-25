@@ -30,9 +30,23 @@ class Manager::RoomsController < ApplicationController
     redirect_to manager_room_path(@room.id)
   end
 
+  def delete_room_image #room_image削除
+    @room_image = RoomImage.find(params[:room_image_id])
+    @room_image.destroy
+    @room = @room_image.room
+    redirect_to manager_room_path(@room.id)
+  end
+  
+  def delete_floor_image #floor_image削除したい！！
+    @floor_image = FloorImage.find(params[:floor_image_id])
+    @floor_image.destroy
+    @room = @floor_image.room
+    redirect_to manager_room_path(@room.id)
+  end
+
   private
 
   def room_params
-    params.require(:room).permit(:catchphrase, :user_comment, :owner_comment, :taste_tag_id, :manager_id, :floor_plan_id, room_images_attributes:[:id, :genre, images: []])
+    params.require(:room).permit(:catchphrase, :user_comment, :owner_comment, :taste_tag_id, :manager_id, :floor_plan_id, room_images_attributes:[:id, :name, images: []], floor_images_attributes:[:id, :name, images: []])
   end
 end

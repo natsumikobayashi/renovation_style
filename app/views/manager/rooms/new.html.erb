@@ -13,15 +13,15 @@
             <td>キャッチコピー</td>
             <td><%= room.text_field :catchphrase %></td>
           </tr>
-            <%= room.fields_for :room_images, @room.room_images.new do |room_image| %>
-             <%= room_image.hidden_field :genre, :value => "間取り" %>
+            <%= room.fields_for :room_images, @room.floor_images.new do |floor_image| %>
+             <%= floor_image.hidden_field :name, :value => "間取り" %>
              <tr>
-             <td>間取り図を選択ください</td>
-             <td><%= room_image.file_field :images, multiple: true, accept: "image/*" %></td>
+             <td>間取り図を選択ください(複数選択可(before,afterなど記載下さい))</td>
+             <td><%= floor_image.file_field :images, multiple: true, accept: "image/*" %></td>
              </tr>
             <% end %>
            <%= room.fields_for :room_images, @room.room_images.new do |room_image| %>
-             <%= room_image.hidden_field :genre, :value => "室内写真" %>
+             <%= room_image.hidden_field :name, :value => "室内写真" %>
              <tr>
              <td>室内写真を選択ください(複数選択可)</td>
              <td><%= room_image.file_field :images, multiple: true, accept: "image/*" %></td>
