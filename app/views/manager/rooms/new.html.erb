@@ -5,48 +5,107 @@
     </div>
   </div>
   <div class="row">
-    <div class="col">
+    <div class="offset-sm-2 col-sm-8">
       <%= form_with model: @room, url: manager_rooms_path, method: :post do |room| %>
-      <table>
-        <tbody>
-          <tr>
-            <td>キャッチコピー</td>
-            <td><%= room.text_field :catchphrase %></td>
-          </tr>
-            <%= room.fields_for :room_images, @room.floor_images.new do |floor_image| %>
-             <%= floor_image.hidden_field :name, :value => "間取り" %>
-             <tr>
-             <td>間取り図を選択ください(複数選択可(before,afterなど記載下さい))</td>
-             <td><%= floor_image.file_field :images, multiple: true, accept: "image/*" %></td>
-             </tr>
-            <% end %>
-           <%= room.fields_for :room_images, @room.room_images.new do |room_image| %>
-             <%= room_image.hidden_field :name, :value => "室内写真" %>
-             <tr>
-             <td>室内写真を選択ください(複数選択可)</td>
-             <td><%= room_image.file_field :images, multiple: true, accept: "image/*" %></td>
-             </tr>
-           <% end %>
-          <tr>
-            <td>間取りを選択ください</td>
-            <td> <%= room.collection_select(:floor_plan_id, FloorPlan.all, :id, :floor_name) %></td>
-          </tr>
-          <tr>
-            <td>テイストを選択ください</td>
-            <td> <%= room.collection_select(:taste_tag_id, TasteTag.all, :id, :name) %></td>
-          </tr>
-          <tr>
-            <td>お客様の要望</td>
-            <td><%= room.text_field :user_comment %></td>
-          </tr>
-          <tr>
-            <td>御社のこだわりポイント</td>
-            <td><%= room.text_field :owner_comment %></td>
-          </tr>
-        </tbody>
-      </table>
-      <%= room.submit "確認する", data: {confirm: "登録しますか？"}, class: "btn btn-success" %>
-     <% end %>
+        <div class="form-group">
+          <label>キャッチコピー</label>
+          <%= room.text_field :catchphrase %>
+        </div>
+
+        <div class="my-4">
+          <%= room.fields_for :floor_images do |floor_image| %>
+          <%= floor_image.index %>
+            <%= render 'manager/rooms/floor_image_fields', f: floor_image %>
+            <div class="links">
+              <%= link_to_add_association 'add', room, :floor_images %>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="my-4">
+          <%= room.fields_for :room_images do |room_image| %>
+            <%= render 'manager/rooms/room_image_fields', f: room_image %>
+            <div class="links">
+              <%= link_to_add_association 'add', room, :room_images %>
+            </div>
+          <% end %>
+        </div>
+
+
+        <div class="form-group">
+          <label>間取りを選択ください</label>
+          <%= room.collection_select(:floor_plan_id, FloorPlan.all, :id, :floor_name) %>
+        </div>
+
+        <div class="form-group">
+          <label>テイストを選択ください</label>
+          <%= room.collection_select(:taste_tag_id, TasteTag.all, :id, :name) %>
+        </div>
+
+        <div class="form-group">
+          <label>お客様の要望</label>
+          <%= room.text_field :user_comment %>
+        </div>
+
+        <div class="form-group">
+          <label>御社のこだわりポイント</label>
+          <%= room.text_field :owner_comment %>
+        </div>
+
+        <div class="form-group">
+          <%= room.submit "確認する", data: {confirm: "登録しますか？"}, class: "btn btn-success" %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
+
+
+<!--<div id="fllor_image_tamplate" style="display:none;">-->
+<!--  <div id="floor_image--indexID">-->
+<!--    <div class="form-group">-->
+<!--      <label>間取り図を選択ください(before)</label>-->
+<!--      <input accept="image/*" type="file" name="room[floor_images_attributes][indexID][image_before]" id="room_floor_images_attributes_indexID_image_before">-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--      <label>間取り図を選択ください(after)</label>-->
+<!--      <input accept="image/*" type="file" name="room[floor_images_attributes][indexID][image_after]" id="room_floor_images_attributes_indexID_image_after">-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<div id="add_floor_image">+</div>
+<div id="remove_floor_image">-</div>
+<script>
+//  $('#add_floor_image').on('click', (e) => {
+//    const index = Number($("#floor_images").children().last().attr('id').split("--")[1]) + 1
+//
+//    const $template =  $('#fllor_image_tamplate').clone().find('#floor_image--indexID')
+//    const floorImageID = $template.attr('id')
+//    $template.attr('id',(floorImageID.replace('indexID', index)))
+
+//    const $before = $template.find('#room_floor_images_attributes_indexID_image_before')
+//    const beforeImageID = $before.attr('id')
+//    $before.attr('id',(beforeImageID.replace('indexID', index)))
+//    const beforeNameID = $before.attr('name')
+//    $before.attr('name',(beforeNameID.replace('indexID', index)))
+
+//    const $after = $template.find('#room_floor_images_attributes_indexID_image_after')
+//    const afterImageID = $after.attr('id')
+//    console.log(afterImageID.replace('indexID', index))
+//    $after.attr('id',(afterImageID.replace('indexID', index)))
+//    const afterNameID = $after.attr('name')
+//    console.log(afterNameID.replace('indexID', index))
+//    $after.attr('name',(afterNameID.replace('indexID', index)))
+
+//    $("#floor_images").append($template)
+//  })
+
+//  $('#remove_floor_image').on('click', () => {
+//    const node = $("#floor_images").children()
+//    if (node.length > 1) {
+//      node.last().remove()
+//    }
+//  })
+</script>
+

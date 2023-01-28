@@ -2,27 +2,29 @@
   <div class="row">
     <div class="col">
       投稿詳細
+
       <div>
        <b><%= @room.catchphrase %></b>
       </div>
+
       <div>
-      <% @room.floor_images.each do |floor_image| %>
-       <%= floor_image.name %>
-       <% floor_image.images.each do |image| %>
-        <%= image_tag image.variant(resize_to_limit: [300, 200]) %> <%#= link_to "削除", manager_path(floor_image.id), method: :delete %>
-        <% end %>
-        <br>
+       <% @room.floor_images.each do |floor_image| %>
+        before:<%= image_tag floor_image.image_before.variant(resize_to_limit: [300, 200]) if floor_image.image_before.attached? %>
+        after:<%= image_tag floor_image.image_after.variant(resize_to_limit: [300, 200]) if floor_image.image_after.attached? %>
+        
        <% end %>
       </div>
-      <div>
-       <% @room.room_images.each do |room_image| %>
-       <%= room_image.name %>
-       <% room_image.images.each do |image| %>
-        <%= image_tag image.variant(resize_to_limit: [300, 200]) %> <%#= link_to "削除", manager_path(room_image.id), method: :delete %>
+
+      <div class="row">
+        <% @room.room_images.each do |room_image| %>
+          <figure class="col-sm-6 col-md-4">
+            <figcaption><%= room_image.name %></figcaption>
+            <%= image_tag room_image.image.variant(resize_to_limit: [300, 200]) if room_image.image.attached? %>
+          </figure>
+          <%= link_to "delete", manager_room_image_path(room_image), method: :delete %>
         <% end %>
-        <br>
-       <% end %>
-    </div>
+      </div>
+
     <div>
       お客様の要望<br>
       <%= @room.user_comment %>

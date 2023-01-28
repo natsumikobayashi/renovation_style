@@ -34,6 +34,8 @@ Rails.application.routes.draw do
     delete 'rooms/:room_image_id/delete_floor_image' => 'rooms#delete_floor_image'
     delete 'rooms/:room_image_id/delete_room_image' => 'rooms#delete_room_image'
     resources :rooms, only:[:index, :new, :create, :show, :edit, :destroy, :update]
+    resources :room_images, only: [:destroy]
+    resources :floor_images, only: [:destroy]
   end
 
   #管理者用

@@ -6,14 +6,21 @@ class Manager::RoomsController < ApplicationController
   def new
     @room = Room.new
     @room.room_images.build
+    @room.floor_images.build
     #@roomが保存されたときにroom_imageも保存をかけるためのbuild
   end
 
   def create
     @room = Room.new(room_params)
     @room.manager_id = current_manager.id
-    @room.save!
-    redirect_to  manager_room_path(@room.id)
+    if @room.save
+      flash[:notice] = "保存しました"
+      redirect_to  manager_room_path(@room.id)
+    else
+      flash.now[:alert] = "エラーがあります"
+      render :new
+      #nowはrenderのみにつける
+    end
   end
 
   def show
@@ -26,8 +33,12 @@ class Manager::RoomsController < ApplicationController
 
   def update
     @room = Room.find(params[:id])
-    @room.update(room_params)
-    redirect_to manager_room_path(@room.id)
+    if  @room.update(room_params)
+      redirect_to  manager_room_path(@room.id), notice: "保存しました"
+    else
+      flash.now[:alert] = "エラーがあります"
+      render :edit
+    end
   end
 
   def delete_room_image #room_image削除
@@ -36,7 +47,7 @@ class Manager::RoomsController < ApplicationController
     @room = @room_image.room
     redirect_to manager_room_path(@room.id)
   end
-  
+
   def delete_floor_image #floor_image削除したい！！
     @floor_image = FloorImage.find(params[:floor_image_id])
     @floor_image.destroy
@@ -47,6 +58,6 @@ class Manager::RoomsController < ApplicationController
   private
 
   def room_params
-    params.require(:room).permit(:catchphrase, :user_comment, :owner_comment, :taste_tag_id, :manager_id, :floor_plan_id, room_images_attributes:[:id, :name, images: []], floor_images_attributes:[:id, :name, images: []])
+    params.require(:room).permit(:catchphrase, :user_comment, :owner_comment, :taste_tag_id, :manager_id, :floor_plan_id, room_images_attributes:[:id, :room_id, :name, :image, :_destroy], floor_images_attributes:[:id, :room_id, :image_before, :image_after, :_destroy])
   end
 end

@@ -2,45 +2,61 @@
   <div class="row">
     <div class="col">
       投稿編集
-      <%= form_with model: @room, url: manager_room_path(@room.id), method: :patch do |f| %>
-      <div>
-        キャッチフレーズ<br>
-       <%= f.text_field :catchphrase %>
-      </div>
-      <div>
-       <%= f.fields_for :floor_images, @room.floor_images.new do |floor_image| %>
-         <%= floor_image.hidden_field :name, :value => "間取り" %>
-           <br>間取り図
-         <%= floor_image.file_field :images, multiple: true, accept: "image/*" %>
+    </div>
+    </div>
+    
+    <div class="row">
+      <div class="offset-sm-2 col-sm-8">
+       <%= form_with model: @room, url: manager_room_path(@room.id), method: :patch do |room| %>
+        <%= render "layouts/error_messages", model: room.object %><!--deviseには入れられない-->
+        <div class="form-group">
+          <label>キャッチフレーズ</label>
+         <%= room.text_field :catchphrase %>
+        </div>
+        
+        <div class="my-4">
+          <%= room.fields_for :floor_images do |floor_image| %>
+          <%= floor_image.index %>
+            <%= render 'manager/rooms/floor_image_fields', f: floor_image %>
+            <div class="links">
+              <%= link_to_add_association 'add', room, :floor_images %>
+            </div>
+          <% end %>
+        </div>
+
+        <div class="my-4">
+          <%= room.fields_for :room_images do |room_image| %>
+            <%= render 'manager/rooms/room_image_fields', f: room_image %>
+            <div class="links">
+              <%= link_to_add_association 'add', room, :room_images %>
+            </div>
+          <% end %>
+        </div>
+        
+        <div class="form-group">
+          <label>間取りを選択ください</label>
+          <%= room.collection_select(:floor_plan_id, FloorPlan.all, :id, :floor_name) %>
+        </div>
+        
+        <div class="form-group">
+          <label>テイストを選択ください</label>
+          <%= room.collection_select(:taste_tag_id, TasteTag.all, :id, :name) %>
+        </div>
+        
+        <div class="form-group">
+          <label>お客様の要望</label>
+          <%= room.text_field :user_comment %>
+        </div>
+        
+        <div class="form-group">
+          <label>こだわりポイント</label>
+          <%= room.text_field :owner_comment %>
+        </div>
+        
+        <button type="button" class="btn btn-default">
+          <%= room.submit "変更を保存する", class: "btn btn-outline-dark" %>
+        </button>
       <% end %>
-      <%= f.fields_for :room_images, @room.room_images.new do |room_image| %>
-         <%= room_image.hidden_field :name, :value => "室内写真" %>
-        <br>室内写真新しく追加
-             <%= room_image.file_field :images, multiple: true, accept: "image/*" %>
-        <% end %>
-      <br>
-     </div>
-     <div>
-       間取りを選択ください<br>
-       <%= f.collection_select(:floor_plan_id, FloorPlan.all, :id, :floor_name) %>
-     </div>
-     <div>
-       テイストを選択ください<br>
-       <%= f.collection_select(:taste_tag_id, TasteTag.all, :id, :name) %>
-     </div>
-     <div>
-      お客様の要望<br>
-      <%= f.text_field :user_comment %>
-     </div>
-     <div>
-      こだわりポイント<br>
-      <%= f.text_field :owner_comment %>
-     </div>
-     <button type="button" class="btn btn-default">
-      <%= f.submit "変更を保存する", class: "btn btn-outline-dark" %>
-     </button>
-    <% end %>
-   </div>
   </div>
-</div>
+ </div>
 </div>

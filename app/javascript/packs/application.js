@@ -4,6 +4,7 @@
 // that code so it'll be compiled.
 
 import "jquery";
+import "@nathanvda/cocoon"
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
@@ -16,6 +17,6 @@ import "../stylesheets/application"
 import '@fortawesome/fontawesome-free/js/all'
 
 Rails.start()
-Turbolinks.start()
+//Turbolinks.start()
 ActiveStorage.start()
 
