@@ -1,6 +1,6 @@
 class Manager::RoomsController < ApplicationController
   def index
-    @rooms = Room.page(params[:page])
+    @rooms = current_manager.rooms
   end
 
   def new
@@ -39,20 +39,6 @@ class Manager::RoomsController < ApplicationController
       flash.now[:alert] = "エラーがあります"
       render :edit
     end
-  end
-
-  def delete_room_image #room_image削除
-    @room_image = RoomImage.find(params[:room_image_id])
-    @room_image.destroy
-    @room = @room_image.room
-    redirect_to manager_room_path(@room.id)
-  end
-
-  def delete_floor_image #floor_image削除したい！！
-    @floor_image = FloorImage.find(params[:floor_image_id])
-    @floor_image.destroy
-    @room = @floor_image.room
-    redirect_to manager_room_path(@room.id)
   end
 
   private

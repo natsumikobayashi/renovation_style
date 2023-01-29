@@ -9,5 +9,5 @@
     <%= f.file_field :image_after, accept: "image/*" %>
     <%= image_tag f.object.image_after.variant(resize_to_limit: [300, 200]) if f.object.image_after.attached? %>
   </div>
-  <%= link_to_remove_association "remove", f %>
+  <%= link_to_remove_association "間取り図削除", f %>
 </div>

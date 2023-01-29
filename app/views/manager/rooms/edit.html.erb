@@ -4,7 +4,7 @@
       投稿編集
     </div>
     </div>
-    
+
     <div class="row">
       <div class="offset-sm-2 col-sm-8">
        <%= form_with model: @room, url: manager_room_path(@room.id), method: :patch do |room| %>
@@ -13,46 +13,45 @@
           <label>キャッチフレーズ</label>
          <%= room.text_field :catchphrase %>
         </div>
-        
+
         <div class="my-4">
           <%= room.fields_for :floor_images do |floor_image| %>
-          <%= floor_image.index %>
             <%= render 'manager/rooms/floor_image_fields', f: floor_image %>
-            <div class="links">
-              <%= link_to_add_association 'add', room, :floor_images %>
-            </div>
           <% end %>
+            <div class="links">
+              <%= link_to_add_association '間取り図追加', room, :floor_images %>
+            </div>
         </div>
 
         <div class="my-4">
           <%= room.fields_for :room_images do |room_image| %>
             <%= render 'manager/rooms/room_image_fields', f: room_image %>
-            <div class="links">
-              <%= link_to_add_association 'add', room, :room_images %>
-            </div>
           <% end %>
+            <div class="links">
+              <%= link_to_add_association '室内写真追加', room, :room_images %>
+            </div>
         </div>
-        
+
         <div class="form-group">
           <label>間取りを選択ください</label>
           <%= room.collection_select(:floor_plan_id, FloorPlan.all, :id, :floor_name) %>
         </div>
-        
+
         <div class="form-group">
           <label>テイストを選択ください</label>
           <%= room.collection_select(:taste_tag_id, TasteTag.all, :id, :name) %>
         </div>
-        
+
         <div class="form-group">
           <label>お客様の要望</label>
           <%= room.text_field :user_comment %>
         </div>
-        
+
         <div class="form-group">
           <label>こだわりポイント</label>
           <%= room.text_field :owner_comment %>
         </div>
-        
+
         <button type="button" class="btn btn-default">
           <%= room.submit "変更を保存する", class: "btn btn-outline-dark" %>
         </button>

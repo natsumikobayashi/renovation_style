@@ -2,16 +2,17 @@
   <div class="row">
     <div class="col">
       <p>
-       理想のお部屋にリノベーションするために・・・<br>
-       Renovation Styleは、リノベーションを検討している方に向けたサイトです<br>
-       理想のお部屋を見つけることができ、更にお客様のお住まいを<br>
-       リノベーションしてくれるリフォーム会社を見つけることができます<br>
+       理想のお部屋にリノベーションするために・・・
+       Renovation Styleは、リノベーションを検討している方に向けたサイトです
+       理想のお部屋を見つけることができ、更にお客様のお住まいを
+       リノベーションしてくれるリフォーム会社を見つけることができます
       </p>
       <div class="rooms">
         <% @rooms.each do |room| %>
          <%= link_to customer_room_path(room.id) do %>
-          <% room.room_images.find(genre: '間取り') %>
-           
+
+          <% image_tag @room_image.image.variant(resize_to_limit: [300, 200]) if @room_image.image.attached?%>
+
           <%= room.catchphrase %>
          <% end %>
         <% end %>

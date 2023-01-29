@@ -14,21 +14,20 @@
 
         <div class="my-4">
           <%= room.fields_for :floor_images do |floor_image| %>
-          <%= floor_image.index %>
             <%= render 'manager/rooms/floor_image_fields', f: floor_image %>
+         <% end %>
             <div class="links">
-              <%= link_to_add_association 'add', room, :floor_images %>
+              <%= link_to_add_association '間取り図追加', room, :floor_images %>
             </div>
-          <% end %>
         </div>
 
         <div class="my-4">
           <%= room.fields_for :room_images do |room_image| %>
             <%= render 'manager/rooms/room_image_fields', f: room_image %>
-            <div class="links">
-              <%= link_to_add_association 'add', room, :room_images %>
-            </div>
           <% end %>
+            <div class="links">
+              <%= link_to_add_association '室内写真追加', room, :room_images %>
+            </div>
         </div>
 
 

@@ -2,9 +2,9 @@ class Room < ApplicationRecord
   belongs_to :manager
   belongs_to :taste_tag
   belongs_to :floor_plan
-  
+
   #バリデーション設定
-  
+
   has_many :enquiries
   has_many :room_images, inverse_of: :room, dependent: :destroy
   has_many :floor_images, inverse_of: :room, dependent: :destroy

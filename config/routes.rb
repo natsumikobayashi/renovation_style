@@ -36,6 +36,7 @@ Rails.application.routes.draw do
     resources :rooms, only:[:index, :new, :create, :show, :edit, :destroy, :update]
     resources :room_images, only: [:destroy]
     resources :floor_images, only: [:destroy]
+
   end
 
   #管理者用
