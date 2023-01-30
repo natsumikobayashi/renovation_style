@@ -7,21 +7,27 @@
        理想のお部屋を見つけることができ、更にお客様のお住まいを
        リノベーションしてくれるリフォーム会社を見つけることができます
       </p>
-      <div class="rooms">
-        <% @rooms.each do |room| %>
-         <%= link_to customer_room_path(room.id) do %>
+    </div>
+  </div>
 
-          <% image_tag @room_image.image.variant(resize_to_limit: [300, 200]) if @room_image.image.attached?%>
+  <div class="row">
+    <% @rooms.each do |room| %>
+     <div class="col">
+      <%= link_to customer_room_path(room.id) do %>
+       <%= image_tag room.main_image.variant(resize_to_limit: [300, 200]) if room.main_image.attached?%>
+       <%= room.catchphrase %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
 
-          <%= room.catchphrase %>
-         <% end %>
-        <% end %>
-      </div>
-      部屋３件表示
-      <p>
-        ヘッダーの検索をクリックすると<br>
-        よりご希望に近いお部屋が見つけられます<br>
-      </p>
+  <div>
+    <%= link_to "もっと見る", customer_rooms_path, class: "btn btn-outline-dark" %>
+  </div>
+
+  <div>
+    <%= link_to "リフォーム会社の方はこちら", new_manager_session_path, class: "btn btn-outline-dark" %>
+  </div>
 
     </div>
   </div>

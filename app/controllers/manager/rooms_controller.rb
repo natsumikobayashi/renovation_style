@@ -6,7 +6,6 @@ class Manager::RoomsController < ApplicationController
   def new
     @room = Room.new
     @room.room_images.build
-    @room.floor_images.build
     #@roomが保存されたときにroom_imageも保存をかけるためのbuild
   end
 
@@ -44,6 +43,6 @@ class Manager::RoomsController < ApplicationController
   private
 
   def room_params
-    params.require(:room).permit(:catchphrase, :user_comment, :owner_comment, :taste_tag_id, :manager_id, :floor_plan_id, room_images_attributes:[:id, :room_id, :name, :image, :_destroy], floor_images_attributes:[:id, :room_id, :image_before, :image_after, :_destroy])
+    params.require(:room).permit(:catchphrase, :user_comment, :owner_comment, :taste_tag_id, :manager_id, :floor_plan_id, :main_image, :image_before, :image_after, room_images_attributes:[:id, :room_id, :name, :image, :_destroy])
   end
 end

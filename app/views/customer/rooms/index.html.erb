@@ -1,2 +1,54 @@
-<h1>Public::Rooms#index</h1>
-<p>Find me in app/views/public/rooms/index.html.erb</p>
+<div class="container">
+
+  <% @rooms.each do |room| %>
+
+   <div class="row" style="text-align:center;">
+    <div class="col-md-4">
+     <%= link_to customer_room_path(room.id) do %>
+      <%= image_tag room.main_image.variant(resize_to_limit: [100, 150]) if room.main_image.attached? %>
+     <% end %>
+    </div>
+    <div class="col-md-6">
+      <div class="room_item_tittle font-weight-bold">
+        <%= room.catchphrase %>
+      </div>
+      <ul class="room_item_detail" style="list-style: none;" >
+        <li class="room_item_detail">
+         <%= room.owner_comment %>
+        </li>
+        <li class="room_item_detail">
+          #<%= room.taste_tag.name %> #<%= room.floor_plan.floor_name %>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-2">
+      <%= link_to '詳細を見る', customer_room_path(room.id), class: "btn btn-secondary" %>
+    </div>
+   </div>
+
+   <div class="row" style="text-align:center;">
+     <div class="col-md-4">
+       <%= image_tag room.image_after.variant(resize_to_limit: [100, 150]) if room.image_after.attached? %>
+     </div>
+     <div class="col-md-6">
+       <ul class="room_manager_detail" style="list-style: none;">
+         <li class="room_manager_detail">
+           <%= room.manager.name %>
+         </li>
+         <li class="room_manager_detail">
+           <%= room.manager.catchphrase %>
+         </li>
+       </ul>
+     </div>
+     <div class="col-md-2" style="text-align:center;">
+       お気に入り
+     </div>
+   </div>
+
+  <% end %>
+
+  <div class="pagonation">
+   <%= paginate @rooms %>
+  </div>
+
+</div>

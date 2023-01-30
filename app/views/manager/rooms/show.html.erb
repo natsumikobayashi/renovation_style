@@ -8,17 +8,22 @@
       </div>
 
       <div class="row">
-       <% @room.floor_images.each do |floor_image| %>
-        <figure class="col-sm-6 col-md-4">
-         <figcaption> before:</figcaption>
-          <%= image_tag floor_image.image_before.variant(resize_to_limit: [300, 200]) if floor_image.image_before.attached? %>
-         <figcaption>after:</figcaption>
-          <%= image_tag floor_image.image_after.variant(resize_to_limit: [300, 200]) if floor_image.image_after.attached? %>
-         <figcaption>
-          <%= link_to "delete", manager_floor_image_path(floor_image), method: :delete, class: "btn btn-danger" %>
-         </figcaption>
-        </figure>
-       <% end %>
+       <label>間取り(before)</label>
+        <% if @room.image_before.attached? %>
+         <%= image_tag @room.image_before.variant(resize_to_limit: [300, 200]) %>
+        <% else %>
+         <%= image_tag 'noimage-760x460.png', :size => '300x200' %>
+        <% end %>
+      </div>
+
+      <div class="row">
+         <label>間取り(after)</label>
+         <%= image_tag @room.image_after.variant(resize_to_limit: [300, 200]) if @room.image_after.attached? %>
+      </div>
+
+      <div class="row">
+        <label>メイン画像</label>
+        <%= image_tag @room.main_image.variant(resize_to_limit: [300, 200]) if @room.main_image.attached? %>
       </div>
 
       <div class="row">
@@ -26,9 +31,6 @@
           <figure class="col-sm-6 col-md-4">
             <figcaption><%= room_image.name %></figcaption>
              <%= image_tag room_image.image.variant(resize_to_limit: [300, 200]) if room_image.image.attached? %>
-            <figcaption>
-             <%= link_to "delete", manager_room_image_path(room_image), method: :delete, class: "btn btn-danger"  %>
-            </figcaption>
           </figure>
         <% end %>
       </div>

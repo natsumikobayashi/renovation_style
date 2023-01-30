@@ -15,12 +15,21 @@
         </div>
 
         <div class="my-4">
-          <%= room.fields_for :floor_images do |floor_image| %>
-            <%= render 'manager/rooms/floor_image_fields', f: floor_image %>
-          <% end %>
-            <div class="links">
-              <%= link_to_add_association '間取り図追加', room, :floor_images %>
-            </div>
+          <label>間取り(before)</label>
+          <%= room.file_field :image_before, accept: "image/*" %>
+          <%= image_tag room.object.image_before.variant(resize_to_limit: [300, 200]) if room.object.image_before.attached? %>
+        </div>
+
+        <div class="my-4">
+          <label>間取り(after)</label>
+          <%= room.file_field :image_after, accept: "image/*" %>
+          <%= image_tag room.object.image_after.variant(resize_to_limit: [300, 200]) if room.object.image_after.attached? %>
+        </div>
+
+        <div class="my-4">
+          <label>メイン画像</label>
+          <%= room.file_field :main_image, accept: "image?*" %>
+          <%= image_tag room.object.main_image.variant(resize_to_limit: [300, 200]) if room.object.main_image.attached? %>
         </div>
 
         <div class="my-4">

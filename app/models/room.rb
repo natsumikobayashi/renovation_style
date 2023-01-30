@@ -2,6 +2,9 @@ class Room < ApplicationRecord
   belongs_to :manager
   belongs_to :taste_tag
   belongs_to :floor_plan
+  has_one_attached :main_image
+  has_one_attached :image_before
+  has_one_attached :image_after
 
   #バリデーション設定
 
@@ -12,8 +15,6 @@ class Room < ApplicationRecord
   accepts_nested_attributes_for :room_images, allow_destroy: true
   validates_associated :room_images
   #画像をまとめて登録してくれる
-  accepts_nested_attributes_for :floor_images, allow_destroy: true
-  validates_associated :floor_images
 
   def get_room_image(width,height)
     image.variant(resize_to_limit: [width, height]).processed

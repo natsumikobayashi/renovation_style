@@ -1,2 +1,72 @@
-<h1>Public::Rooms#show</h1>
-<p>Find me in app/views/public/rooms/show.html.erb</p>
+<div class="container" style="text-align:center;">
+
+  <div class="row" style="text-align:center;">
+    <div class="col font-weight-bold">
+      <%= @room.catchphrase %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <%= image_tag @room.main_image.variant(resize_to_limit: [400, 400]) if @room.main_image.attached? %>
+    </div>
+  </div>
+
+  <div class="room-floor">
+   <div class="row">
+     <div class="col">間取り図</div>
+   </div>
+   <div class="row">
+      <% if @room.image_before.attached? %>
+        <div class="col">
+          <label>before</label>
+           <div class="room-floor_image">
+           <%= image_tag @room.image_before.variant(resize_to_limit: [150, 200]) if @room.image_before.attached? %>
+          </div>
+        </div>
+        <div class="col">
+          <label>after</label>
+           <div class="room-floor_image">
+            <%= image_tag @room.image_after.variant(resize_to_limit: [150, 200]) if @room.image_after.attached? %>
+          </div>
+        </div>
+       <% else %>
+        <div class="col-md-3">
+         <%= image_tag @room.image_after.variant(resize_to_limit: [150, 200]) if @room.image_after.attached? %>
+       </div>
+      <% end %>
+   </div>
+  </div>
+
+  <div class="room-comment">
+   <div class="row">
+    <div class="col">
+      <label>注文者様の要望</label>
+      <div class="room-comment-user">
+        <%= @room.user_comment %>
+      </div>
+    </div>
+   </div>
+    <div class="row">
+     <div class="col">
+       <label>リフォームポイント</label>
+       <div class="room-comment-owner">
+         <%= @room.user_comment %>
+       </div>
+     </div>
+    </div>
+   </div>
+
+   <div class="row">
+     <div class="col">
+       #<%= @room.floor_plan.floor_name %>
+     </div>
+     <div class="col">
+       #<%= @room.taste_tag.name %>
+     </div>
+   </div>
+   
+   <div class=""
+
+
+</div>
