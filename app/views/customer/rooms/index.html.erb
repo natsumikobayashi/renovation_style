@@ -22,7 +22,7 @@
            <%= b.label { b.check_box + b.text } %>
          <% end %>
         </div>
-        <%= f.submit %>
+        <%= f.submit '検索する', class: "btn btn-outline-dark" %>
         <% end %>
     </div>
   </div>
@@ -65,6 +65,9 @@
          <li class="room_manager_detail">
            <%= room.manager.catchphrase %>
          </li>
+         <div>
+           <%= link_to 'この会社に問い合わせをする', new_customer_enquiry_path, class: "btn btn-outline-dark"%>
+         </div>
        </ul>
      </div>
      <div class="col-md-2" style="text-align:center;">

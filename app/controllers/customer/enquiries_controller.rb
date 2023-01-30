@@ -1,4 +1,5 @@
 class Customer::EnquiriesController < ApplicationController
+
   def index
   end
 
@@ -6,6 +7,9 @@ class Customer::EnquiriesController < ApplicationController
   end
 
   def new
+    @customer = current_customer
+    @manager = 
+    @enquiry = Enquiry.new
   end
 
   def confirm
