@@ -1,5 +1,32 @@
 <div class="container">
 
+  <div class="row">
+    <div class="col">
+        検索フォーム
+       <%= form_with scope: :search, url: customer_rooms_path, method: :get do |f| %>
+        <div class="search_item">
+          <label>テイスト</label>
+         <%= f.collection_check_boxes( :taste_tag_ids, TasteTag.all, :id, :name, checked:  @taste_tag_ids ) do |b| %>
+          <%= b.label { b.check_box + b.text } %>
+         <% end %>
+        </div>
+        <div class="search_item">
+          <label>間取り</label>
+         <%= f.collection_check_boxes(:floor_plan_ids, FloorPlan.all, :id, :floor_name, checked: @floor_plan_ids) do |b| %>
+           <%= b.label { b.check_box + b.text } %>
+         <% end %>
+        </div>
+        <div class="search_item">
+          <label>対応エリア</label>
+         <%= f.collection_check_boxes(:area_ids, Area.all, :id, :name, checked: @area_ids) do |b| %>
+           <%= b.label { b.check_box + b.text } %>
+         <% end %>
+        </div>
+        <%= f.submit %>
+        <% end %>
+    </div>
+  </div>
+
   <% @rooms.each do |room| %>
 
    <div class="row" style="text-align:center;">

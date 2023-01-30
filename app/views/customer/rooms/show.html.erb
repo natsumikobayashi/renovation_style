@@ -51,7 +51,7 @@
      <div class="col">
        <label>リフォームポイント</label>
        <div class="room-comment-owner">
-         <%= @room.user_comment %>
+         <%= @room.owner_comment %>
        </div>
      </div>
     </div>
@@ -65,8 +65,75 @@
        #<%= @room.taste_tag.name %>
      </div>
    </div>
-   
-   <div class=""
 
+   <% @room.room_images.each do |room_image| %>
+    <div class="row">
+     <div class="col">
+      <%= image_tag room_image.image.variant(resize_to_limit: [500, 300]) if room_image.image.attached? %>
+     </div>
+    </div>
+   <% end %>
+
+   <div class="row">
+     <div class="col">
+      <label>施工会社</label>
+      <ul class="room_manager_detail" style="list-style: none;">
+       <li class="room_manager_detail">
+         <%= @room.manager.name %>
+       </li>
+       <li class="room_manager_detail">
+         <%= @room.manager.catchphrase %>
+       </li>
+      </ul>
+      <% @room.manager.images.each do |image| %>
+       <div class="manager_image">
+        <%= image_tag image.variant(resize_to_limit: [500, 300]) %>
+       </div>
+      <% end %>
+     </div>
+   </div>
+
+   <div class="row">
+     <div class="col">
+      <table class="mx-auto">
+        <tr>
+          <td>会社住所</td>
+          <td><%= @room.manager.address %></td>
+        </tr>
+        <tr>
+          <td>対応エリア</td>
+          <td><%= @room.manager.area.name %></td>
+        </tr>
+        <tr>
+          <td>電話番号</td>
+          <td><%= @room.manager.telephone_number %></td>
+        </tr>
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= @room.manager.email %></td>
+        </tr>
+        <tr>
+         <td>定休日・営業時間</td>
+         <td><%= @room.manager.reqular_holiday %></td>
+        </tr>
+        <tr>
+         <td>ホームページ</td>
+         <td><%= @room.manager.home_page %></td>
+        </tr>
+      </table>
+     </div>
+   </div>
+
+   <div class="row">
+     <div class="col">
+       いいね
+     </div>
+   </div>
+
+   <div class="row">
+    <div class="col">
+     この会社に問い合わせをする
+    </div>
+   </div>
 
 </div>
