@@ -1,2 +1,50 @@
-<h1>Public::Enquiries#show</h1>
-<p>Find me in app/views/public/enquiries/show.html.erb</p>
+<div class="container">
+  <div>問い合わせ内容</div>
+
+   <div class="row">
+     <div class="col">
+       日時
+     </div>
+     <div class="col">
+       <%= l @enquiry.created_at, format: :short %>
+     </div>
+   </div>
+
+   <div class="row">
+     <div class="col">
+       部屋情報
+     </div>
+     <div class="col">
+       <%= link_to customer_room_path(@enquiry.room_id) do %>
+        <%= @enquiry.catchphrase %>
+      <% end %>
+     </div>
+   </div>
+
+   <div class="row">
+     <div class="col">
+       リフォーム会社情報
+     </div>
+     <div class="col">
+       <ul class="enquiey_detail" style="list-style: none;" >
+        <li>会社名 <%= @enquiry.manager.name %></li>
+        <li>TEL <%= @enquiry.manager.telephone_number %></li>
+        <li>EMAIL <%= @enquiry.manager.email %></li>
+       </ul>
+     </div>
+   </div>
+
+   <div class="row">
+     <div class="col">
+       問い合わせコメント
+     </div>
+     <div class="col">
+       <%= @enquiry.content %>
+     </div>
+   </div>
+
+   <div>
+     <%= link_to '問い合わせ一覧へ', customer_enquiries_path, class: "btn btn-outline-dark" %>
+   </div>
+
+</div>

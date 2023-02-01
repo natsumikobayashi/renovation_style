@@ -4,6 +4,7 @@ class CreateEnquiries < ActiveRecord::Migration[6.1]
       t.text :content,    null: false
       t.references :customer,  null:false
       t.references :room,       null:false
+      t.references :manager,   null:false
       t.timestamps
     end
   end

@@ -1,2 +1,47 @@
-<h1>Admin::Enquiries#index</h1>
-<p>Find me in app/views/admin/enquiries/index.html.erb</p>
+<div class="container">
+  <div>問い合わせ一覧</div>
+
+  <div class="row">
+    <div class="col">
+      日付
+    </div>
+    <div class="col">
+      名前
+    </div>
+    <div class="col">
+      電話番号
+    </div>
+    <div class="col">
+      メールアドレス
+    </div>
+    <div class="col">
+      対応ステータス
+    </div>
+    <div class="col">
+      詳細ボタン
+    </div>
+  </div>
+
+  <% @enquiries.each do |enquiry| %>
+  <div class="row">
+    <div class="col">
+      <%= l enquiry.created_at, format: :short %>
+    </div>
+    <div class="col">
+      <%= enquiry.customer.name %>
+    </div>
+    <div class="col">
+      <%= enquiry.customer.telephone_number %>
+    </div>
+    <div class="col">
+      <%= enquiry.customer.email %>
+    </div>
+    <div class="col">
+      対応ステータス
+    </div>
+    <div class="col">
+      <%= link_to '詳細', manager_enquiry_path(enquiry.id), class: "btn btn-outline-dark" %>
+    </div>
+  </div>
+  <% end %>
+</div>

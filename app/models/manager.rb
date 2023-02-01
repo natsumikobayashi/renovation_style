@@ -4,6 +4,8 @@ class Manager < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   belongs_to :area
+
+  has_many :enquiries
   has_many :rooms
   has_many_attached :images
 

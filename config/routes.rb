@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       patch 'subscribe' => 'mypages#subscribe'
     end
     resources :enquiries, only: [:index, :show, :new, :create] do
-      get 'confirm' => 'enquiries#confirm'
+      post 'confirm' => 'enquiries#confirm'
     end
     resources :rooms, only: [:show, :index]
   end
@@ -46,7 +46,7 @@ Rails.application.routes.draw do
 
   namespace :observer do
     get 'homes/top' => 'homes#top'
-    resources :admins, only:[:index]
+    resources :managers, only:[:index]
     resources :customers, only:[:index]
     resources :taste_tags, only:[:index, :create, :edit, :update]
   end

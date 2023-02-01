@@ -65,9 +65,11 @@ ActiveRecord::Schema.define(version: 2023_01_25_133420) do
     t.text "content", null: false
     t.integer "customer_id", null: false
     t.integer "room_id", null: false
+    t.integer "manager_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["customer_id"], name: "index_enquiries_on_customer_id"
+    t.index ["manager_id"], name: "index_enquiries_on_manager_id"
     t.index ["room_id"], name: "index_enquiries_on_room_id"
   end
 

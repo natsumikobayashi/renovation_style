@@ -19,5 +19,6 @@ class Customer::RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
+    @enquiry = Enquiry.new
   end
 end

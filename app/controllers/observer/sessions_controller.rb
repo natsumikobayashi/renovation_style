@@ -2,7 +2,7 @@
 
 class Observer::SessionsController < Devise::SessionsController
   def after_sign_in_path_for(resource)
-    observer_homes_top_path
+     observer_managers_path
   end
 
   def after_sign_out_path_for(resource)

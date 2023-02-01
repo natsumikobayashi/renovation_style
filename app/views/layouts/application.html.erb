@@ -19,10 +19,10 @@
             <% if observer_signed_in? %>
              <label>管理者専用ページ</label>
              <button type="button" class="btn btn-default">
-                <%= link_to 'ユーザー一覧', observer_customers_path %>
+                <%= link_to 'ユーザー一覧', observer_customers_path, class: "btn btn-outline-dark" %>
               </button>
               <button type="button" class="btn btn-default">
-                <%= link_to 'リフォーム会社一覧', observer_admins_path, class: "btn btn-outline-dark" %>
+                <%= link_to 'リフォーム会社一覧', observer_managers_path, class: "btn btn-outline-dark" %>
                </button>
               <button type="button" class="btn btn-default">
                 <%= link_to 'テイストタグ一覧', observer_taste_tags_path, class: "btn btn-outline-dark" %>
