@@ -7,6 +7,7 @@
   <div class="row">
     <div class="offset-sm-2 col-sm-8">
       <%= form_with model: @room, url: manager_rooms_path, method: :post do |room| %>
+       <%= render "layouts/error_messages", model: room.object %>
         <div class="form-group">
           <label>キャッチコピー</label>
           <%= room.text_field :catchphrase %>
@@ -79,8 +80,8 @@
 <!--  </div>-->
 <!--</div>-->
 
-<div id="add_floor_image">+</div>
-<div id="remove_floor_image">-</div>
+<!--<div id="add_floor_image">+</div>-->
+<!--<div id="remove_floor_image">-</div>-->
 <script>
 //  $('#add_floor_image').on('click', (e) => {
 //    const index = Number($("#floor_images").children().last().attr('id').split("--")[1]) + 1

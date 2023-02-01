@@ -4,5 +4,6 @@ class  Manager::EnquiriesController < ApplicationController
   end
 
   def show
+    @enquiry = Enquiry.find(params[:id])
   end
 end

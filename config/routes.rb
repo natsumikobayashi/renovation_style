@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     resource :mypage, only: [:show, :edit, :update, :index] do
       patch 'subscribe' => 'mypages#subscribe'
     end
+
+    post 'enquiries/new' => 'enquiries#new'
     resources :enquiries, only: [:index, :show, :new, :create] do
       post 'confirm' => 'enquiries#confirm'
     end

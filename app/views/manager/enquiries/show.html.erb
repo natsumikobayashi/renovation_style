@@ -1,2 +1,68 @@
-<h1>Admin::Enquiries#show</h1>
-<p>Find me in app/views/admin/enquiries/show.html.erb</p>
+<div class="container">
+
+  <div class="row">
+    <div class="col">
+      <%= @enquiry.customer.name %>様
+    </div>
+    <div class="col">
+      問い合わせ詳細
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      日付
+    </div>
+    <div class="col">
+      <%= l @enquiry.created_at, format: :short %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      電話番号
+    </div>
+    <div class="col">
+      <%= @enquiry.customer.telephone_number %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      メールアドレス
+    </div>
+    <div class="col">
+      <%= @enquiry.customer.email %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      部屋情報
+    </div>
+    <div class="col">
+      <%= link_to manager_room_path(@enquiry.room_id) do %>
+       <%= @enquiry.room.catchphrase %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      内容
+    </div>
+    <dic class="col">
+      <%= @enquiry.content %>
+    </dic>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      対応状況
+    </div>
+    <div class="col">
+      ステータス
+    </div>
+  </div>
+
+</div>
