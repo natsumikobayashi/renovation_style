@@ -1,6 +1,6 @@
 <div class="container">
   <div>問い合わせ一覧</div>
-s
+
   <div class="row">
     <div class="col">
       日付
@@ -37,7 +37,7 @@ s
       <%= enquiry.customer.email %>
     </div>
     <div class="col">
-      対応ステータス
+      <%= enquiry.status_i18n %>
     </div>
     <div class="col">
       <%= link_to '詳細', manager_enquiry_path(enquiry.id), class: "btn btn-outline-dark" %>

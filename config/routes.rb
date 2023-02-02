@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       post 'confirm' => 'enquiries#confirm'
     end
     resources :rooms, only: [:show, :index]
+    resources :likes, only: [:create, :destroy, :index]
   end
 
   #リフォーム会社用

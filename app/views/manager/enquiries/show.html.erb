@@ -61,7 +61,10 @@
       対応状況
     </div>
     <div class="col">
-      ステータス
+      <%= form_with model: @enquiry, url: manager_enquiry_path, method: :patch do |f| %>
+       <%= f.select :status, Enquiry.statuses.keys.map {|k| [I18n.t("enums.enquiry.status.#{k}"), k]} %>
+       <%= f.submit "更新", class: "btn btn-outline-dark" %>
+      <% end %>
     </div>
   </div>
 

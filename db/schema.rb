@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2023_01_25_133420) do
 
   create_table "enquiries", force: :cascade do |t|
     t.text "content", null: false
+    t.integer "status", default: 0
     t.integer "customer_id", null: false
     t.integer "room_id", null: false
     t.integer "manager_id", null: false
@@ -74,8 +75,12 @@ ActiveRecord::Schema.define(version: 2023_01_25_133420) do
   end
 
   create_table "favorites", force: :cascade do |t|
+    t.integer "customer_id", null: false
+    t.integer "room_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_favorites_on_customer_id"
+    t.index ["room_id"], name: "index_favorites_on_room_id"
   end
 
   create_table "floor_images", force: :cascade do |t|
@@ -154,4 +159,6 @@ ActiveRecord::Schema.define(version: 2023_01_25_133420) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "favorites", "customers"
+  add_foreign_key "favorites", "rooms"
 end

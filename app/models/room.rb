@@ -9,6 +9,7 @@ class Room < ApplicationRecord
   has_many :enquiries
   has_many :room_images, inverse_of: :room, dependent: :destroy
   has_many :floor_images, inverse_of: :room, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   accepts_nested_attributes_for :room_images, allow_destroy: true
   validates_associated :room_images

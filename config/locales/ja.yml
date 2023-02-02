@@ -180,3 +180,10 @@ ja:
       short: "%Y/%m/%d"
       long: "%Y/%m/%d %H:%M"
     pm: 午後
+
+  enums:
+   enquiry:
+     status:
+      outstanding: "未対応"
+      in_progress: "対応中"
+      closed: "対応済"

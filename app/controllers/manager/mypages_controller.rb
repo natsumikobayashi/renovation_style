@@ -1,4 +1,5 @@
 class Manager::MypagesController < ApplicationController
+ before_action :authenticate_manager!
   def show
     @manager = current_manager
   end

@@ -1,79 +1,89 @@
-Sign Up
-<%= form_with model: @manager, url: registration_path(resource_name) do |f| %>
-  <%= render "manager/shared/error_messages", resource: resource %>
+<div class="container">
+  <div class="row">
+    <div class="col">
 
-  <div class="field">
-    会社名<br>
-    <%= f.text_field :name %>
+    Sign Up
+    <%= form_with model: @manager, url: registration_path(resource_name) do |f| %>
+      <%= render "manager/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        会社名<br>
+        <%= f.text_field :name %>
+      </div>
+
+      <div class="field">
+        会員ID(任意の英数字を設定下さい。)<br>
+        <%= f.text_field :company_id %>
+      </div>
+
+      <div class="field">
+        住所<br>
+        <%= f.text_field :address %>
+      </div>
+
+      <div class="field">
+        電話番号<br>
+        <%= f.text_field :telephone_number %>
+      </div>
+
+      <div class="field">
+        メールアドレス<br />
+        <%= f.email_field :email %>
+      </div>
+
+      <div class="field">
+        ホームページ(URL)<br>
+        <%= f.text_field :home_page %>
+      </div>
+
+      <div class="field">
+        会社紹介文<br>
+        <%= f.text_field :catchphrase %>
+      </div>
+
+      <div class="field">
+        １．店舗外観・スタッフなどの写真を選択ください
+        <%= f.file_field :images, multiple: true, accept: "image/*" %>
+      </div>
+
+     <div class="field">
+        ２．店舗外観・スタッフなどの写真を選択ください
+        <%= f.file_field :images, multiple: true, accept: "image/*" %>
+      </div>
+
+      <div>
+        対応エリア<br>
+        <%= f.collection_select(:area_id, Area.all, :id, :name) %>
+      </div>
+
+      <div class="field">
+        定休日<br>
+        <%= f.text_field :reqular_holiday %>
+      </div>
+
+      <div class="field">
+        パスワード
+       <% if @minimum_password_length %>
+         <em>(<%= @minimum_password_length %> 文字以上)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        パスワード(確認用)<br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "会員登録", class: "btn btn-outline-dark" %>
+      </div>
+    <% end %>
+
+    <div class="links">
+      既に会員登録がお済みの方は
+      <%= link_to "こちらへ", new_manager_session_path %>
+    </div>
+
+    </div>
   </div>
-
-  <div class="field">
-    会員ID(任意の英数字を設定下さい。)<br>
-    <%= f.text_field :company_id %>
-  </div>
-
-  <div class="field">
-    住所<br>
-    <%= f.text_field :address %>
-  </div>
-
-  <div class="field">
-    電話番号<br>
-    <%= f.text_field :telephone_number %>
-  </div>
-
-  <div class="field">
-    メールアドレス<br />
-    <%= f.email_field :email %>
-  </div>
-
-  <div class="field">
-    ホームページ(URL)<br>
-    <%= f.text_field :home_page %>
-  </div>
-
-  <div class="field">
-    会社紹介文<br>
-    <%= f.text_field :catchphrase %>
-  </div>
-
-  <div class="field">
-    １．任意の画像を選択下さい(店舗外観・スタッフなど)
-    <%= f.file_field :images, multiple: true, accept: "image/*" %>
-  </div>
-
-  <div class="field">
-    ２．任意の画像を選択下さい(店舗外観・スタッフなど)
-    <%= f.file_field :images, multiple: true, accept: "image/*" %>
-  </div>
-
-  <div>
-    対応エリア<br>
-    <%= f.collection_select(:area_id, Area.all, :id, :name) %>
-  </div>
-
-  <div class="field">
-    定休日<br>
-    <%= f.text_field :reqular_holiday %>
-  </div>
-
-  <div class="field">
-    パスワード
-    <% if @minimum_password_length %>
-     <em>(<%= @minimum_password_length %> 文字以上)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    パスワード(確認用)<br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "会員登録" %>
-  </div>
-<% end %>
-
-既に会員登録がお済みの方は
-<%= link_to "こちらへ", new_manager_session_path %>
+</div>

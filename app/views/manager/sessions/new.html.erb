@@ -1,26 +1,35 @@
-Log In
+<div class="container">
+  <div class="row">
+    <div class="col">
+     Log In
 
-<%= form_with model: @manager, url: new_manager_session_path do |f| %>
+     <%= form_with model: @manager, url: new_manager_session_path do |f| %>
 
-  <div class="field">
-    会員ID<br />
-    <%= f.text_field :company_id, autofocus: true %>
+      <div class="field">
+       会員ID<br />
+        <%= f.text_field :company_id, autofocus: true %>
+      </div>
+
+      <div class="field">
+        メールアドレス<br />
+        <%= f.email_field :email, autofocus: true %>
+      </div>
+
+      <div class="field">
+        パスワード<br />
+        <%= f.password_field :password, autofocus: true %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "ログイン", class: "btn btn-outline-dark" %>
+      </div>
+    <% end %>
+      
+      <div class="links">
+        会員登録は
+        <%= link_to 'こちらへ', new_manager_registration_path %>
+      </div>
+
+    </div>
   </div>
-
-  <div class="field">
-    メールアドレス<br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    パスワード<br />
-    <%= f.password_field :password, autofocus: true %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "ログイン" %>
-  </div>
-<% end %>
-
-会員登録は
-<%= link_to 'こちらへ', new_manager_registration_path %>
+</div>

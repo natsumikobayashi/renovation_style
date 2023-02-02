@@ -1,5 +1,5 @@
 class Customer::EnquiriesController < ApplicationController
-
+before_action :authenticate_customer!
   def index
      @enquiries = current_customer.enquiries
   end
@@ -32,7 +32,7 @@ class Customer::EnquiriesController < ApplicationController
   private
 
   def enquiry_params
-    params.require(:enquiry).permit(:content, :room_id, :manager_id, :customer_id,)
+    params.require(:enquiry).permit(:content, :room_id, :manager_id, :customer_id, :status)
   end
 
 end
