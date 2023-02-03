@@ -1,17 +1,24 @@
 class Customer::FavoritesController < ApplicationController
   before_action :authenticate_customer!
+  before_action :set_variables
 
   def create
-    @room = Room.find(params[:room_id])
-    @favorite - Favorite.create(customer_id: current_customer.id, room_id: @room.id)
-  end
-  
-  def destroy
-    @room = Room.find(params[:room_id])
-    @favorite = Favorite.find_by(customer_id: current_customer.id, room_id: @room.id)
-    @favorite.destoy
+    favorite = current_customer.favorites.new(room_id: @room.id)
+    favorite.save
   end
 
+  def destroy
+    favorite = current_customer.favorites.new(room_id: @room.id)
+    favorite.destoy
+  end
+
+
+  private
+
+  def set_variables
+    @room = Room.find(params[:room_id])
+    @id_name = "#favorite-link-#{@room.id}"
+  end
 
 
 end
