@@ -18,6 +18,12 @@
       ホームページ
     </div>
     <div class="col">
+      投稿数
+    </div>
+    <div class="col">
+      問い合わせ数
+    </div>
+    <div class="col">
       退会ステータス
     </div>
    </div>
@@ -38,6 +44,12 @@
      </div>
      <div class="col">
        <%= manager.home_page %>
+     </div>
+     <div class="col">
+       <%= manager.rooms.count %>
+     </div>
+     <div class="col">
+       <%= manager.enquiries.count %>
      </div>
      <div class="col">
        <% if manager.is_deleted == false %>

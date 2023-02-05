@@ -67,8 +67,8 @@
          </li>
        </ul>
      </div>
-     <div class="col-md-2" style="text-align:center;">
-       お気に入り
+     <div class="col-md-2" style="text-align:center;" id="favorite-link-<%= room.id %>">
+       <%= render 'customer/favorites/favorite', room: room %>
      </div>
    </div>
 

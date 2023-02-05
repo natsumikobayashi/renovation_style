@@ -9,7 +9,7 @@ class Manager::SessionsController < Devise::SessionsController
    end
 
    def after_sign_out_path_for(resource)
-     manager_top_path
+     manager_session_path
    end
 
 

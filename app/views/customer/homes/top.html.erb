@@ -1,12 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <p>
-       理想のお部屋にリノベーションするために・・・
-       Renovation Styleは、リノベーションを検討している方に向けたサイトです
-       理想のお部屋を見つけることができ、更にお客様のお住まいを
-       リノベーションしてくれるリフォーム会社を見つけることができます
-      </p>
+       <div>理想のお部屋にリノベーションするために・・・</div>
+       <div>Renovation Styleは、リノベーションを検討している方に向けたサイトです</div>
+       <div>理想のお部屋を見つけることができ、更にお客様のお住まいを</div>
+       <div>リノベーションしてくれるリフォーム会社を見つけることができます</div>
     </div>
   </div>
 
@@ -15,7 +13,7 @@
      <div class="col">
       <%= link_to customer_room_path(room.id) do %>
        <%= image_tag room.main_image.variant(resize_to_limit: [300, 200]) if room.main_image.attached?%>
-       <%= room.catchphrase %>
+       <div><%= room.catchphrase %></div>
       <% end %>
     </div>
     <% end %>

@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       post 'confirm' => 'enquiries#confirm'
     end
     resources :rooms, only: [:show, :index]
+    resources :favorites, only:[:index]
     post '/favorite/:room_id' => 'favorites#create', as: 'favorite'
     delete '/favorite/:room_id' => 'favorites#destroy', as: 'unfavorite'
   end

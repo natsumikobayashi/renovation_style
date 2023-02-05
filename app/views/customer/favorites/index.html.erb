@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      お気に入り一覧
+    </div>
+  </div>
+
+  <% @favorites.each do |favorite| %>
+  <div class="row">
+    <div class="col">
+      <%= link_to customer_room_path(favorite.room_id) do %>
+       <%= favorite.room.catchphrase %>
+      <% end %>
+    </div>
+    <div class="col">
+      <% if current_customer.enquiries.find_by(room_id: favorite.room_id) %>
+        問い合わせ済み
+      <% else %>
+       <%= form_with model: @enquiry, url: customer_enquiries_new_path do |f| %>
+        <%= f.hidden_field :room_id, :value => favorite.room_id %>
+        <%= f.hidden_field :manager_id, :value => favorite.room.manager_id %>
+        <%= f.submit "この会社に問い合わせをする", class: "btn btn-outline-dark" %>
+       <% end %>
+      <% end %>
+    </div>
+
+    <div class="col" id="favorite-link-<%= favorite.room_id %>">
+    <%= render 'customer/favorites/favorite', room: favorite.room %>
+    </div>
+  </div>
+  <% end %>
+</div>

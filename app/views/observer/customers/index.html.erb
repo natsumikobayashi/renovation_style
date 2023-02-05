@@ -15,6 +15,12 @@
       メールアドレス
     </div>
     <div class="col">
+      お気に入り数
+    </div>
+    <div class="col">
+      問い合わせ数
+    </div>
+    <div class="col">
       退会ステータス
     </div>
    </div>
@@ -32,6 +38,12 @@
      </div>
      <div class="col">
        <%= customer.email %>
+     </div>
+     <div class="col">
+       <%= customer.enquiries.count %>
+     </div>
+     <div class="col">
+       <%= customer.favorites.count %>
      </div>
      <div class="col">
        <% if customer.is_deleted == false %>
