@@ -19,12 +19,36 @@
   box-sizing: border-box;
 }
 
-h1 a {
+.header {
+  width: 100%;
+  background-color: #cd9797;
+  display: flex;
+  padding: 10px;
+  align-items: center;
   font-family: 'Merriweather', serif;
-  color: red;
-
 }
 
-.size {
-  font-size:1.5em;
+.site-logo a {
+  font-size: 45px;
+  color: white;
+}
+
+.header-item-list a {
+  padding: 10px;
+  height: auto;
+  position: auto;
+  margin-right: 10px;
+  color: white;
+  font-size: 30px;
+  text-align: center;
+}
+
+.explanatory-text{
+  text-align: center;
+  padding: 20px;
+}
+
+.tittle{
+  font-size: 30px;
+  color: #918372;
 }

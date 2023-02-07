@@ -13,12 +13,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,900;1,700&display=swap" rel="stylesheet">
   </head>
  <body>
-    <header>
-      <h1>
+    <div class="header">
+      <nav class="site-logo">
        <%= link_to "Renovation Style", root_path %>
-      </h1>
+      </nav>
 
-        <div class="header-item" style="text-align: right;" %>
+        <div class="header-item-list" style="text-align: right;" %>
             <% if observer_signed_in? %>
               <label>管理者専用ページ</label>
                <%= link_to observer_customers_path do %>
@@ -81,7 +81,7 @@
               <% end %>
              <% end %>
       </div>
-    </header>
+    </div>
    <main>
     <div class="container">
       <% if flash[:alert].present? %>
