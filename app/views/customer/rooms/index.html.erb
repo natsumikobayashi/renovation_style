@@ -28,16 +28,15 @@
   </div>
 
   <% @rooms.each do |room| %>
-  <div style="text-align:center; border: 1px solid #000000;">
-   <div class="row">
-    <div class="col-md-4">
-     <%= link_to customer_room_path(room.id) do %>
-      <%= image_tag room.main_image.variant(resize_to_limit: [100, 150]) if room.main_image.attached? %>
+    <div class="row">
+     <div class="col-6">
+      <%= link_to customer_room_path(room.id) do %>
+       <%= image_tag room.main_image.variant(resize_to_limit: [500, 370]), class: "w-100" if room.main_image.attached? %>
      <% end %>
-    </div>
-    <div class="col-md-6" style="vertical-align: middle;">
+     </div>
+     <div class="col-4" style="vertical-align: middle;">
       <div class="room_item_tittle font-weight-bold">
-        <%= room.catchphrase %>
+       <%= room.catchphrase %>
       </div>
       <ul class="room_item_detail" style="list-style: none;" >
         <li class="room_item_detail">
@@ -47,17 +46,7 @@
           #<%= room.taste_tag.name %> #<%= room.floor_plan.floor_name %>
         </li>
       </ul>
-    </div>
-    <div class="col-md-2">
-      <%= link_to '詳細を見る', customer_room_path(room.id), class: "btn btn-secondary" %>
-    </div>
-   </div>
-
-   <div class="row" style="text-align:center;">
-     <div class="col-md-4">
-       <%= image_tag room.image_after.variant(resize_to_limit: [100, 150]) if room.image_after.attached? %>
-     </div>
-     <div class="col-md-6" style="vertical-align: middle;">
+      <div style="vertical-align: middle;">
        <ul class="room_manager_detail" style="list-style: none;">
          <li class="room_manager_detail">
            <%= room.manager.name %>
@@ -66,16 +55,20 @@
            <%= room.manager.catchphrase %>
          </li>
        </ul>
+       </div>
      </div>
-     <div class="col-md-2" style="text-align:center;" id="favorite-link-<%= room.id %>">
-       <%= render 'customer/favorites/favorite', room: room %>
+     <div class="col-2">
+      <%= link_to '詳細を見る', customer_room_path(room.id), class: "btn btn-secondary" %>
+       <div style="text-align:center;" id="favorite-link-<%= room.id %>">
+        <%= render 'customer/favorites/favorite', room: room %>
+       </div>
      </div>
-   </div>
-  </div>
-  <% end %>
+    </div>
+    <% end %>
+   <div class="row" style="text-align:center;"></div>
 
   <div class="pagonation">
    <%= paginate @rooms %>
   </div>
-
+ </div>
 </div>

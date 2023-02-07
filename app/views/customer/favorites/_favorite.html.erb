@@ -1,11 +1,17 @@
 <div class="favorite-link">
-  <% if customer_signed_in? && current_customer.favorites.find_by(room_id: room.id) %>
-   <%= link_to customer_unfavorite_path(room.id), method: :delete, remote: true do %>
-    <div class="line_button"><%= image_tag 'ハート追加時.png', :size => '50x50' %></div>
-   <% end %>
-  <% else %>
-   <%= link_to customer_favorite_path(room.id), method: :post, remote: true do %>
+  <% if customer_signed_in? %>
+   <% if current_customer.favorites.find_by(room_id: room.id) %>
+     <%= link_to customer_unfavorite_path(room.id), method: :delete, remote: true do %>
+      <div class="line_button"><%= image_tag 'ハート追加時.png', :size => '50x50' %></div>
+     <% end %>
+    <% else %>
+     <%= link_to customer_favorite_path(room.id), method: :post, remote: true do %>
+      <div class="line_button"><%= image_tag 'ハート削除時.png', :size => '50x50' %>️️</div>
+     <% end %>
+    <% end %>
+   <% else %>
+   <%= link_to new_customer_registration_path do %>
     <div class="line_button"><%= image_tag 'ハート削除時.png', :size => '50x50' %>️️</div>
-   <% end %>
+    <% end %>
   <% end %>
 </div>

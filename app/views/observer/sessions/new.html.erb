@@ -1,6 +1,7 @@
-Log In
+<div class="container">
+ Log In
 
-<%= form_with model: @observer, url: new_observer_session_path do |f| %>
+ <%= form_with model: @observer, url: new_observer_session_path do |f| %>
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
@@ -17,8 +18,9 @@ Log In
   </div>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in", class: "btn btn-outline-dark" %>
   </div>
 <% end %>
 
 <%= render "observer/shared/links" %>
+</div>

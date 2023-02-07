@@ -11,6 +11,8 @@ ja:
     models:
       customer: カスタマー
       manager: マネージャー
+
+
     attributes:
       customer:
         name: 名前
@@ -29,7 +31,6 @@ ja:
         area_id: 対応エリア
         reqular_holiday: 定休日
         password: パスワード
-
 
 
   date:

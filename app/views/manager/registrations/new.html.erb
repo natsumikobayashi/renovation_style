@@ -53,7 +53,7 @@
 
       <div>
         対応エリア<br>
-        <%= f.collection_select(:area_id, Area.all, :id, :name) %>
+        <%= f.collection_select(:area_id, Area.all, :id, :name, prompt: "選択してください") %>
       </div>
 
       <div class="field">

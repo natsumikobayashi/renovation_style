@@ -1,4 +1,4 @@
-<div class="container" style="text-align:center;">
+<div class="container text-align-center">
 
   <div class="row" style="text-align:center;">
     <div class="col font-weight-bold">
@@ -8,7 +8,7 @@
 
   <div class="row">
     <div class="col">
-      <%= image_tag @room.main_image.variant(resize_to_limit: [400, 400]) if @room.main_image.attached? %>
+      <%= image_tag @room.main_image.variant(resize_to_limit: [500, 370]) if @room.main_image.attached? %>
     </div>
   </div>
 
@@ -21,18 +21,18 @@
         <div class="col">
           <label>before</label>
            <div class="room-floor_image">
-           <%= image_tag @room.image_before.variant(resize_to_limit: [150, 200]) if @room.image_before.attached? %>
+           <%= image_tag @room.image_before.variant(resize_to_limit: [300, 300]) if @room.image_before.attached? %>
           </div>
         </div>
         <div class="col">
           <label>after</label>
            <div class="room-floor_image">
-            <%= image_tag @room.image_after.variant(resize_to_limit: [150, 200]) if @room.image_after.attached? %>
+            <%= image_tag @room.image_after.variant(resize_to_limit: [300, 300]) if @room.image_after.attached? %>
           </div>
         </div>
        <% else %>
         <div class="col-md-3">
-         <%= image_tag @room.image_after.variant(resize_to_limit: [150, 200]) if @room.image_after.attached? %>
+         <%= image_tag @room.image_after.variant(resize_to_limit: [300, 300]) if @room.image_after.attached? %>
        </div>
       <% end %>
    </div>
@@ -69,13 +69,12 @@
    <% @room.room_images.each do |room_image| %>
     <div class="row">
      <div class="col">
-      <%= image_tag room_image.image.variant(resize_to_limit: [500, 300]) if room_image.image.attached? %>
+      <%= image_tag room_image.image.variant(resize_to_limit: [500, 370]) if room_image.image.attached? %>
      </div>
     </div>
    <% end %>
 
-   <div class="row">
-     <div class="col">
+   <div>
       <label>施工会社</label>
       <ul class="room_manager_detail" style="list-style: none;">
        <li class="room_manager_detail">
@@ -85,12 +84,13 @@
          <%= @room.manager.catchphrase %>
        </li>
       </ul>
-      <% @room.manager.images.each do |image| %>
-       <div class="manager_image">
-        <%= image_tag image.variant(resize_to_limit: [500, 300]) %>
-       </div>
-      <% end %>
-     </div>
+      <div class="row">
+       <% @room.manager.images.each do |image| %>
+        <div class="col">
+         <%= image_tag image.variant(resize_to_limit: [200, 150]) %>
+        </div>
+       <% end %>
+      </div>
    </div>
 
    <div class="row">

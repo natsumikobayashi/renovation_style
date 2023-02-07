@@ -1,33 +1,20 @@
 <div class="container">
   <div>問い合わせ履歴一覧</div>
-
-   <div class="row">
-     <div class="col">
-       日時
-     </div>
-     <div class="col">
-       部屋情報
-     </div>
-     <div class="col">
-       リフォーム会社
-     </div>
-   </div>
-
-   <% @enquiries.each do |enquiry| %>
-
-   <div class="row">
-     <div class="col">
-       <%= l enquiry.created_at, format: :short %>
-     </div>
-     <div class="col">
-       <%= enquiry.room.catchphrase %>
-     </div>
-     <div class="col">
-       <%= enquiry.manager.name %>
-     </div>
-     <div class="col">
-       <%= link_to '詳細', customer_enquiry_path(enquiry.id), class: "btn btn-outline-dark" %>
-     </div>
-   </div>
-   <% end %>
+   <table>
+     <thead>
+       <th>日時</th>
+       <th>部屋情報</th>
+       <th>リフォーム会社</th>
+     </thead>
+     <tbody>
+       <% @enquiries.each do |enquiry| %>
+        <tr>
+          <td><%= l enquiry.created_at, format: :short %></td>
+          <td><%= enquiry.room.catchphrase %></td>
+          <td><%= enquiry.manager.name %></td>
+          <td><%= link_to '詳細', customer_enquiry_path(enquiry.id), class: "btn btn-outline-dark" %></td>
+        </tr>
+       <% end %>
+     </tbody>
+   </table>
 </div>

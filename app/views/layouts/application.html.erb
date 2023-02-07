@@ -1,86 +1,88 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RenovationStyle</title>
+    <title>Renovation Style</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,900;1,700&display=swap" rel="stylesheet">
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,900;1,700&display=swap" rel="stylesheet">
   </head>
-
+ <body>
     <header>
-      <h1>Renovation Style</h1>
+      <h1>
+       <%= link_to "Renovation Style", root_path %>
+      </h1>
+
+        <div class="header-item" style="text-align: right;" %>
             <% if observer_signed_in? %>
-             <label>管理者専用ページ</label>
-             <button type="button" class="btn btn-default">
-                <%= link_to 'ユーザー一覧', observer_customers_path, class: "btn btn-outline-dark" %>
-              </button>
-              <button type="button" class="btn btn-default">
-                <%= link_to 'リフォーム会社一覧', observer_managers_path, class: "btn btn-outline-dark" %>
-               </button>
-              <button type="button" class="btn btn-default">
-                <%= link_to 'テイストタグ一覧', observer_taste_tags_path, class: "btn btn-outline-dark" %>
-              </button>
-              <button type="button" class="btn btn-default">
-                <%= link_to 'ログアウト', destroy_observer_session_path, method: :delete, class: "btn btn-outline-dark" %>
-              </button>
-              <% elsif manager_signed_in? %>
-             　 <label>リフォーム会社専用ページ</label>
-                 <button type="button" class="btn btn-default">
-                  <%= link_to 'ログアウト', destroy_manager_session_path, method: :delete, class: "btn btn-outline-dark" %>
-                 </button>
-                 <button type="button" class="btn btn-default">
-                  <%= link_to '問い合わせ一覧', manager_enquiries_path, class: "btn btn-outline-dark" %>
-                 </button>
-                 <button type="button" class="btn btn-default">
-                  <%= link_to '投稿一覧', manager_rooms_path, class: "btn btn-outline-dark" %>
-                 </button>
-                 <button type="button" class="btn btn-default">
-                  <%= link_to 'マイページ', manager_mypage_path, class: "btn btn-outline-dark" %>
-                 </button>
-              <% elsif customer_signed_in? %>
-                 <button type="button" class="btn btn-default">
-                  <%= link_to '検索ページ', customer_rooms_path, class: "btn btn-outline-dark" %>
-                 </button>
-                 <button type="button" class="btn btn-default">
-                  <%= link_to 'マイページ',customer_mypage_path, class: "btn btn-outline-dark" %>
-                 </button>
-                 <button type="button" class="btn btn-default">
-                  <%= link_to 'ログアウト', destroy_customer_session_path, method: :delete, class: "btn btn-outline-dark" %>
-                 </button>
+              <label>管理者専用ページ</label>
+               <%= link_to observer_customers_path do %>
+                <i class="fa-solid fa-users size"></i> Costomers
+               <% end %>
+               <%= link_to observer_managers_path do %>
+                <i class="fa-regular fa-building size"></i> Companies
+               <% end %>
+               <%= link_to observer_taste_tags_path do %>
+                <i class="fa-solid fa-tags size"></i> Tastetag
+               <% end %>
+               <%= link_to destroy_observer_session_path, method: :delete do %>
+                <i class="fa-solid fa-right-from-bracket size"></i> Log out
+               <% end %>
+
+             <% elsif manager_signed_in? %>
+              <label>リフォーム会社専用ページ</label>
+               <%= link_to destroy_manager_session_path, method: :delete do %>
+                <i class="fa-solid fa-right-from-bracket size"></i> Log out
+               <% end %>
+               <%= link_to manager_enquiries_path do %>
+                <i class="fa-regular fa-envelope size"></i> Enquiry
+               <% end %>
+               <%= link_to manager_rooms_path do %>
+                <i class="fa-regular fa-pen-to-square size"></i> Post
+               <% end %>
+               <%= link_to manager_mypage_path do %>
+                <i class="fa-regular fa-user size"></i> Mypage
+               <% end %>
+
+             <% elsif customer_signed_in? %>
+               <%= link_to customer_rooms_path do %>
+                <i class="fa-solid fa-magnifying-glass size"></i> Search
+               <% end %>
+               <%= link_to customer_favorites_path do %>
+                <i class="fa-regular fa-heart size"></i> Favorite
+               <% end %>
+               <%= link_to customer_mypage_path do %>
+                <i class="fa-regular fa-user size"></i> Mypage
+               <% end %>
+               <%= link_to  destroy_customer_session_path, method: :delete do %>
+                <i class="fa-solid fa-right-from-bracket size"></i> Log out
+               <% end %>
+
+             <% else %>
+              <% if request.fullpath.include? "/observer" %>
+               <label>管理者専用ページ</label>
+
+              <% elsif request.fullpath.include? "/manager" %>
+               <label>リフォーム会社専用ページ</label>
+
               <% else %>
-               <% if request.fullpath.include? "/observer" %>
-                <label>管理者専用ページ</label>
-                <button type="button" class="btn btn-default">
-                 <%= link_to 'ログイン', new_observer_session_path, class: "btn btn-outline-dark" %>
-                </button>
-                <% elsif request.fullpath.include? "/manager" %>
-                <label>リフォーム会社専用ページ</label>
-                <button type="button" class="btn btn-default">
-                 <%= link_to '新規登録', new_manager_registration_path, class: "btn btn-outline-dark" %>
-                </botton>
-                <button type="button" class="btn btn-default">
-                 <%= link_to 'ログイン', new_manager_session_path, class: "btn btn-outline-dark" %>
-                </botton>
-               <% else %>
-                <button type="button" class="btn btn-default">
-                 <%= link_to '検索', customer_rooms_path, class: "btn btn-outline-dark" %>
-                </button>
-                <button type="button" class="btn btn-default">
-                 <%= link_to 'ログイン', new_customer_session_path, class: "btn btn-outline-dark" %>
-                </button>
-                <button type="button" class="btn btn-default">
-                 <%= link_to '新規登録', new_customer_registration_path, class: "btn btn-outline-dark" %>
-                </button>
+               <%= link_to customer_rooms_path do %>
+                <i class="fa-solid fa-magnifying-glass size"></i> Search
+               <% end %>
+               <%= link_to customer_mypage_path do %>
+                <i class="fa-regular fa-user size"></i> Mypage
+               <% end %>
+
               <% end %>
              <% end %>
+      </div>
     </header>
-  <body>
+   <main>
     <div class="container">
       <% if flash[:alert].present? %>
         <div class="alert alert-danger">
@@ -94,5 +96,8 @@
       <% end %>
     </div>
     <%= yield %>
-  </body>
+  </main>
+  <footer>
+  </footer>
+ </body>
 </html>
