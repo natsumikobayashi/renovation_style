@@ -8,12 +8,12 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row" style="vertical-align: middle;">
     <% @rooms.each do |room| %>
      <div class="col">
       <%= link_to customer_room_path(room.id) do %>
        <%= image_tag room.main_image.variant(resize_to_limit: [300, 200]) if room.main_image.attached?%>
-       <div><%= room.catchphrase %></div>
+       <div style="font-weight:bold;"><%= room.catchphrase %></div>
       <% end %>
     </div>
     <% end %>

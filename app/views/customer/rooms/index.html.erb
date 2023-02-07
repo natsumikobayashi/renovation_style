@@ -28,14 +28,14 @@
   </div>
 
   <% @rooms.each do |room| %>
-
-   <div class="row" style="text-align:center;">
+  <div style="text-align:center; border: 1px solid #000000;">
+   <div class="row">
     <div class="col-md-4">
      <%= link_to customer_room_path(room.id) do %>
       <%= image_tag room.main_image.variant(resize_to_limit: [100, 150]) if room.main_image.attached? %>
      <% end %>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6" style="vertical-align: middle;">
       <div class="room_item_tittle font-weight-bold">
         <%= room.catchphrase %>
       </div>
@@ -57,7 +57,7 @@
      <div class="col-md-4">
        <%= image_tag room.image_after.variant(resize_to_limit: [100, 150]) if room.image_after.attached? %>
      </div>
-     <div class="col-md-6">
+     <div class="col-md-6" style="vertical-align: middle;">
        <ul class="room_manager_detail" style="list-style: none;">
          <li class="room_manager_detail">
            <%= room.manager.name %>
@@ -71,7 +71,7 @@
        <%= render 'customer/favorites/favorite', room: room %>
      </div>
    </div>
-
+  </div>
   <% end %>
 
   <div class="pagonation">

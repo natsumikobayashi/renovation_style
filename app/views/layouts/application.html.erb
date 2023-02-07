@@ -7,15 +7,14 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,900;1,700&display=swap" rel="stylesheet">
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
     <header>
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            Renovation Style
+      <h1>Renovation Style</h1>
             <% if observer_signed_in? %>
              <label>管理者専用ページ</label>
              <button type="button" class="btn btn-default">
@@ -80,11 +79,8 @@
                 </button>
               <% end %>
              <% end %>
-          </div>
-        </div>
-      </div>
     </header>
-
+  <body>
     <div class="container">
       <% if flash[:alert].present? %>
         <div class="alert alert-danger">

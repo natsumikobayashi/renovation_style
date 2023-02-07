@@ -9,6 +9,17 @@ class Manager < ApplicationRecord
   has_many :rooms
   has_many_attached :images
 
+  validates :name, presence: true
+  validates :company_id, presence: true
+  validates :address, presence: true
+  validates :telephone_number, presence: true
+  validates :email, presence: true
+  validates :home_page, presence: true
+  validates :catchphrase, presence: true
+  validates :area_id, presence: true
+  validates :reqular_holiday, presence: true
+  validates :password, presence: true
+
   def get_manager_image(width,height)
     image.variant(resize_to_limit: [width, height]).processed
   end

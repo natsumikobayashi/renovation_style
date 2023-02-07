@@ -5,4 +5,7 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :enquiries
   has_many :favorites, dependent: :destroy
+
+  validates :name, presence: true
+  validates :telephone_number, presence: true
 end

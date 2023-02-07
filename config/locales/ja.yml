@@ -6,6 +6,32 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+
+  activerecord:
+    models:
+      customer: カスタマー
+      manager: マネージャー
+    attributes:
+      customer:
+        name: 名前
+        telephone_number: 電話番号
+        email: メールアドレス
+        password: パスワード
+
+      manager:
+        name: 会社名
+        company_id: 会員ID
+        address: 住所
+        telephone_number: 電話番号
+        email: メールアドレス
+        home_page: ホームページ
+        catchphrase: 会社紹介文
+        area_id: 対応エリア
+        reqular_holiday: 定休日
+        password: パスワード
+
+
+
   date:
     abbr_day_names:
     - 日
@@ -180,7 +206,7 @@ ja:
       short: "%Y/%m/%d"
       long: "%Y/%m/%d %H:%M"
     pm: 午後
- 
+
   enums:
    enquiry:
      status:

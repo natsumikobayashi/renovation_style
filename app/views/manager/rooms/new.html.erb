@@ -1,8 +1,6 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
-      新規投稿
-    </div>
+<div class="container" style="text-align:center;">
+  <div>
+    新規投稿
   </div>
   <div class="row">
     <div class="offset-sm-2 col-sm-8">
@@ -50,12 +48,12 @@
 
         <div class="form-group">
           <label>お客様の要望</label>
-          <%= room.text_field :user_comment %>
+          <%= room.text_area :user_comment %>
         </div>
 
         <div class="form-group">
           <label>御社のこだわりポイント</label>
-          <%= room.text_field :owner_comment %>
+          <%= room.text_area :owner_comment %>
         </div>
 
         <div class="form-group">
@@ -64,6 +62,7 @@
       <% end %>
     </div>
   </div>
+</div>
 </div>
 
 
