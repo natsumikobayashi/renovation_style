@@ -11,16 +11,18 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,900;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
   </head>
  <body>
     <div class="header">
-      <nav class="site-logo">
-       <%= link_to "Renovation Style", root_path %>
-      </nav>
+       　<% if observer_signed_in? || manager_signed_in? %>
+           <div class="site-logo">Renovation Style</div>
+         <% else %>
+           <div class="site-logo"><%= link_to "Renovation Style", root_path %></div>
+         <% end %>
 
-        <div class="header-item-list" style="text-align: right;" %>
+        <div class="header-item-list" %>
             <% if observer_signed_in? %>
-              <label>管理者専用ページ</label>
                <%= link_to observer_customers_path do %>
                 <i class="fa-solid fa-users size"></i> Costomers
                <% end %>
@@ -35,7 +37,6 @@
                <% end %>
 
              <% elsif manager_signed_in? %>
-              <label>リフォーム会社専用ページ</label>
                <%= link_to destroy_manager_session_path, method: :delete do %>
                 <i class="fa-solid fa-right-from-bracket size"></i> Log out
                <% end %>
@@ -65,11 +66,7 @@
 
              <% else %>
               <% if request.fullpath.include? "/observer" %>
-               <label>管理者専用ページ</label>
-
-              <% elsif request.fullpath.include? "/manager" %>
-               <label>リフォーム会社専用ページ</label>
-
+               <% elsif request.fullpath.include? "/manager" %>
               <% else %>
                <%= link_to customer_rooms_path do %>
                 <i class="fa-solid fa-magnifying-glass size"></i> Search
@@ -97,7 +94,14 @@
     </div>
     <%= yield %>
   </main>
+
   <footer>
+   <div class="links">
+    <%= link_to new_manager_session_path do %>
+    リフォーム会社の方はこちら<i class="fa-solid fa-house-blank"></i>
+    <% end %>
+   </div>
   </footer>
+
  </body>
 </html>

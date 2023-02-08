@@ -1,28 +1,29 @@
 <div class="explanatory-text">
  <div class="tittle">理想のお部屋にリノベーションするために・・・</div>
- <div>Renovation Styleは、リノベーションを検討している方に向けたサイトです</div>
- <div>理想のお部屋を見つけることができ、更にお客様のお住まいを</div>
- <div>リノベーションしてくれるリフォーム会社を見つけることができます</div>
+ <div class="tittle-text">Renovation Styleは、リノベーションを検討している方に向けたサイトです</div>
+ <div class="tittle-text">理想のお部屋を見つけることができ、更にお客様のお住まいを</div>
+ <div class="tittle-text">リノベーションしてくれるリフォーム会社を見つけることができます</div>
 </div>
 
 <div class="container" style="text-align: center;">
-  <div class="row" style="vertical-align: middle;">
+
+  <div class="item" style="vertical-align: middle;">
     <% @rooms.each do |room| %>
-     <div class="col">
+     <div class="item-detail">
       <%= link_to customer_room_path(room.id) do %>
-       <%= image_tag room.main_image.variant(resize_to_limit: [300, 200]) if room.main_image.attached?%>
-       <div style="font-weight:bold;"><%= room.catchphrase %></div>
+       <div class="item-detail-link">
+        <%= image_tag room.main_image.variant(resize_to_limit: [400, 300]),class: "w-100 h-100" if room.main_image.attached?%>
+       </div>
+       <div class="item-detail-text">
+           <%= room.catchphrase %>
+       </div>
       <% end %>
     </div>
     <% end %>
   </div>
 
-  <div>
-    <%= link_to "もっと見る", customer_rooms_path, class: "btn btn-outline-dark" %>
+  <div class="more">
+   <%= link_to "もっと見る", customer_rooms_path, class: "btn" %>
   </div>
 
-  <div>
-    <%= link_to "リフォーム会社の方はこちら", new_manager_session_path, class: "btn btn-outline-dark" %>
-  </div>
-
-    </div>
+</div>
