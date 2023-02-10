@@ -1,75 +1,78 @@
 <div class="container text-align-center">
 
-    <div class="room-detail-tittle">
+    <div class="room-detail-tittle font-weight-bold">
       <%= @room.catchphrase %>
     </div>
 
-      <div class="room-detail-image-item">
-      <%= image_tag @room.main_image.variant(resize_to_limit: [500, 370]) if @room.main_image.attached? %>
-      </div>
+    <div class="row">
+     <div class="col">
       <div class="room-detail-image">
-      <% if @room.image_before.attached? %>
-        <div class="room-detail-image-item">
-          <p>before</p>
-           <%= image_tag @room.image_before.variant(resize_to_limit: [300, 300]) if @room.image_before.attached? %>
+       <%= image_tag @room.main_image.variant(resize_to_limit: [500, 370]) if @room.main_image.attached? %>
+      </div>
+      <div class="room-detail-image d-flex justify-content-around">
+       <% if @room.image_before.attached? %>
+        <div class="room-detail-image-item m-2">
+         <p class="text-align-center">Before</p>
+          <%= image_tag @room.image_before.variant(resize_to_limit: [300, 300]) if @room.image_before.attached? %>
         </div>
-        <div class="room-detail-image-item">
-          <p>after</p>
+        <div class="room-detail-image-item m-2">
+         <p class="text-align-center">After</p>
           <%= image_tag @room.image_after.variant(resize_to_limit: [300, 300]) if @room.image_after.attached? %>
         </div>
        <% else %>
-        <div class="room-detail-image-item">
+        <div class="room-detail-image-item m-2">
          <%= image_tag @room.image_after.variant(resize_to_limit: [300, 300]) if @room.image_after.attached? %>
         </div>
        <% end %>
-    </div>
-    <% @room.room_images.each do |room_image| %>
-      <div class="room-detail-image-item">
-      <%= image_tag room_image.image.variant(resize_to_limit: [500, 370]) if room_image.image.attached? %>
+      </div>
+     <% @room.room_images.each do |room_image| %>
+      <div class="room-detail-image m-2">
+       <%= image_tag room_image.image.variant(resize_to_limit: [500, 370]) if room_image.image.attached? %>
+       <p><%= room_image.name %></p>
+      </div>
+     <% end %>
      </div>
-    <% end %>
 
-  <div class="room-detail-text">
-    <div class="room-detail-text-item">
-      <p>注文者様の要望</p>
-       <%= @room.user_comment %>
-    </div>
-    <div class="room-detail-text-item">
-     <p>リフォームポイント</p>
-       <%= @room.owner_comment %>
-    </div>
-    <div class="room-detail-text-item">
-     #<%= @room.floor_plan.floor_name %>
-    </div>
-    <div class="room-detail-text-item">
-     <p>リフォームポイント</p>
-       <%= @room.owner_comment %>
-    </div>
-   </div>
+     <div class="col">
+      <div class="room-detail-text">
+       <div class="room-detail-text-item m-4">
+        <div class="room-detail-text-tittle">リフォーム前のお悩み
+         <i class="fa-regular fa-comment"></i>
+        </div>
+        <div class="room-detail-text-comment">
+         <%= @room.user_comment %>
+        </div>
+       </div>
+       <div class="room-detail-text-item m-4">
+        <div class="room-detail-text-tittle">リフォーム会社のコメント
+         <i class="fa-regular fa-lightbulb"></i>
+        </div>
+        <div class="room-detail-text-comment">
+         <%= @room.owner_comment %>
+        </div>
+       </div>
+       <div class="room-detail-text-item m-4">
+        #<%= @room.floor_plan.floor_name %> #<%= @room.taste_tag.name %>
+       </div>
+     </div>
 
 
-   <div>
-      <label>施工会社</label>
-      <ul class="room_manager_detail" style="list-style: none;">
-       <li class="room_manager_detail">
+     <div class="manager">
+      <div class="room-detail-text-tittle">施工会社 <i class="fa-solid fa-building"></i></div>
+       <ul class="manager-detail" style="list-style: none;">
+        <li class="manager-detail-name">
          <%= @room.manager.name %>
-       </li>
-       <li class="room_manager_detail">
+        </li>
+        <li class="manager-detail-text">
          <%= @room.manager.catchphrase %>
        </li>
       </ul>
-      <div class="row">
        <% @room.manager.images.each do |image| %>
-        <div class="col">
+        <div>
          <%= image_tag image.variant(resize_to_limit: [200, 150]) %>
         </div>
        <% end %>
-      </div>
-   </div>
-
-   <div class="row">
-     <div class="col">
-      <table class="mx-auto">
+      <table class="mx-auto m-2">
         <tr>
           <td>会社住所</td>
           <td><%= @room.manager.address %></td>
@@ -96,22 +99,21 @@
         </tr>
       </table>
      </div>
+
+
+   <div class="favorite m-3" id="favorite-link-<%= @room.id %>">
+    <%= render 'customer/favorites/favorite', room: @room %>
    </div>
 
-   <div class="row">
-     <div class="col" id="favorite-link-<%= @room.id %>">
-       <%= render 'customer/favorites/favorite', room: @room %>
-     </div>
+   <div class="enquiry-btn m-3">
+     <%= form_with model: @enquiry, url: customer_enquiries_new_path do |f| %>
+      <%= f.hidden_field :room_id, :value => @room.id %>
+      <%= f.hidden_field :manager_id, :value => @room.manager_id %>
+      <%= f.submit "この会社に問い合わせをする", class: "btn btn-outline-dark" %>
+     <% end %>
    </div>
 
-   <div class="row">
-    <div class="col">
-      <%= form_with model: @enquiry, url: customer_enquiries_new_path do |f| %>
-       <%= f.hidden_field :room_id, :value => @room.id %>
-       <%= f.hidden_field :manager_id, :value => @room.manager_id %>
-       <%= f.submit "この会社に問い合わせをする", class: "btn btn-outline-dark" %>
-      <% end %>
-    </div>
-   </div>
+  </div>
+  </div>
 
 </div>

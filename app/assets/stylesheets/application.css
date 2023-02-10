@@ -57,11 +57,11 @@ a.btn:hover {
 
 
 .header {
-  width: 100%;
+  /* width: 100%; */
   background-color: #cd9797;
-  display: flex;
-  padding: 10px;
-  align-items: center;
+  /*display: flex;*/
+ /*  padding: 10px; */
+  /*align-items: center;*/
   font-family: 'Merriweather', serif;
 }
 
@@ -88,19 +88,18 @@ a.btn:hover {
   justify-content: flex-end;
 }
 
+
 footer{
   width: 100%;
   background-color: #cd9797;
   padding: 10px;
   height: 50px;
-  margin-bottom: -50px;
-  position: absolute;
-  bottom: 0;
 }
 
-.links a {
+.links a{
   font-size: 20px;
   color: white;
+  text-align: center;
 }
 
 .explanatory-text{
@@ -136,31 +135,84 @@ footer{
   padding-top: 30px;
 }
 
-.room-detail{
-  text-align: center;
-}
-
 .room-detail-tittle{
-   font-weight: bold;
-   font-size: 30px;
+   font-size: 40px;
    color: #493C2F;
    text-align: center;
 }
 
 .room-detail-image{
-  display: flex;
-  text-align: center;
+ text-align: center;
 }
 
-.room-detail-image-item{
-  margin: 10px;
-  padding: auto;
-}
-
-p{
-  text-align: center;
+p {
+  font-size: 20px;
+  color: #8E745A;
+  font-family: 'Merriweather', serif;
 }
 
 .room-detail-text{
+text-align: center;
+}
 
+.room-detail-text-tittle{
+  color: #bc7575;
+  font-size: 25px;
+}
+
+.room-detail-text-comment{
+  font-size: 17px;
+  color: #7b5544;
+}
+
+.room-detail-text-item {
+  color: #7b5544;
+  font-size: 17px;
+}
+
+.room-item{
+  display: flex;
+}
+
+.manager{
+  text-align: center;
+}
+
+label{
+   color: #bc7575;
+  font-size: 25px;
+}
+
+.manager-detail{
+  color: #7b5544;
+}
+
+.manager-detail-name{
+  font-size: 23px;
+}
+
+.manager-detail-text{
+  font-size: 17px;
+}
+
+table{
+  font-size: 17px;
+  color: #7b5544;
+  text-align: center;
+}
+
+td{
+   min-width:  10em;
+}
+
+.favorite{
+  text-align: center;
+}
+
+.enquiry-btn{
+  text-align: center;
+}
+
+.line_button{
+  color: #f5afd0;
 }

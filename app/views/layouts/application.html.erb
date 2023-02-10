@@ -13,8 +13,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,900;1,700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
   </head>
- <body>
-    <div class="header">
+ <body class="d-flex flex-column min-vh-100">
+    <div class="header d-flex p-3 align-items-center w-100">
        　<% if observer_signed_in? || manager_signed_in? %>
            <div class="site-logo">Renovation Style</div>
          <% else %>
@@ -79,9 +79,10 @@
              <% end %>
       </div>
     </div>
-   <main>
-    <div class="container">
-      <% if flash[:alert].present? %>
+   <main class="flex-grow-1">
+
+     <% if flash[:alert].present? %>
+       <div class="container">
         <div class="alert alert-danger">
           <%= flash[:alert] %>
         </div>
@@ -90,18 +91,19 @@
         <div class="alert alert-success">
           <%= flash[:notice] %>
         </div>
+       </div>
       <% end %>
-    </div>
+
     <%= yield %>
   </main>
 
-  <footer>
+  <footer class="d-flex align-items-center">
    <div class="links">
     <%= link_to new_manager_session_path do %>
-    リフォーム会社の方はこちら<i class="fa-solid fa-house-blank"></i>
+    リフォーム会社の方はこちら<i class="fa-thin fa-house-blank"></i>
     <% end %>
    </div>
-  </footer>
+ </footer>
 
  </body>
 </html>
