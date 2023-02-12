@@ -1,59 +1,50 @@
 <div class="container">
 
-  <div class="search-form">
+  <div class="search-form m-5">
 
        <%= form_with scope: :search, url: customer_rooms_path, method: :get do |f| %>
-       <div class="d-flex">
-        <siv class="search-table">
-        <tbody class="text-align-center">
-         <div>
-          <div class="searchItemHeader">テイスト</div>
-          <div class="d-flex">
+       <div class="row justify-content-around">
+        <div class="d-flex">
+          <div class="searchItemTittle m-auto">テイスト</div>
+          <div class="searchItemVer d-flex flex-wrap">
            <%= f.collection_check_boxes( :taste_tag_ids, TasteTag.all, :id, :name, checked:  @taste_tag_ids ) do |b| %>
-             <div class="text-align-center">
-              <div class="searchItem">
-               <div class="search-btn">
-                <%= b.label { b.check_box } %>
-                <%= b.label { b.text } %>
-               </div>
-              </div>
-             </div>
-           <% end %>
-         </div>
-         </div>
-         <div>
-          <th class="searchItemHeader">間取り</th>
-          <td class="d-flex">
-           <%= f.collection_check_boxes(:floor_plan_ids, FloorPlan.all, :id, :floor_name, checked: @floor_plan_ids) do |b| %>
-            <div class="text-align-center" style="list-style: none;">
-             <div class="searchItem">
-              <div class="search-btn">
-                <%= b.label { b.check_box } %>
-                <%= b.label { b.text } %>
-              </div>
-             </div>
+            <div class="searchItem">
+             <%= b.label { b.check_box } %>
+             <%= b.label { b.text } %>
             </div>
            <% end %>
-          </td>
-         </tr>
-         <tr>
-          <th class="searchItemHeader">対応エリア</th>
-           <td class="d-flex flex-wrap">
-            <%= f.collection_check_boxes(:area_ids, Area.all, :id, :name, checked: @area_ids) do |b| %>
-             <div class="text-align-center">
-              <div class="searchItem">
-               <div class="search-btn">
-                <%= b.label { b.check_box } %>
-                <%= b.label { b.text } %>
-               </div>
-              </div>
-             </div>
-           <% end %>
-          </td>
-         </tr>
-        </tbody>
-     </table>
-     </div>
+           </div>
+        </div>
+         </div>
+
+        <div class="row justify-content-around">
+        <div class="d-flex">
+         <div class="searchItemTittle m-auto">間取り</div>
+        <div class="searchItemVer d-flex flex-wrap">
+         <%= f.collection_check_boxes(:floor_plan_ids, FloorPlan.all, :id, :floor_name, checked: @floor_plan_ids) do |b| %>
+          <div class="searchItem">
+           <%= b.label { b.check_box } %>
+           <%= b.label { b.text } %>
+          </div>
+         <% end %>
+        </div>
+        </div>
+       </div>
+
+        <div class="row justify-content-around">
+         <div class="d-flex">
+          <div class="searchItemTittle m-auto">対応エリア</div>
+          <div class="searchItemVer d-flex flex-wrap">
+          <%= f.collection_check_boxes(:area_ids, Area.all, :id, :name, checked: @area_ids) do |b| %>
+           <div class="searchItem">
+            <%= b.label { b.check_box } %>
+            <%= b.label { b.text } %>
+           </div>
+          <% end %>
+          </div>
+         </div>
+        </div>
+
      <div class="submit" style="text-align: center;">
       <%= f.submit '検索', class: "submitButton m-2" %>
      </div>
@@ -62,9 +53,9 @@
 
   <% @rooms.each do |room| %>
     <div class="row m-3 align-items-center">
-     <div class="col m-2">
+     <div class="col m-2" style="text-align: center; align-items: center;">
       <%= link_to customer_room_path(room.id) do %>
-        <%= image_tag room.main_image.variant(resize_to_limit: [400, 300]), class: "w-100 h-100" if room.main_image.attached? %>
+        <%= image_tag room.main_image, class: "mainitemImage" if room.main_image.attached? %>
      <% end %>
      </div>
      <div class="col">

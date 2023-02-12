@@ -130,8 +130,12 @@ footer{
 }
 
 .itemImage {
-  width: 300px;
-  height: 200px;
+  width: 350px;
+  height: 250px;
+}
+.mainitemImage{
+  width: 400px;
+  height: 300px;
 }
 
 .more {
@@ -205,9 +209,6 @@ table{
   text-align: center;
 }
 
-.search-table{
-  margin: 1rem auto 1rem 12%;
-}
 
 tr{
   height: 20px;
@@ -234,19 +235,25 @@ td{
   list-style: none;
 }
 
-.search-btn{
+.searchItem {
+  width: 150px;
+  text-align: left;
   font-size: 12px;
   accent-color: #937B69;
 }
 
-.searchItem {
-  width: 150px;
-  text-align: left;
+.searchItemVer{
+  width: 750px;
 }
 
-.searchItemHeader {
-  width: 90px;
+.searchItemTittle{
+  width: 150px;
+  text-align: center;
 }
+
+/*.searchItemHeader {
+  width: 90px;
+}*/
 
 .room-item-tittle{
   font-size: 25px;
