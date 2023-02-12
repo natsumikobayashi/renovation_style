@@ -10,8 +10,10 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,900;1,700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&family=Merriweather:wght@900&display=swap" rel="stylesheet">
   </head>
  <body class="d-flex flex-column min-vh-100">
     <div class="header d-flex p-3 align-items-center w-100">
@@ -79,16 +81,18 @@
              <% end %>
       </div>
     </div>
-   <main class="flex-grow-1">
+   <main class="flex-grow-1 row justify-content-center align-items-center position-relative">
 
      <% if flash[:alert].present? %>
-       <div class="container">
-        <div class="alert alert-danger">
+       <div class="position-absolute w-100" style="top: 0;">
+        <div class="alert alert-danger text-center">
           <%= flash[:alert] %>
+        </div>
         </div>
       <% end %>
       <% if flash[:notice].present? %>
-        <div class="alert alert-success">
+      <div class="position-absolute w-100" style="top: 0;">
+        <div class="alert alert-success text-center">
           <%= flash[:notice] %>
         </div>
        </div>
@@ -97,10 +101,10 @@
     <%= yield %>
   </main>
 
-  <footer class="d-flex align-items-center">
+  <footer class="d-flex" style="justify-content: space-around">
    <div class="links">
     <%= link_to new_manager_session_path do %>
-    リフォーム会社の方はこちら<i class="fa-thin fa-house-blank"></i>
+    リフォーム会社の方はこちら<i class="fa-regular fa-hand-point-up"></i>
     <% end %>
    </div>
  </footer>

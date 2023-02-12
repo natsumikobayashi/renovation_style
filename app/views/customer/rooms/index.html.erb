@@ -1,67 +1,103 @@
 <div class="container">
 
-  <div class="row">
-    <div class="col">
-        検索フォーム
+  <div class="search-form">
+
        <%= form_with scope: :search, url: customer_rooms_path, method: :get do |f| %>
-        <div class="search_item">
-          <label>テイスト</label>
-         <%= f.collection_check_boxes( :taste_tag_ids, TasteTag.all, :id, :name, checked:  @taste_tag_ids ) do |b| %>
-          <%= b.label { b.check_box + b.text } %>
-         <% end %>
-        </div>
-        <div class="search_item">
-          <label>間取り</label>
-         <%= f.collection_check_boxes(:floor_plan_ids, FloorPlan.all, :id, :floor_name, checked: @floor_plan_ids) do |b| %>
-           <%= b.label { b.check_box + b.text } %>
-         <% end %>
-        </div>
-        <div class="search_item">
-          <label>対応エリア</label>
-         <%= f.collection_check_boxes(:area_ids, Area.all, :id, :name, checked: @area_ids) do |b| %>
-           <%= b.label { b.check_box + b.text } %>
-         <% end %>
-        </div>
-        <%= f.submit '検索する', class: "btn btn-outline-dark" %>
-        <% end %>
-    </div>
+       <div class="d-flex">
+        <siv class="search-table">
+        <tbody class="text-align-center">
+         <div>
+          <div class="searchItemHeader">テイスト</div>
+          <div class="d-flex">
+           <%= f.collection_check_boxes( :taste_tag_ids, TasteTag.all, :id, :name, checked:  @taste_tag_ids ) do |b| %>
+             <div class="text-align-center">
+              <div class="searchItem">
+               <div class="search-btn">
+                <%= b.label { b.check_box } %>
+                <%= b.label { b.text } %>
+               </div>
+              </div>
+             </div>
+           <% end %>
+         </div>
+         </div>
+         <div>
+          <th class="searchItemHeader">間取り</th>
+          <td class="d-flex">
+           <%= f.collection_check_boxes(:floor_plan_ids, FloorPlan.all, :id, :floor_name, checked: @floor_plan_ids) do |b| %>
+            <div class="text-align-center" style="list-style: none;">
+             <div class="searchItem">
+              <div class="search-btn">
+                <%= b.label { b.check_box } %>
+                <%= b.label { b.text } %>
+              </div>
+             </div>
+            </div>
+           <% end %>
+          </td>
+         </tr>
+         <tr>
+          <th class="searchItemHeader">対応エリア</th>
+           <td class="d-flex flex-wrap">
+            <%= f.collection_check_boxes(:area_ids, Area.all, :id, :name, checked: @area_ids) do |b| %>
+             <div class="text-align-center">
+              <div class="searchItem">
+               <div class="search-btn">
+                <%= b.label { b.check_box } %>
+                <%= b.label { b.text } %>
+               </div>
+              </div>
+             </div>
+           <% end %>
+          </td>
+         </tr>
+        </tbody>
+     </table>
+     </div>
+     <div class="submit" style="text-align: center;">
+      <%= f.submit '検索', class: "submitButton m-2" %>
+     </div>
+    <% end %>
   </div>
 
   <% @rooms.each do |room| %>
-    <div class="row">
-     <div class="col-6">
+    <div class="row m-3 align-items-center">
+     <div class="col m-2">
       <%= link_to customer_room_path(room.id) do %>
-       <%= image_tag room.main_image.variant(resize_to_limit: [500, 370]), class: "w-100" if room.main_image.attached? %>
+        <%= image_tag room.main_image.variant(resize_to_limit: [400, 300]), class: "w-100 h-100" if room.main_image.attached? %>
      <% end %>
      </div>
-     <div class="col-4" style="vertical-align: middle;">
-      <div class="room_item_tittle font-weight-bold">
-       <%= room.catchphrase %>
-      </div>
-      <ul class="room_item_detail" style="list-style: none;" >
-        <li class="room_item_detail">
+     <div class="col">
+      <div class="m-3">
+       <div class="room-item-tittle font-weight-bold" style="text-align: center">
+        <%= room.catchphrase %>
+       </div>
+
+      <ul class="room-item-detail" style="list-style: none; text-align: center" >
+        <li class="room-detail-text-comment">
          <%= room.owner_comment %>
         </li>
-        <li class="room_item_detail">
+        <li class="room-detail-text-item">
           #<%= room.taste_tag.name %> #<%= room.floor_plan.floor_name %>
         </li>
       </ul>
       <div style="vertical-align: middle;">
-       <ul class="room_manager_detail" style="list-style: none;">
-         <li class="room_manager_detail">
+       <ul class="manager-detail" style="list-style: none; text-align: center">
+         <li class="manager-detail-name">
            <%= room.manager.name %>
          </li>
-         <li class="room_manager_detail">
+         <li class="manager-detail-text">
            <%= room.manager.catchphrase %>
          </li>
        </ul>
        </div>
+      </div>
+      <div class="d-flex justify-content-around" style="align-items: center">
+       <%= link_to '詳細を見る', customer_room_path(room.id), class: "btn btn-secondary" %>
+        <div style="text-align:center;" id="favorite-link-<%= room.id %>">
+         <%= render 'customer/favorites/favorite', room: room %>
+        </div>
      </div>
-     <div class="col-2">
-      <%= link_to '詳細を見る', customer_room_path(room.id), class: "btn btn-secondary" %>
-       <div style="text-align:center;" id="favorite-link-<%= room.id %>">
-        <%= render 'customer/favorites/favorite', room: room %>
-       </div>
      </div>
     </div>
     <% end %>

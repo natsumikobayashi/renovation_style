@@ -27,8 +27,8 @@
       </div>
      <% @room.room_images.each do |room_image| %>
       <div class="room-detail-image m-2">
-       <%= image_tag room_image.image.variant(resize_to_limit: [500, 370]) if room_image.image.attached? %>
        <p><%= room_image.name %></p>
+       <%= image_tag room_image.image.variant(resize_to_limit: [500, 370]) if room_image.image.attached? %>
       </div>
      <% end %>
      </div>
@@ -57,7 +57,7 @@
      </div>
 
 
-     <div class="manager">
+     <div class="manager p-3">
       <div class="room-detail-text-tittle">施工会社 <i class="fa-solid fa-building"></i></div>
        <ul class="manager-detail" style="list-style: none;">
         <li class="manager-detail-name">
@@ -109,7 +109,7 @@
      <%= form_with model: @enquiry, url: customer_enquiries_new_path do |f| %>
       <%= f.hidden_field :room_id, :value => @room.id %>
       <%= f.hidden_field :manager_id, :value => @room.manager_id %>
-      <%= f.submit "この会社に問い合わせをする", class: "btn btn-outline-dark" %>
+      <%= f.submit "この会社に問い合わせをする", class: "btn" %>
      <% end %>
    </div>
 

@@ -1,44 +1,47 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
-      新規会員登録
-      お気に入り登録・お問い合わせを行う際は会員登録が必須です
-      既に会員の方は<%= link_to 'こちらへ', new_customer_session_path %>
-       <%= form_with model: @customer, url: registration_path(resource_name) do |f| %>
-        <%= render "customer/shared/error_messages", resource: resource %>
+<div class="wrap">
+<div class="d-flex justify-content-center align-items-center h-100">
+   <div class="row">
+     <div class="col"style="text-align: center;">
+       <div class="m-3 page-tittle">Sign up</div>
+       <div class="text">お気に入り登録・お問い合わせを行う際は会員登録が必須です</div>
+        <%= form_with model: @customer, url: registration_path(resource_name) do |f| %>
+         <%= render "customer/shared/error_messages", resource: resource, sort: ["名前", "メールアドレス", "電話番号", "パスワード"] %>
 
-        <div class="field">
-          名前<br>
-          <%= f.text_field :name %>
-        </div>
-
-        <div class="field">
-         メールアドレス<br>
-         <%= f.email_field :email %>
-        </div>
-
-        <div class="field">
-         電話番号<br>
-         <%= f.text_field :telephone_number %>
-        </div>
-
-         <div class="field">
-          パスワード
-           <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> 文字以上)</em>
-           <% end %><br />
-          <%= f.password_field :password, autocomplete: "new-password" %>
+         <div class="field d-flex justify-content-center m-2">
+           <div class="form-item">Name</div>
+           <div><%= f.text_field :name %></div>
          </div>
 
-         <div class="field">
-          パスワード確認用<br />
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+         <div class="field d-flex justify-content-center m-2">
+          <div class="form-item">Email</div>
+          <div><%= f.email_field :email %></div>
          </div>
 
-         <div class="actions">
-          <%= f.submit "登録する", class: "btn btn-outline-dark"%>
+         <div class="field d-flex justify-content-center m-2">
+          <div class="form-item">Telephone</div>
+          <div><%= f.text_field :telephone_number, :placeholder => "ハイフンなし"  %></div>
          </div>
-       <% end %>
-    </div>
-  </div>
+
+          <div class="field d-flex justify-content-center m-2">
+           <div class="form-item">Password</div>
+           <div><%= f.password_field :password, autocomplete: "new-password", :placeholder => "６文字以上" %></div>
+          </div>
+
+          <div class="field d-flex justify-content-center m-2">
+           <div class="form-item">
+           </div>
+           <div><%= f.password_field :password_confirmation, autocomplete: "new-password", :placeholder => "パスワード確認用" %></div>
+          </div>
+
+          <div class="actions m-3">
+           <%= f.submit "登録する", class: "submitButton"%>
+          </div>
+        <% end %>
+        <div class="p-3 text">
+         既に会員の方は<%= link_to 'こちら', new_customer_session_path, class: "link" %>へ
+        </div>
+     </div>
+   </div>
+</div>
+</div>
 </div>

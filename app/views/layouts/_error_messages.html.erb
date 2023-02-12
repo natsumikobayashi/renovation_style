@@ -1,7 +1,7 @@
 <!--部分テンプレート-->
 <% if model.errors.any? %>
   <div class="alert alert-warning">
-    <ul>
+    <ul class="error">
       <% model.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>

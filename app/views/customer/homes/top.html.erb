@@ -1,8 +1,8 @@
 <div class="explanatory-text">
  <div class="tittle">理想のお部屋にリノベーションするために・・・</div>
- <div class="tittle-text">Renovation Styleは、リノベーションを検討している方に向けたサイトです</div>
- <div class="tittle-text">理想のお部屋を見つけることができ、更にお客様のお住まいを</div>
- <div class="tittle-text">リノベーションしてくれるリフォーム会社を見つけることができます</div>
+ <div class="text">Renovation Styleは、リノベーションを検討している方に向けたサイトです</div>
+ <div class="text">理想のお部屋を見つけることができ、更にお客様のお住まいを</div>
+ <div class="text">リノベーションしてくれるリフォーム会社を見つけることができます</div>
 </div>
 
 <div class="container" style="text-align: center;">
@@ -12,7 +12,7 @@
      <div class="item-detail">
       <%= link_to customer_room_path(room.id) do %>
        <div class="item-detail-link">
-        <%= image_tag room.main_image.variant(resize_to_limit: [400, 300]),class: "w-100 h-100" if room.main_image.attached?%>
+        <%= image_tag room.main_image, class: "itemImage" if room.main_image.attached?%>
        </div>
        <div class="item-detail-text">
            <%= room.catchphrase %>
