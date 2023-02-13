@@ -80,7 +80,7 @@ a:hover {
   margin-left: auto;
   margin-right: 10px;
   color: white;
-  font-size: 30px;
+  font-size: 25px;
   text-align: center;
   justify-content: flex-end;
 }
@@ -89,8 +89,10 @@ a:hover {
 footer{
   width: 100%;
   background-color: #cd9797;
-  padding: 10px;
-  height: 50px;
+  padding: 5px;
+  height: 40px;
+  text-align: center;
+  align-items: center;
 }
 
 .links a{
@@ -101,7 +103,7 @@ footer{
 
 .explanatory-text{
   text-align: center;
-  padding: 20px;
+  padding-top: 5px;
 }
 
 .tittle{
@@ -120,7 +122,7 @@ footer{
 }
 
 .item-detail {
-  margin: 10px;
+  margin: 5px;
 }
 
 .item-detail-text {
@@ -139,7 +141,7 @@ footer{
 }
 
 .more {
-  padding-top: 30px;
+  padding: 5px;
 }
 
 .room-detail-tittle{
@@ -240,6 +242,9 @@ td{
   text-align: left;
   font-size: 12px;
   accent-color: #937B69;
+  color: #3E260C;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .searchItemVer{
@@ -249,6 +254,8 @@ td{
 .searchItemTittle{
   width: 150px;
   text-align: center;
+  color: #3E260C;
+
 }
 
 /*.searchItemHeader {

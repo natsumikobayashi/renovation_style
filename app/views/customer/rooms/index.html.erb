@@ -5,10 +5,10 @@
        <%= form_with scope: :search, url: customer_rooms_path, method: :get do |f| %>
        <div class="row justify-content-around">
         <div class="d-flex">
-          <div class="searchItemTittle m-auto">テイスト</div>
-          <div class="searchItemVer d-flex flex-wrap">
+          <div class="searchItemTittle m-auto font-weight-bold">テイスト</div>
+          <div class="searchItemVer d-flex align-items-center flex-wrap">
            <%= f.collection_check_boxes( :taste_tag_ids, TasteTag.all, :id, :name, checked:  @taste_tag_ids ) do |b| %>
-            <div class="searchItem">
+            <div class="searchItem d-flex align-items-center">
              <%= b.label { b.check_box } %>
              <%= b.label { b.text } %>
             </div>
@@ -19,7 +19,7 @@
 
         <div class="row justify-content-around">
         <div class="d-flex">
-         <div class="searchItemTittle m-auto">間取り</div>
+         <div class="searchItemTittle m-auto font-weight-bold">間取り</div>
         <div class="searchItemVer d-flex flex-wrap">
          <%= f.collection_check_boxes(:floor_plan_ids, FloorPlan.all, :id, :floor_name, checked: @floor_plan_ids) do |b| %>
           <div class="searchItem">
@@ -33,7 +33,7 @@
 
         <div class="row justify-content-around">
          <div class="d-flex">
-          <div class="searchItemTittle m-auto">対応エリア</div>
+          <div class="searchItemTittle m-auto font-weight-bold">対応エリア</div>
           <div class="searchItemVer d-flex flex-wrap">
           <%= f.collection_check_boxes(:area_ids, Area.all, :id, :name, checked: @area_ids) do |b| %>
            <div class="searchItem">
