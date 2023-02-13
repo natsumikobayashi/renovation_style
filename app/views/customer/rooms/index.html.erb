@@ -1,6 +1,6 @@
 <div class="container">
 
-  <div class="search-form m-5">
+  <div class="search-form mt-5">
 
        <%= form_with scope: :search, url: customer_rooms_path, method: :get do |f| %>
        <div class="row justify-content-around">
@@ -53,13 +53,13 @@
 
   <% @rooms.each do |room| %>
     <div class="row m-3 align-items-center">
-     <div class="col m-2" style="text-align: center; align-items: center;">
+     <div class="col" style="text-align: center; align-items: center;">
       <%= link_to customer_room_path(room.id) do %>
         <%= image_tag room.main_image, class: "mainitemImage" if room.main_image.attached? %>
      <% end %>
      </div>
      <div class="col">
-      <div class="m-3">
+      <div class="room-text">
        <div class="room-item-tittle font-weight-bold" style="text-align: center">
         <%= room.catchphrase %>
        </div>

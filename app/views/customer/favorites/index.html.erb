@@ -1,32 +1,40 @@
 <div class="container">
-  <div class="row">
-    <div class="col">
-      お気に入り一覧
-    </div>
-  </div>
+ <div class="tittle">
+   お気に入り一覧
+ </div>
 
   <% @favorites.each do |favorite| %>
-  <div class="row">
-    <div class="col">
-      <%= link_to customer_room_path(favorite.room_id) do %>
-       <%= favorite.room.catchphrase %>
-      <% end %>
+  <div class="favorite-list d-flex justify-content-between w-100 m-3" style="align-items: center;">
+    <div class="favorite-list-item">
+      <%= image_tag favorite.room.main_image, class: "favoriteitemImage" if favorite.room.main_image.attached?%>
     </div>
-    <div class="col">
+    <div class="favorite-list-item-text" style="text-align: center;">
+        <%= link_to customer_room_path(favorite.room_id) do %>
+         <%= favorite.room.catchphrase %>
+        <% end %>
+     <div class="room-tags">
+      #<%= favorite.room.taste_tag.name %> #<%= favorite.room.floor_plan.floor_name %>
+     </div>
+     <div class="manager-name">
+       <%= favorite.room.manager.name %>
+     </div>
+    </div>
+    <div class="favorite-list-item">
       <% if current_customer.enquiries.find_by(room_id: favorite.room_id) %>
-        問い合わせ済み
+        <div class="submitButtonComplete">問い合わせ済み</div>
       <% else %>
        <%= form_with model: @enquiry, url: customer_enquiries_new_path do |f| %>
         <%= f.hidden_field :room_id, :value => favorite.room_id %>
         <%= f.hidden_field :manager_id, :value => favorite.room.manager_id %>
-        <%= f.submit "この会社に問い合わせをする", class: "btn btn-outline-dark" %>
+        <%= f.submit "問い合わせをする", class: "submitButton" %>
        <% end %>
       <% end %>
     </div>
 
-    <div class="col" id="favorite-link-<%= favorite.room_id %>">
+    <div class="favorite-list-item" id="favorite-link-<%= favorite.room_id %>">
     <%= render 'customer/favorites/favorite', room: favorite.room %>
     </div>
   </div>
   <% end %>
+</div>
 </div>

@@ -52,13 +52,37 @@ a.btn{
   border: 2px solid #A69179;
 }
 
+.submitButtonComplete{
+  font-size: 1rem;
+  font-weight: 550;
+  line-height: 0.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 4rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #6A4623;
+  border-radius: 0.5rem;
+  background: #e8d3ca;
+  border: 2px solid #A69179;
+}
+
 a.btn:hover {
   color: #fff;
   background: #AF9E8D;
 }
 
 a:hover {
-  color: #F6ADC6 !important;
+  color: #6A4623 !important;
 }
 
 
@@ -138,6 +162,11 @@ footer{
 .mainitemImage{
   width: 400px;
   height: 300px;
+}
+
+.favoriteitemImage{
+  width: 150px;
+  height: 100px;
 }
 
 .more {
@@ -222,6 +251,10 @@ td{
 
 .favorite{
   text-align: center;
+}
+
+.favorite-list-item{
+  width: 350px;
 }
 
 .enquiry-btn{
