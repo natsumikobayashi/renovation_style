@@ -109,7 +109,7 @@
      <%= form_with model: @enquiry, url: customer_enquiries_new_path do |f| %>
       <%= f.hidden_field :room_id, :value => @room.id %>
       <%= f.hidden_field :manager_id, :value => @room.manager_id %>
-      <%= f.submit "この会社に問い合わせをする", class: "btn" %>
+      <%= f.submit "問い合わせをする", class: "submitButton" %>
      <% end %>
    </div>
 

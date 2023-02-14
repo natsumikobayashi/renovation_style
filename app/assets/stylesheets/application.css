@@ -28,7 +28,8 @@ body {
 .btn,
 btn,
 .submitButton,
-a.btn{
+a.btn,
+a.delete{
   font-size: 1rem;
   font-weight: 550;
   line-height: 0.5;
@@ -76,19 +77,19 @@ a.btn{
   border: 2px solid #A69179;
 }
 
-a.btn:hover {
-  color: #fff;
+a.btn:hover,
+.submitButton:hover{
+  color: #6A4623;
   background: #AF9E8D;
 }
 
 a:hover {
   color: #6A4623 !important;
-}
 
+}
 
 .header {
   background-color: #cd9797;
-  /*font-family: 'Merriweather', serif;*/
 }
 
 .site-logo,
@@ -135,7 +136,15 @@ footer{
   color: #918372;
   font-weight: bold;
 }
+.page-tittle{
+  font-size: 30px;
+  color: #8E745A;
+  /*font-family: 'Merriweather', serif;*/
+}
 
+table{
+  font-family: 'Kosugi Maru', sans-serif;
+}
 .text{
   color: #7b5544;
 }
@@ -168,6 +177,10 @@ footer{
   width: 150px;
   height: 100px;
 }
+.favorite-list-item-text{
+ width: 430px;
+ color: #7b5544;
+}
 
 .more {
   padding: 5px;
@@ -192,6 +205,19 @@ p,
 
 .form-item{
   width: 150px;
+}
+
+.item-tittle{
+  font-size: 20px;
+  color: #8E745A;
+  font-weight: bold;
+}
+
+.item-list{
+  width: 250px;
+  font-size: 20px;
+  color: #8E745A;
+  font-family: 'Kosugi Maru', sans-serif;
 }
 
 .room-detail-text{
@@ -234,27 +260,9 @@ text-align: center;
   font-size: 17px;
 }
 
-table{
-  font-size: 17px;
-  color: #7b5544;
-  text-align: center;
-}
-
-
-tr{
-  height: 20px;
-}
-
-td{
-  width: 90%;
-}
 
 .favorite{
   text-align: center;
-}
-
-.favorite-list-item{
-  width: 350px;
 }
 
 .enquiry-btn{
@@ -278,6 +286,10 @@ td{
   color: #3E260C;
   margin-top: auto;
   margin-bottom: auto;
+}
+
+.searchItem label {
+  margin: 0;
 }
 
 .searchItemVer{
@@ -315,4 +327,46 @@ td{
 .wrap {
   /* header footerのサイズが変更になったときはここも*/
   height: calc(100vh - 100px - 50px);
+}
+
+.delete:hover{
+  background-color: #D9341D;
+  color: #fff;
+  border: 2px solid #A5220C;
+}
+
+.itembar{
+  font-size: 20px;
+  color: #8E745A;
+  font-weight: bold;
+}
+
+.itemList{
+  font-size: 17px;
+  color: #8E745A;
+}
+.date{
+  width: 150px;
+  font-family: 'Kosugi Maru', sans-serif;
+}
+
+.room-detail{
+  width: 350px;
+}
+
+.room-manager{
+  width: 300px;
+}
+
+.enquiey-detail{
+  color: #8E745A;
+  font-size: 18px;
+  font-family: 'Kosugi Maru', sans-serif;
+}
+
+.confirm-text{
+  color: #F05F8D;
+  font-size: 20px;
+  background-color: #F4EDE6;
+
 }

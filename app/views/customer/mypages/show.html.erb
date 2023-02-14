@@ -1,29 +1,41 @@
 <div class="container">
- <div class="page-tittle">
+
+ <div class="page-tittle text-center">
    マイページ
  </div>
 
- <table>
-   <tr><th>名前</th>
-    <td><%= @customer.name %></td></tr>
-   <tr>
-    <th>メールアドレス</th>
-    <td>
-      <%= @customer.email %>
-    </td>
-   </tr>
-   <tr>
-     <th>電話番号</th>
-     <td><%= @customer.telephone_number %></td>
-   </tr>
- </table>
+ <div class="m-5">
+  <div class="row d-flex align-items-center justify-content-center m-2">
+   <div class="col item-tittle text-right">
+    名前
+   </div>
+    <div class="col item-list">
+     <%= @customer.name %>
+    </div>
+  </div>
 
-    <div>
-      <button type="button" class="btn btn-default">
-       <%= link_to "編集", edit_customer_mypage_path, class: "btn btn-outline-dark" %>
-      </button>
-      <button type="button" class="btn btn-default">
-       <%= link_to "問い合わせ履歴", customer_enquiries_path, class: "btn btn-outline-dark" %>
-      </button>
+  <div class="row d-flex align-items-center justify-content-center m-2">
+   <div class="col item-tittle text-right">
+    メールアドレス
+   </div>
+   <div class="col item-list">
+    <%= @customer.email %>
+   </div>
+  </div>
+
+  <div class="row d-flex align-items-center justify-content-center m-2">
+   <div class="col item-tittle text-right">
+    電話番号
+   </div>
+   <div class="col item-list">
+    <%= @customer.telephone_number %>
+   </div>
+  </div>
+ </div>
+
+    <div class="text-center">
+       <%= link_to "編集", edit_customer_mypage_path, class: "btn" %>
+       <%= link_to "問い合わせ履歴", customer_enquiries_path, class: "btn" %>
+       <%= link_to '退会', subscribe_customer_mypage_path, method: :patch, data: {confirm: "退会すると過去の問い合わせ履歴が見れなくなります。本当に退会しますか？"}, class: "delete" %>
    </div>
 </div>

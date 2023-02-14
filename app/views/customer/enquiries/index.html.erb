@@ -1,20 +1,26 @@
 <div class="container">
-  <div>問い合わせ履歴一覧</div>
-   <table>
-     <thead>
-       <th>日時</th>
-       <th>部屋情報</th>
-       <th>リフォーム会社</th>
-     </thead>
-     <tbody>
-       <% @enquiries.each do |enquiry| %>
-        <tr>
-          <td><%= l enquiry.created_at, format: :short %></td>
-          <td><%= enquiry.room.catchphrase %></td>
-          <td><%= enquiry.manager.name %></td>
-          <td><%= link_to '詳細', customer_enquiry_path(enquiry.id), class: "btn btn-outline-dark" %></td>
-        </tr>
+
+  <div class="page-tittle text-center">
+   問い合わせ一覧
+  </div>
+
+  <div class="itembar d-flex">
+    <div class="date">問い合わせ日</div>
+    <div class="room-detail">部屋情報</div>
+    <div class="room-manager">リフォーム会社</div>
+    <div></div>
+  </div>
+
+  <% @enquiries.each do |enquiry| %>
+    <div class="itemList d-flex align-items-center justify-content-between p-1">
+     <div class="date"><%= l enquiry.created_at, format: :short %></div>
+     <div class="room-detail">
+       <%= link_to customer_room_path(enquiry.room_id) do %>
+        <%= enquiry.room.catchphrase %>
        <% end %>
-     </tbody>
-   </table>
+     </div>
+     <div class="room-manager"><%= enquiry.manager.name %></div>
+     <div><%= link_to '詳細', customer_enquiry_path(enquiry.id), class: "btn" %></div>
+   </div>
+  <% end %>
 </div>

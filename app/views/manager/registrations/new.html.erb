@@ -1,87 +1,88 @@
 <div class="container">
-  <div class="row">
-    <div class="col">
+ <div class="m-3 page-tittle">
+   Sign up
+ </div>
 
-    Sign Up
-    <%= form_with model: @manager, url: registration_path(resource_name) do |f| %>
-      <%= render "manager/shared/error_messages", resource: resource %>
+ <div class="confirm-text">
+   リフォーム情報を投稿するために会員登録が必要です。
+   全項目入力必須です。
+ </div>
+ 
+  <%= form_with model: @manager, url: registration_path(resource_name) do |f| %>
+   <%= render "manager/shared/error_messages", resource: resource %>
 
-      <div class="field">
+      <div class="field m-2">
         会社名<br>
         <%= f.text_field :name %>
       </div>
 
-      <div class="field">
-        会員ID(任意の英数字を設定下さい。)<br>
-        <%= f.text_field :company_id %>
+      <div class="field m-2">
+        会員ID<br>
+        <%= f.text_field :company_id, :placeholder => "任意の英数字を設定下さい" %>
       </div>
 
-      <div class="field">
+      <div class="field m-2">
         住所<br>
-        <%= f.text_field :address %>
+        <%= f.text_field :address, :placeholder => "都道府県から入力下さい" %>
       </div>
 
-      <div class="field">
+      <div class="field m-2">
         電話番号<br>
-        <%= f.text_field :telephone_number %>
+        <%= f.text_field :telephone_number, :placeholder => "ハイフンあり" %>
       </div>
 
-      <div class="field">
+      <div class="field m-2">
         メールアドレス<br />
         <%= f.email_field :email %>
       </div>
 
-      <div class="field">
+      <div class="field m-2">
         ホームページ(URL)<br>
         <%= f.text_field :home_page %>
       </div>
 
-      <div class="field">
+      <div class="field m-2">
         会社紹介文<br>
-        <%= f.text_field :catchphrase %>
+        <%= f.text_field :catchphrase, :placeholder => "5～20文字以下" %>
       </div>
 
-      <div class="field">
-        １．店舗外観・スタッフなどの写真を選択ください
-        <%= f.file_field :images, multiple: true, accept: "image/*" %>
+      <div class="field m-2">
+        <span>１．店舗外観・スタッフなどの写真を選択ください</span>
+        <div><%= f.file_field :images, multiple: true, accept: "image/*" %></div>
       </div>
 
-     <div class="field">
-        ２．店舗外観・スタッフなどの写真を選択ください
-        <%= f.file_field :images, multiple: true, accept: "image/*" %>
+     <div class="field m-2">
+        <span>２．店舗外観・スタッフなどの写真を選択ください</span>
+        <div><%= f.file_field :images, multiple: true, accept: "image/*" %></div>
       </div>
 
-      <div>
+      <div class="field m-2">
         対応エリア<br>
         <%= f.collection_select(:area_id, Area.all, :id, :name, prompt: "選択してください") %>
       </div>
 
-      <div class="field">
-        定休日<br>
+      <div class="field m-2">
+        営業時間・定休日<br>
         <%= f.text_field :reqular_holiday %>
       </div>
 
-      <div class="field">
-        パスワード
-       <% if @minimum_password_length %>
-         <em>(<%= @minimum_password_length %> 文字以上)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
+      <div class="field m-2">
+        パスワード<br>
+        <%= f.password_field :password, autocomplete: "new-password", :placeholder => "6文字以上" %>
       </div>
 
-      <div class="field">
-        パスワード(確認用)<br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <div class="field m-2">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", :placeholder => "確認用" %>
       </div>
 
-      <div class="actions">
-        <%= f.submit "会員登録", class: "btn btn-outline-dark" %>
+      <div class="actions m-3">
+        <%= f.submit "会員登録", class: "submitButton" %>
       </div>
     <% end %>
 
-    <div class="links">
+    <div class="p-3 text">
       既に会員登録がお済みの方は
-      <%= link_to "こちらへ", new_manager_session_path %>
+      <%= link_to "こちら", new_manager_session_path,class: "link" %>へ
     </div>
 
     </div>

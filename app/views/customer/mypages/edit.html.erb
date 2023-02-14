@@ -1,32 +1,73 @@
 <div class="container">
+
+ <div class="page-tittle text-center">
+   会員情報変更
+ </div>
+
+  <%= form_with model: @customer, url: customer_mypage_path, metod: :patch  do |f| %>
+
   <div class="row">
-    <div class="col">
-      会員情報編集
-      <%= form_with model: @customer, url: customer_mypage_path, metod: :patch  do |f| %>
-      <table>
-        <tbody>
-          <tr>
-            <td>名前</td>
-            <td><%= f.text_field :name %></td>
-          </tr>
-          <tr>
-            <td>メールアドレス</td>
-            <td><%= f.text_field :email %></td>
-          </tr>
-          <tr>
-            <td>電話番号</td>
-            <td><%= f.text_field :telephone_number %></td>
-          </tr>
-        </tbody>
-      </table>
-      <button type="button" class="btn btn-default">
-       <%= f.submit "変更を保存する", class: "btn btn-outline-dark" %>
-      </button>
-      <% end %>
-       </table>
-      <button type="button" class="btn btn-default">
-       <%= link_to '退会', subscribe_customer_mypage_path, method: :patch, data: {confirm: "退会すると過去の問い合わせ履歴が見れなくなります。本当に退会しますか？"}, class: "btn btn-danger" %>
-      </button>
+   <div class="col-lg-7 mx-auto">
+
+    <div class="form-group item-tittle">
+     <div class="row">
+      <div class="col-lg-4 d-flex align-self-center justify-content-center">
+       <%= f.label :name, '名前', class: 'm-0' %>
+      </div>
+      <div class="col-lg-8">
+       <%= f.text_field :name, class: 'form-control' %>
+      </div>
+     </div>
     </div>
+
+    <div class="form-group item-tittle">
+     <div class="row">
+      <div class="col-lg-4 d-flex align-self-center justify-content-center">
+       <%= f.label :email, 'メールアドレス', class: 'm-0' %>
+      </div>
+      <div class="col-lg-8">
+       <%= f.text_field :email, class: 'form-control' %>
+      </div>
+     </div>
+    </div>
+
+    <div class="form-group item-tittle">
+     <div class="row">
+      <div class="col-lg-4 d-flex align-self-center justify-content-center">
+       <%= f.label :telephone_number, '電話番号', class: 'm-0' %>
+      </div>
+      <div class="col-lg-8">
+       <%= f.text_field :telephone_number, class: 'form-control' %>
+      </div>
+     </div>
+    </div>
+
+    <div class="form-group item-tittle">
+     <div class="row">
+      <div class="col-lg-4 d-flex align-self-center justify-content-center">
+       <%= f.label :password, 'パスワード', class: 'm-0' %>
+      </div>
+      <div class="col-lg-8">
+       <%= f.password_field :password, placeholder: '６文字以上',  class: 'form-control' %>
+      </div>
+     </div>
+    </div>
+
+    <div class="form-group item-tittle">
+     <div class="row">
+      <div class="offset-0 offset-lg-4 col-lg-8">
+       <%= f.password_field :password_confirmation, placeholder: 'パスワード確認用',  class: 'form-control' %>
+      </div>
+     </div>
+    </div>
+
+   </div>
   </div>
+
+    <div class="text-center m-5">
+     <%= f.submit "変更を保存する", class: "submitButton" %>
+    </div>
+
+  <% end %>
+
 </div>

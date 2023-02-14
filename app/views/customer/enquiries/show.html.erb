@@ -1,37 +1,50 @@
 <div class="container">
-  <div>問い合わせ内容</div>
+ <div class="page-tittle text-center">
+   問い合わせ詳細
+ </div>
 
-  <table>
-   <tbody>
-    <tr>
-     <td>日時</td>
-     <td><%= l @enquiry.created_at, format: :short %></td>
-    </tr>
-    <tr>
-     <td>部屋情報</td>
-     <td><%= link_to customer_room_path(@enquiry.room_id) do %>
-          <%= @enquiry.room.catchphrase %>
-         <% end %></td>
-    </tr>
-    <tr>
-     <td>リフォーム会社</td>
-     <td>
-      <ul class="enquiey_detail" style="list-style: none;" >
-        <li>会社名 <%= @enquiry.manager.name %></li>
-        <li>TEL <%= @enquiry.manager.telephone_number %></li>
-        <li>EMAIL <%= @enquiry.manager.email %></li>
-       </ul>
-      </td>
-    </tr>
-    <tr>
-     <td>問い合わせコメント</td>
-     <td><%= @enquiry.content %></td>
-    </tr>
-   </tbody>
-  </table>
+ <div class="enquiry-details">
 
-   <div>
-     <%= link_to '問い合わせ一覧へ', customer_enquiries_path, class: "btn btn-outline-dark" %>
+  <div class="row d-flex m-2">
+   <div class="col item-tittle text-right">問い合わせ日</div>
+   <div class="col enquiey-detail"><%= l @enquiry.created_at, format: :short %></div>
+  </div>
+
+  <div class="row d-flex m-2">
+   <div class="col item-tittle text-right">部屋情報</div>
+   <div class="col enquiey-detail">
+    <%= link_to customer_room_path(@enquiry.room_id) do %>
+      <%= @enquiry.room.catchphrase %>
+    <% end %>
    </div>
+  </div>
+
+  <div class="row d-flex m-2">
+   <div class="col item-tittle text-right">リフォーム会社</div>
+   <div class="col enquiey-detail">
+  　<div class="d-flex">
+  　  <div>会社名</div>
+  　  <div><%= @enquiry.manager.name %></div>
+  　</div>
+  　<div class="d-flex">
+  　  <div>電話番号</div>
+  　  <div><%= @enquiry.manager.telephone_number %></div>
+  　</div>
+  　<div class="d-flex">
+  　  <div>メールアドレス</div>
+  　  <div><%= @enquiry.manager.email %></div>
+  　</div>
+   </div>
+  </div>
+
+  <div class="row d-flex m-2">
+   <div class="col item-tittle text-right">問い合わせコメント</div>
+   <div class="col enquiey-detail"><%= @enquiry.content %></div>
+  </div>
+ </div>
+
+ <div style="text-align: center;">
+  <%= link_to '問い合わせ一覧へ', customer_enquiries_path, class: "btn btn-outline-dark" %>
+ </div>
 
 </div>
