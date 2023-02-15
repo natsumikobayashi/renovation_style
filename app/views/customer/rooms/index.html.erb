@@ -1,9 +1,7 @@
 <div class="container">
 
-  <div class="search-form mt-5">
-
-       <%= form_with scope: :search, url: customer_rooms_path, method: :get do |f| %>
-       <div class="row justify-content-around">
+      <%= form_with scope: :search, url: customer_rooms_path, method: :get do |f| %>
+       <div class="row justify-content-around mt-5">
         <div class="d-flex">
           <div class="searchItemTittle m-auto font-weight-bold">テイスト</div>
           <div class="searchItemVer d-flex align-items-center flex-wrap">
@@ -55,26 +53,24 @@
       <%= f.submit '検索', class: "submitButton m-2" %>
      </div>
     <% end %>
-  </div>
 
   <% @rooms.each do |room| %>
     <div class="row m-3 align-items-center">
-     <div class="col" style="text-align: center; align-items: center;">
+     <div class="col-lg-5 col-xs-12" style="text-align: center; align-items: center;">
       <%= link_to customer_room_path(room.id) do %>
         <%= image_tag room.main_image, class: "mainitemImage" if room.main_image.attached? %>
      <% end %>
      </div>
-     <div class="col">
-      <div class="room-text">
+     <div class="col-lg-7 col-xs-12">
        <div class="room-item-tittle font-weight-bold" style="text-align: center">
         <%= room.catchphrase %>
        </div>
 
-      <ul class="room-item-detail" style="list-style: none; text-align: center" >
-        <li class="room-detail-text-comment">
+      <ul style="list-style: none; text-align: center" >
+        <li class="room-detail-text">
          <%= room.owner_comment %>
         </li>
-        <li class="room-detail-text-item">
+        <li class="room-detail-text">
           #<%= room.taste_tag.name %> #<%= room.floor_plan.floor_name %>
         </li>
       </ul>
@@ -88,7 +84,6 @@
          </li>
        </ul>
        </div>
-      </div>
       <div class="d-flex justify-content-around" style="align-items: center">
        <%= link_to '詳細を見る', customer_room_path(room.id), class: "btn" %>
         <div style="text-align:center;" id="favorite-link-<%= room.id %>">
@@ -99,7 +94,7 @@
     </div>
     <% end %>
 
-  <div class="pagonation">
+  <div class="pagination">
    <%= paginate @rooms %>
   </div>
  </div>

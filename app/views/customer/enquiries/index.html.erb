@@ -1,26 +1,27 @@
 <div class="container">
 
-  <div class="page-tittle text-center">
+  <div class="page-tittle text-center p-3">
    問い合わせ一覧
   </div>
 
-  <div class="itembar d-flex">
-    <div class="date">問い合わせ日</div>
-    <div class="room-detail">部屋情報</div>
-    <div class="room-manager">リフォーム会社</div>
-    <div></div>
+  <div class="row itembar d-flex font-weight-bold text-center">
+    <div class="col-lg-1">日付</div>
+    <div class="col-lg-4">部屋情報</div>
+    <div class="col-lg-4">リフォーム会社</div>
   </div>
 
   <% @enquiries.each do |enquiry| %>
-    <div class="itemList d-flex align-items-center justify-content-between p-1">
-     <div class="date"><%= l enquiry.created_at, format: :short %></div>
-     <div class="room-detail">
+    <div class="row itemList d-flex text-center align-items-center justify-content-between p-1">
+     <div class="col-lg-1"><%= l enquiry.created_at, format: :short %></div>
+     <div class="col-lg-4">
        <%= link_to customer_room_path(enquiry.room_id) do %>
         <%= enquiry.room.catchphrase %>
        <% end %>
      </div>
-     <div class="room-manager"><%= enquiry.manager.name %></div>
-     <div><%= link_to '詳細', customer_enquiry_path(enquiry.id), class: "btn" %></div>
+     <div class="col-lg-4"><%= enquiry.manager.name %></div>
+     <div class="col-lg-3">
+         <%= link_to '詳細', customer_enquiry_path(enquiry.id), class: "btn" %></div>
    </div>
   <% end %>
+
 </div>

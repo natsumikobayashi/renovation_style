@@ -1,63 +1,63 @@
 <div class="container text-align-center">
 
-    <div class="room-detail-tittle font-weight-bold">
+    <div class="room-detail-tittle font-weight-bold text-center pt-5">
       <%= @room.catchphrase %>
     </div>
 
     <div class="row">
-     <div class="col">
-      <div class="room-detail-image">
+     <div class="col-lg-6" style="text-align: center;">
+      <div>
        <%= image_tag @room.main_image.variant(resize_to_limit: [500, 370]) if @room.main_image.attached? %>
       </div>
-      <div class="room-detail-image d-flex justify-content-around">
+      <div class="d-flex justify-content-around">
        <% if @room.image_before.attached? %>
-        <div class="room-detail-image-item m-2">
+        <div class="m-2">
          <p class="text-align-center">Before</p>
           <%= image_tag @room.image_before.variant(resize_to_limit: [300, 300]) if @room.image_before.attached? %>
         </div>
-        <div class="room-detail-image-item m-2">
+        <div class="m-2">
          <p class="text-align-center">After</p>
           <%= image_tag @room.image_after.variant(resize_to_limit: [300, 300]) if @room.image_after.attached? %>
         </div>
        <% else %>
-        <div class="room-detail-image-item m-2">
+        <div class="m-2">
          <%= image_tag @room.image_after.variant(resize_to_limit: [300, 300]) if @room.image_after.attached? %>
         </div>
        <% end %>
       </div>
      <% @room.room_images.each do |room_image| %>
-      <div class="room-detail-image m-2">
+      <div class="m-2">
        <p><%= room_image.name %></p>
        <%= image_tag room_image.image.variant(resize_to_limit: [500, 370]) if room_image.image.attached? %>
       </div>
      <% end %>
      </div>
 
-     <div class="col">
-      <div class="room-detail-text">
-       <div class="room-detail-text-item m-4">
+     <div class="col-lg-6">
+      <div class="room-detail-text" style="text-align: center;">
+       <div class="m-4">
         <div class="room-detail-text-tittle">リフォーム前のお悩み
          <i class="fa-regular fa-comment"></i>
         </div>
-        <div class="room-detail-text-comment">
+        <div>
          <%= @room.user_comment %>
         </div>
        </div>
-       <div class="room-detail-text-item m-4">
+       <div class="m-4">
         <div class="room-detail-text-tittle">リフォーム会社のコメント
          <i class="fa-regular fa-lightbulb"></i>
         </div>
-        <div class="room-detail-text-comment">
+        <div>
          <%= @room.owner_comment %>
         </div>
        </div>
-       <div class="room-detail-text-item m-4">
+       <div class="m-4">
         #<%= @room.floor_plan.floor_name %> #<%= @room.taste_tag.name %>
        </div>
      </div>
 
 
-     <div class="manager p-3">
+     <div class="manager p-3" style="text-align: center;">
       <div class="room-detail-text-tittle">施工会社 <i class="fa-solid fa-building"></i></div>
        <ul class="manager-detail" style="list-style: none;">
         <li class="manager-detail-name">
@@ -105,7 +105,7 @@
     <%= render 'customer/favorites/favorite', room: @room %>
    </div>
 
-   <div class="enquiry-btn m-3">
+   <div class="enquiry-btn m-3" style="text-align: center;">
      <%= form_with model: @enquiry, url: customer_enquiries_new_path do |f| %>
       <%= f.hidden_field :room_id, :value => @room.id %>
       <%= f.hidden_field :manager_id, :value => @room.manager_id %>
@@ -114,6 +114,6 @@
    </div>
 
   </div>
-  </div>
+ </div>
 
 </div>

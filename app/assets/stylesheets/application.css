@@ -126,10 +126,6 @@ footer{
   text-align: center;
 }
 
-.explanatory-text{
-  text-align: center;
-  padding-top: 5px;
-}
 
 .tittle{
   font-size: 30px;
@@ -154,12 +150,11 @@ table{
   justify-content: center;
 }
 
-.item-detail {
-  margin: 5px;
-}
+/*.item-detail {*/
+/*  margin: 5px;*/
+/*}*/
 
 .item-detail-text {
-  font-weight: bold;
   font-size: 18px;
   color: #3E260C;
 }
@@ -178,23 +173,22 @@ table{
   height: 100px;
 }
 .favorite-list-item-text{
- width: 430px;
+ /*width: 430px;*/
  color: #7b5544;
 }
 
-.more {
-  padding: 5px;
-}
+/*.more {*/
+/*  padding: 5px;*/
+/*}*/
 
 .room-detail-tittle{
    font-size: 40px;
    color: #493C2F;
-   text-align: center;
 }
 
-.room-detail-image{
- text-align: center;
-}
+/*.room-detail-image{*/
+/* text-align: center;*/
+/*}*/
 
 p,
 .form-item{
@@ -220,31 +214,31 @@ p,
   font-family: 'Kosugi Maru', sans-serif;
 }
 
-.room-detail-text{
-text-align: center;
-}
+/*.room-detail-text{*/
+/*text-align: center;*/
+/*}*/
 
 .room-detail-text-tittle{
   color: #bc7575;
   font-size: 25px;
 }
 
-.room-detail-text-comment{
+.room-detail-text{
   font-size: 17px;
   color: #7b5544;
 }
 
-.room-detail-text-item {
-  color: #7b5544;
-  font-size: 17px;
-}
+/*.room-detail-text-item {*/
+/*  color: #7b5544;*/
+/*  font-size: 17px;*/
+/*}*/
 
 .room-item{
   display: flex;
 }
 
 .manager{
-  text-align: center;
+  /*text-align: center;*/
   background-color: #F4EDE6;
 }
 
@@ -265,9 +259,9 @@ text-align: center;
   text-align: center;
 }
 
-.enquiry-btn{
-  text-align: center;
-}
+/*.enquiry-btn{*/
+/*  text-align: center;*/
+/*}*/
 
 .line_button{
   color: #f5afd0;
@@ -338,7 +332,7 @@ text-align: center;
 .itembar{
   font-size: 20px;
   color: #8E745A;
-  font-weight: bold;
+  /*font-weight: bold;*/
 }
 
 .itemList{

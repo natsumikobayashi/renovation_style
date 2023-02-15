@@ -6,5 +6,5 @@ class Enquiry < ApplicationRecord
   enum status: { outstanding: 0, in_progress: 1, closed: 2 }
 
    validates :content,
-    length: { minimum: 1, maximum: 100 }
+    length: { minimum: 1, maximum: 200 }
 end
