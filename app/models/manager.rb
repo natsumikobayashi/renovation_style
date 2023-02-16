@@ -16,7 +16,7 @@ class Manager < ApplicationRecord
   validates :email, presence: true
   validates :home_page, presence: true
   validates :catchphrase, presence: true,
-  length: { minimum: 5, maximum: 20 }
+  length: { minimum: 5, maximum: 40 }
   validates :area_id, presence: true
   validates :reqular_holiday, presence: true
   validates :password, presence: true

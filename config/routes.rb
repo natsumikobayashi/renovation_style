@@ -31,7 +31,7 @@ Rails.application.routes.draw do
     namespace :manager do
     get '/top' => 'homes#top'
     patch 'mypage/subscribe' => 'mypages#subscribe'
-     resource :mypage, only:[:show] do
+     resource :mypage, only:[:show, :update] do
        get 'confirm' => 'mypages#confirm'
      end
     resources :enquiries, only:[:index, :update, :show]

@@ -1,20 +1,22 @@
-<div class="container" style="text-align: center;">
+<div class="container">
   <div class="page-tittle">
    Log In
   </div>
 
   <%= form_with model: @manager, url: new_manager_session_path do |f| %>
-   <div class="field d-flex justify-content-center m-2">
-     <div class="form-item">会員ID</div>
+   <div class="row">
+    <div class="col-12 field m-2">
+     <div class="col-12 form-item">会員ID</div>
      <div><%= f.text_field :company_id, autofocus: true %></div>
+    </div>
    </div>
 
-   <div class="field d-flex justify-content-center m-2">
+   <div class="field m-2">
      <div class="form-item">メールアドレス</div>
      <div><%= f.email_field :email, autofocus: true %></div>
    </div>
 
-   <div class="field d-flex justify-content-center m-2">
+   <div class="field  m-2">
      <div class="form-item">パスワード</div>
      <div><%= f.password_field :password, autofocus: true %></div>
    </div>

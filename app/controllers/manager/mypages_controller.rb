@@ -4,6 +4,12 @@ class Manager::MypagesController < ApplicationController
     @manager = current_manager
   end
 
+  def update
+    @manager = current_manager
+    @manager.update(mypage_params)
+    redirect_to manager_mypage_path
+  end
+
   def confirm
     @manager = current_manager
   end
@@ -16,5 +22,11 @@ class Manager::MypagesController < ApplicationController
   end
 
   private
+
+  def mypage_params
+    params.require(:manager).permit(:name, :company_id, :address,
+    :telephone_number, :email, :home_page, :catchphrase, :area_id,
+    :reqular_holiday, :password, :encrypted_password, images: [])
+  end
 
 end

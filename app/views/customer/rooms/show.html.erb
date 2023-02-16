@@ -106,10 +106,14 @@
    </div>
 
    <div class="enquiry-btn m-3" style="text-align: center;">
-     <%= form_with model: @enquiry, url: customer_enquiries_new_path do |f| %>
-      <%= f.hidden_field :room_id, :value => @room.id %>
-      <%= f.hidden_field :manager_id, :value => @room.manager_id %>
-      <%= f.submit "問い合わせをする", class: "submitButton" %>
+     <% if current_customer.enquiries.find_by(room_id: @room.id) %>
+       <%= link_to "問い合わせ済み", customer_enquiry_path(@room.id), class: "btn" %>
+      <% else %>
+       <%= form_with model: @enquiry, url: customer_enquiries_new_path do |f| %>
+       <%= f.hidden_field :room_id, :value => @room.id %>
+       <%= f.hidden_field :manager_id, :value => @room.manager_id %>
+       <%= f.submit "問い合わせをする", class: "submitButton" %>
+      <% end %>
      <% end %>
    </div>
 

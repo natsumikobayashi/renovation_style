@@ -3,6 +3,7 @@
    お気に入り一覧
  </div>
 
+ <% if current_customer.favorites.exists? %>
   <% @favorites.each do |favorite| %>
   <div class="row favorite-list d-flex text-center align-items-sm-center p-2">
     <div class="col-lg-2">
@@ -38,5 +39,19 @@
     </div>
   </div>
   <% end %>
-</div>
+
+  <% else %>
+
+  <div class="row">
+   <div class="col-lg-12 text-center mt-5">
+     <div class="no-favorite">
+      登録がありません
+     </div>
+     <%= image_tag '段ボール箱　12.png', :size => '300x200' %>
+   </div>
+  </div>
+
+  <% end %>
+
+ </div>
 </div>

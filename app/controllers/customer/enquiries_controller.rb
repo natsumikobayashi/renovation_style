@@ -1,7 +1,7 @@
 class Customer::EnquiriesController < ApplicationController
 before_action :authenticate_customer!
   def index
-     @enquiries = current_customer.enquiries
+     @enquiries = current_customer.enquiries.page(params[:page]).per(10)
   end
 
   def show

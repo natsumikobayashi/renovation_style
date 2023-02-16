@@ -1,36 +1,82 @@
 <div class="container">
-  <div class="row">
-    <div class="col">
-      登録情報詳細
-    </div>
+
+  <div class="page-tittle">
+    登録情報詳細・変更
   </div>
-  <div class="row">
-    <div class="col">
-      <table>
-        <tbody>
-          <tr>
-            <td>会社名</td>
-            <td><%= @manager.name %></td>
-          </tr>
-          <tr>
-            <td>会員ID</td>
-            <td><%= @manager.company_id %></td>
-          </tr>
-          <tr>
-            <td>住所</td>
-            <td><%= @manager.address %></td>
-          </tr>
-          <tr>
-            <td>電話番号</td>
-            <td><%= @manager.email %></td>
-          </tr>
-          <tr>
-            <td>ホームページ</td>
-            <td><%= @manager.home_page %></td>
-          </tr>
-          <tr>
-            <td>写真</td>
-            <td>
+
+  <%= form_with model: @manager, url: manager_mypage_path, metod: :patch do |f| %>
+  <%#= render "manager/shared/error_messages", resource: resource,
+   sort: ["会社名", "会員ID","住所","電話番号","メールアドレス", "ホームページ","会社紹介文","店舗外観・スタッフ写真","対応エリア","営業時間・定休日","パスワード"] %>
+
+      <div class="form-group item-tittle">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="form-item">会社名</div>
+            <div><%= f.text_field :name %></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group item-tittle">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="form-item">会員ID</div>
+            <div><%= f.text_field :company_id, :placeholder => "任意の英数字を設定下さい" %></div>
+          </div>
+        </div>
+      </div>
+
+       <div class="form-group item-tittle">
+         <div class="row">
+          <div class="col-lg-12">
+           <div class="form-item">住所</div>
+           <div><%= f.text_field :address, :placeholder => "都道府県から入力下さい" %></div>
+          </div>
+         </div>
+       </div>
+
+       <div class="form-group item-tittle">
+         <div class="row">
+          <div class="col-lg-12">
+           <div class="form-item">電話番号</div>
+           <div><%= f.text_field :telephone_number, :placeholder => "ハイフンあり" %></div>
+          </div>
+         </div>
+       </div>
+
+       <div class="form-group item-tittle">
+         <div class="row">
+          <div class="col-lg-12">
+           <div class="form-item">メールアドレス</div>
+           <div><%= f.email_field :email %></div>
+          </div>
+         </div>
+       </div>
+
+       <div class="form-group item-tittle">
+         <div class="row">
+          <div class="col-lg-12">
+           <div class="form-item">ホームページ</div>
+           <div><%= f.text_field :home_page, :placeholder => "URL" %></div>
+          </div>
+         </div>
+       </div>
+
+       <div class="form-group item-tittle">
+         <div class="row">
+          <div class="col-lg-12">
+           <div class="form-item">会社紹介文</div>
+           <div><%= f.text_area :catchphrase, :placeholder => "5～40文字以下", cols: "38" %></div>
+          </div>
+         </div>
+       </div>
+
+       <div class="form-group item-tittle">
+         <div class="row">
+          <div class="col-lg-12">
+           <div class="form-item-comment">店舗外観・スタッフなどの写真を選択ください(複数選択可)</div>
+           <div class="image pt-1">
+             <div class="item-tittle">現在の写真</div>
               <% if @manager.images.attached? %>
                <% @manager.images.each do |image| %>
                 <%= image_tag image.variant(resize_to_limit: [200, 150]) %>
@@ -38,25 +84,55 @@
                <% else %>
                 <%= image_tag 'no_image.jpg', :size => '200x150' %>
               <% end %>
-            </td>
-          </tr>
-          <tr>
-            <td>キャッチコピー</td>
-            <td><%= @manager.catchphrase %></td>
-          </tr>
-          <tr>
-            <td>対応エリア</td>
-            <td><%= @manager.area.name %></td>
-          </tr>
-          <tr>
-            <td>定休日</td>
-            <td><%= @manager.reqular_holiday %></td>
-          </tr>
-        </tbody>
-      </table>
-      <button type="button" class="btn btn-default">
+            </div>
+           <div><%= f.file_field :images, multiple: true, accept: "image/*" %></div>
+          </div>
+         </div>
+       </div>
+
+       <div class="form-group item-tittle">
+         <div class="row">
+          <div class="col-lg-12">
+           <div class="form-item">対応エリア</div>
+           <div><%= f.collection_select(:area_id, Area.all, :id, :name, prompt: "選択してください") %></div>
+          </div>
+         </div>
+       </div>
+
+       <div class="form-group item-tittle">
+         <div class="row">
+         <div class="col-lg-12">
+           <div class="form-item-comment">営業時間・定休日</div>
+           <div><%= f.text_field :reqular_holiday %></div>
+          </div>
+        </div>
+       </div>
+
+       <div class="form-group item-tittle">
+         <div class="row">
+           <div class="col-lg-12">
+            <div class="form-item">パスワード</div>
+            <div><%= f.password_field :password, autocomplete: "new-password", :placeholder => "6文字以上" %></div>
+           </div>
+         </div>
+       </div>
+
+       <div class="form-group item-tittle">
+         <div class="row">
+           <div class="col-lg-12">
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", :placeholder => "確認用" %>
+          </div>
+         </div>
+       </div>
+
+      <div>
+        <%= f.submit "変更を保存する", class: "submitButton" %>
+      </div>
+
+      <div class="mt-3 mt-3">
        <%= link_to '退会', confirm_manager_mypage_path, class: "btn btn-outline-dark" %>
-      </button>
-    </div>
-  </div>
+      </div>
+
+  <% end %>
+
 </div>

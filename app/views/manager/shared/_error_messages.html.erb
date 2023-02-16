@@ -1,8 +1,12 @@
 <% if resource.errors.any? %>
   <div class="alert alert-warning">
     <ul>
-      <% resource.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <% sort.each do |column_name| %>
+       <% resource.errors.full_messages.each do |message| %>
+        <% if message.include?(column_name) %>
+         <li><%= message %></li>
+        <% end %>
+       <% end %>
       <% end %>
     </ul>
   </div>
