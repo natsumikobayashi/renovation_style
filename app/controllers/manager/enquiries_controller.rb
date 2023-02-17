@@ -1,7 +1,7 @@
 class  Manager::EnquiriesController < ApplicationController
  before_action :authenticate_manager!
   def index
-    @enquiries = current_manager.enquiries
+    @enquiries = current_manager.enquiries.page(params[:page]).per(10)
   end
 
   def show

@@ -1,66 +1,112 @@
-<div class="container" style="text-align:center;margin-top: 60px;margin-bottom: 60px;">
-  <div>
+<div class="container">
+  <div class="page-tittle mt-5">
     新規投稿
   </div>
+
   <div class="row">
-    <div class="offset-sm-2 col-sm-8">
+    <div class="col-lg-12">
       <%= form_with model: @room, url: manager_rooms_path, method: :post do |room| %>
        <%= render "layouts/error_messages", model: room.object,
        sort: ["キャッチコピー","メイン画像","間取り(after)","カテゴリ", "室内写真",
        "間取り","テイスト","お客様の要望・悩み","リフォーム会社のコメント"] %>
 
-        <div class="form-group">
-          <label>キャッチコピー</label>
-          <%= room.text_field :catchphrase %>
+      <div class="form-group item-tittle">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="form-item">キャッチコピー</div>
+            <div><%= room.text_area :catchphrase, cols: "30" %></div>
+          </div>
         </div>
+      </div>
 
-        <div class="my-4">
-          <label>メイン画像</label>
-          <%= room.file_field :main_image, accept: "image/*" %>
+      <div class="form-group item-tittle">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="form-item">メイン画像</div>
+            <div><%= room.file_field :main_image, accept: "image/*" %></div>
+          </div>
         </div>
-        
-        <div class="my-4">
-          <label>間取り(before)</label>
-          <%= room.file_field :image_before, accept: "image/*" %>
-        </div>
+      </div>
 
-        <div class="my-4">
-          <label>間取り(after)</label>
-          <%= room.file_field :image_after, accept: "image/*" %>
+      <div class="form-group item-tittle">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="form-item">間取り図 (before)</div>
+            <div><%= room.file_field :image_before, accept: "image/*" %></div>
+          </div>
         </div>
+      </div>
 
-        <div class="my-4">
-          <%= room.fields_for :room_images do |room_image| %>
-            <%= render 'manager/rooms/room_image_fields', f: room_image %>
-          <% end %>
-            <div class="links">
-              <%= link_to_add_association '＋室内写真追加', room, :room_images, class: "btn btn-outline-dark" %>
+      <div class="form-group item-tittle">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="form-item">間取り図 (after)</div>
+            <div><%= room.file_field :image_after, accept: "image/*" %></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group item-tittle">
+        <div class="row">
+          <div class="col-lg-12">
+            <%= room.fields_for :room_images do |room_image| %>
+             <%= render 'manager/rooms/room_image_fields', f: room_image %>
+            <% end %>
+            <div class="links mt-2">
+              <%= link_to_add_association '＋室内写真追加', room, :room_images, class: "btn" %>
             </div>
+          </div>
         </div>
+      </div>
 
+        <!--<div class="my-4">-->
+        <!--  <%#= room.fields_for :room_images do |room_image| %>-->
+        <!--    <%#= render 'manager/rooms/room_image_fields', f: room_image %>-->
+        <!--  <%# end %>-->
+        <!--    <div class="links">-->
+        <!--      <%#= link_to_add_association '＋室内写真追加', room, :room_images, class: "btn btn-outline-dark" %>-->
+        <!--    </div>-->
+        <!--</div>-->
+
+
+      <div class="form-group item-tittle">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="form-item-comment">間取り図を選択ください</div>
+            <div><%= room.collection_select(:floor_plan_id, FloorPlan.all, :id, :floor_name, prompt: "選択してください") %></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group item-tittle">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="form-item-comment">テイストを選択ください</div>
+            <div><%= room.collection_select(:taste_tag_id, TasteTag.all, :id, :name, prompt: "選択してください") %></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group item-tittle">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="form-item-comment">お客様の悩み・要望</div>
+            <div><%= room.text_area :user_comment, cols: "38" %></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group item-tittle">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="form-item-comment">リフォームのコメント</div>
+            <div><%= room.text_area :owner_comment, cols: "38" %></div>
+          </div>
+        </div>
+      </div>
 
         <div class="form-group">
-          <label>間取りを選択ください</label>
-          <%= room.collection_select(:floor_plan_id, FloorPlan.all, :id, :floor_name, prompt: "選択してください") %>
-        </div>
-
-        <div class="form-group">
-          <label>テイストを選択ください</label>
-          <%= room.collection_select(:taste_tag_id, TasteTag.all, :id, :name, prompt: "選択してください") %>
-        </div>
-
-        <div class="form-group">
-          <label>お客様の要望</label>
-          <%= room.text_area :user_comment %>
-        </div>
-
-        <div class="form-group">
-          <label>御社のこだわりポイント</label>
-          <%= room.text_area :owner_comment %>
-        </div>
-
-        <div class="form-group">
-          <%= room.submit "投稿する", data: {confirm: "登録しますか？"}, class: "btn btn-success" %>
+          <%= room.submit "投稿する", data: {confirm: "登録しますか？"}, class: "submitButton" %>
         </div>
       <% end %>
     </div>

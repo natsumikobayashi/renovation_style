@@ -35,7 +35,7 @@ a.delete{
   line-height: 0.5;
   position: relative;
   display: inline-block;
-  padding: 1rem 4rem;
+  padding: 1rem 3rem;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -59,7 +59,7 @@ a.delete{
   line-height: 0.5;
   position: relative;
   display: inline-block;
-  padding: 1rem 4rem;
+  padding: 1rem 3rem;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
