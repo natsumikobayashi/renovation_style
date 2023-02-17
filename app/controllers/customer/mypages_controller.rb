@@ -10,8 +10,12 @@ class Customer::MypagesController < ApplicationController
 
   def update
     @customer = current_customer
-    @customer.update(mypage_params)
-    redirect_to customer_mypage_path
+    if @customer.update(mypage_params)
+      redirect_to customer_mypage_path, notice: "保存しました"
+    else
+      flash.now[:alert] = "エラーがあります"
+    end
+
   end
 
   def index

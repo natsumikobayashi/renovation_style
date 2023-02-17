@@ -5,12 +5,20 @@
   <div class="row">
     <div class="offset-sm-2 col-sm-8">
       <%= form_with model: @room, url: manager_rooms_path, method: :post do |room| %>
-       <%= render "layouts/error_messages", model: room.object %>
+       <%= render "layouts/error_messages", model: room.object,
+       sort: ["キャッチコピー","メイン画像","間取り(after)","カテゴリ", "室内写真",
+       "間取り","テイスト","お客様の要望・悩み","リフォーム会社のコメント"] %>
+
         <div class="form-group">
           <label>キャッチコピー</label>
           <%= room.text_field :catchphrase %>
         </div>
 
+        <div class="my-4">
+          <label>メイン画像</label>
+          <%= room.file_field :main_image, accept: "image/*" %>
+        </div>
+        
         <div class="my-4">
           <label>間取り(before)</label>
           <%= room.file_field :image_before, accept: "image/*" %>
@@ -19,11 +27,6 @@
         <div class="my-4">
           <label>間取り(after)</label>
           <%= room.file_field :image_after, accept: "image/*" %>
-        </div>
-
-        <div class="my-4">
-          <label>メイン画像</label>
-          <%= room.file_field :main_image, accept: "image/*" %>
         </div>
 
         <div class="my-4">
@@ -38,12 +41,12 @@
 
         <div class="form-group">
           <label>間取りを選択ください</label>
-          <%= room.collection_select(:floor_plan_id, FloorPlan.all, :id, :floor_name) %>
+          <%= room.collection_select(:floor_plan_id, FloorPlan.all, :id, :floor_name, prompt: "選択してください") %>
         </div>
 
         <div class="form-group">
           <label>テイストを選択ください</label>
-          <%= room.collection_select(:taste_tag_id, TasteTag.all, :id, :name) %>
+          <%= room.collection_select(:taste_tag_id, TasteTag.all, :id, :name, prompt: "選択してください") %>
         </div>
 
         <div class="form-group">

@@ -1,11 +1,11 @@
 <div class="container">
 
-  <div class="page-tittle">
+  <div class="page-tittle pt-5">
     登録情報詳細・変更
   </div>
 
   <%= form_with model: @manager, url: manager_mypage_path, metod: :patch do |f| %>
-  <%#= render "manager/shared/error_messages", resource: resource,
+  <%= render "layouts/error_messages", model: @manager,
    sort: ["会社名", "会員ID","住所","電話番号","メールアドレス", "ホームページ","会社紹介文","店舗外観・スタッフ写真","対応エリア","営業時間・定休日","パスワード"] %>
 
       <div class="form-group item-tittle">

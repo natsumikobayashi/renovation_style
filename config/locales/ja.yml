@@ -11,6 +11,7 @@ ja:
     models:
       customer: カスタマー
       manager: マネージャー
+      room: お部屋
 
 
     attributes:
@@ -29,8 +30,18 @@ ja:
         home_page: ホームページ
         catchphrase: 会社紹介文
         area_id: 対応エリア
-        reqular_holiday: 定休日
+        reqular_holiday: 営業時間・定休日
         password: パスワード
+
+      room:
+        catchphrase: キャッチコピー
+        user_comment: お客様の要望・悩み
+        owner_comment: リフォーム会社のコメント
+        taste_tag_id: テイスト
+        floor_plan_id: 間取り
+        main_image: メイン画像
+        image_after: 間取り図(after)
+
 
 
   date:
@@ -205,7 +216,7 @@ ja:
     formats:
       default: "%Y/%m/%d %H:%M:%S"
       short: "%m/%d"
-      long: "%Y/%m/%d %H:%M"
+      long: "%Y/%m/%d"
     pm: 午後
 
   enums:

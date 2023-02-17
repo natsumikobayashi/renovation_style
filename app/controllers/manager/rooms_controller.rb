@@ -1,7 +1,7 @@
 class Manager::RoomsController < ApplicationController
  before_action :authenticate_manager!
   def index
-    @rooms = current_manager.rooms
+    @rooms = current_manager.rooms.page(params[:page]).per(10)
   end
 
   def new

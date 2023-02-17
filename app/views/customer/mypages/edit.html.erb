@@ -4,6 +4,7 @@
    会員情報変更
  </div>
 
+  <%= render "layouts/error_messages", model: @customer, sort: ["名前", "メールアドレス", "電話番号", "パスワード"] %>
   <%= form_with model: @customer, url: customer_mypage_path, metod: :patch  do |f| %>
 
   <div class="row">

@@ -6,8 +6,12 @@ class Manager::MypagesController < ApplicationController
 
   def update
     @manager = current_manager
-    @manager.update(mypage_params)
-    redirect_to manager_mypage_path
+    if  @manager.update(mypage_params)
+      redirect_to manager_mypage_path, notice: "保存しました"
+    else
+      flash.now[:alert] = "エラーがあります"
+      render :show
+    end
   end
 
   def confirm
