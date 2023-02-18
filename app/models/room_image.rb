@@ -5,5 +5,5 @@ class RoomImage < ApplicationRecord
   validates :image, presence: true
 
   validates :name,
-    length: { maximum: 20 }
+    length: { minimum: 1, maximum: 20 }
 end

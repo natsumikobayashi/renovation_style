@@ -19,13 +19,16 @@
     <div class="col-lg-4 text">
       キャッチコピー
     </div>
-    <div class="col-lg-2 mr-auto text">
+    <div class="col-lg-2 text">
       テイスト・間取り
+    </div>
+    <div class="col-lg-3 text">
+      詳細ボタン
     </div>
   </div>
 
   <% @rooms.each do |room| %>
-  　<div class="row align-items-center">
+  　<div class="row">
   　  <div class="col-lg-2 text">
   　   <%= l room.created_at, format: :long %>
    　 </div>
@@ -40,7 +43,7 @@
   　      <%= room.floor_plan.floor_name %>
   　    </span>
   　  </div>
-  　  <div class="col-lg-3 text text-right">
+  　  <div class="col-lg-3 text">
    　  <%= link_to '詳細', manager_room_path(room.id), class: "btn" %>
    　 </div>
   　</div>

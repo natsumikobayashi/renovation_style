@@ -1,57 +1,103 @@
 <div class="container">
-  <div class="row">
-    <div class="col">
+  <!--<div class="row">-->
+  <!--  <div class="col">-->
+  <div class="page-tittle mt-5">
       投稿詳細
+  </div>
 
-      <div>
-       <b><%= @room.catchphrase %></b>
-      </div>
+  <div class="row m-2">
+    <div class="col-lg-3 item-tittle">
+      キャッチコピー
+    </div>
+    <div class="col-lg-9 text">
+      <%= @room.catchphrase %>
+    </div>
+  </div>
 
-      <div class="row">
-       <label>間取り(before)</label>
-        <% if @room.image_before.attached? %>
-         <%= image_tag @room.image_before.variant(resize_to_limit: [300, 200]) %>
-        <% else %>
-         <%= image_tag 'noimage-760x460.png', :size => '300x200' %>
-        <% end %>
-      </div>
+  <div class="row m-2">
+    <div class="col-lg-3 item-tittle">
+      メイン画像
+    </div>
+    <div class="col-lg-9 text">
+      <%= image_tag @room.main_image, class: "itemImage"  %>
+    </div>
+  </div>
 
-      <div class="row">
-         <label>間取り(after)</label>
-         <%= image_tag @room.image_after.variant(resize_to_limit: [300, 200]) if @room.image_after.attached? %>
-      </div>
+  <div class="row m-2">
+    <div class="col-lg-3 item-tittle">
+      間取り(before)
+    </div>
+    <div class="col-lg-9 text">
+      <% if @room.image_before.attached? %>
+       <%= image_tag @room.image_before.variant(resize_to_limit: [300, 200]) %>
+      <% else %>
+       <%= image_tag 'noimage-760x460.png', :size => '300x200' %>
+      <% end %>
+    </div>
+  </div>
 
-      <div class="row">
-        <label>メイン画像</label>
-        <%= image_tag @room.main_image.variant(resize_to_limit: [300, 200]) if @room.main_image.attached? %>
-      </div>
+  <div class="row m-2">
+    <div class="col-lg-3 item-tittle">
+      間取り(after)
+    </div>
+    <div class="col-lg-9 text">
+       <%= image_tag @room.image_after.variant(resize_to_limit: [300, 200]) %>
+    </div>
+  </div>
 
-      <div class="row">
-        <% @room.room_images.each do |room_image| %>
-          <figure class="col-sm-6 col-md-4">
-            <figcaption><%= room_image.name %></figcaption>
-             <%= image_tag room_image.image.variant(resize_to_limit: [300, 200]) if room_image.image.attached? %>
+  <div class="row m-2">
+    <div class="col-lg-3 item-tittle">
+      室内画像
+     </div>
+     <div class="col-lg-9 text d-flex flex-wrap">
+       <% @room.room_images.each do |room_image| %>
+          <figure class="m-2">
+             <%= image_tag room_image.image, class: "itemImage" %>
+             <figcaption><%= room_image.name %></figcaption>
           </figure>
-        <% end %>
-      </div>
+       <% end %>
+    </div>
+  </div>
 
-    <div>
-      お客様の要望<br>
-      <%= @room.user_comment %>
+  <div class="row m-2">
+    <div class="col-lg-3 item-tittle">
+      間取り
     </div>
-    <div>
-      こだわりポイント<br>
-      <%= @room.owner_comment %>
-    </div>
-    <div>
+    <div class="col-lg-9 text">
       #<%= @room.floor_plan.floor_name %>
     </div>
-    <div>
+  </div>
+
+  <div class="row m-2">
+    <div class="col-lg-3 item-tittle">
+      テイスト
+    </div>
+    <div class="col-lg-9 text">
       #<%= @room.taste_tag.name %>
     </div>
-    <button type="button" class="btn btn-default">
-      <%= link_to '編集', edit_manager_room_path(@room.id), class: "btn btn-outline-dark" %>
-    </button>
-   </div>
   </div>
+
+  <div class="row m-2">
+    <div class="col-lg-3 item-tittle">
+      お客様の悩み・要望
+    </div>
+    <div class="col-lg-9 text">
+      <%= @room.user_comment %>
+    </div>
+  </div>
+
+  <div class="row m-2">
+    <div class="col-lg-3 item-tittle">
+      リフォームのコメント
+    </div>
+    <div class="col-lg-9 text">
+      <%= @room.owner_comment %>
+    </div>
+  </div>
+
+    <div class="m-3">
+      <%= link_to '編集', edit_manager_room_path(@room.id), class: "btn" %>
+    </div>
+   <!--</div>-->
+  <!--</div>-->
 </div>
