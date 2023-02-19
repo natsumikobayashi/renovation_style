@@ -12,6 +12,7 @@ ja:
       customer: カスタマー
       manager: マネージャー
       room: お部屋
+      taste_tag: テイスト
 
 
     attributes:
@@ -41,6 +42,9 @@ ja:
         floor_plan_id: 間取り
         main_image: メイン画像
         image_after: 間取り図(after)
+
+      taste_tag:
+        name: 名前
 
 
 

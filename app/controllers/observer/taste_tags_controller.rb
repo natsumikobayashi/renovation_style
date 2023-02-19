@@ -10,6 +10,7 @@ class Observer::TasteTagsController < ApplicationController
     redirect_to observer_taste_tags_path, notice: "保存しました"
    else
       flash.now[:alert] = "エラーがあります"
+      @taste_tags = TasteTag.all
       render :index
    end
   end

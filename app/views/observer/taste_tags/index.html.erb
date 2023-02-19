@@ -4,6 +4,7 @@
   </div>
 
   <%= form_with model: @taste_tag, url: observer_taste_tags_path do |f| %>
+   <%= render "layouts/error_messages", model: f.object,sort: ["名前"] %>
    <div class="form-group mt-3">
     <div class="row">
       <div class="col-lg-4">
