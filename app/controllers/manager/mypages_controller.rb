@@ -20,9 +20,13 @@ class Manager::MypagesController < ApplicationController
 
   def subscribe
     @manager = current_manager
-    @manager.update!(is_deleted: true)
-    reset_session
-    redirect_to manager_top_path
+    if @manager.update(is_deleted: true)
+     reset_session
+     redirect_to manager_top_path, notice: "退会しました"
+    else
+      flash.now[:alert] = "エラーがあります"
+      render :confirm
+    end
   end
 
   private
@@ -30,7 +34,7 @@ class Manager::MypagesController < ApplicationController
   def mypage_params
     params.require(:manager).permit(:name, :company_id, :address,
     :telephone_number, :email, :home_page, :catchphrase, :area_id,
-    :reqular_holiday, :password, :encrypted_password, images: [])
+    :reqular_holiday, :password, images: [])
   end
 
 end

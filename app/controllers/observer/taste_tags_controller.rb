@@ -6,8 +6,12 @@ class Observer::TasteTagsController < ApplicationController
 
   def create
    @taste_tag = TasteTag.new(taste_tag_params)
-   @taste_tag.save!
-   redirect_to observer_taste_tags_path
+   if @taste_tag.save
+    redirect_to observer_taste_tags_path, notice: "保存しました"
+   else
+      flash.now[:alert] = "エラーがあります"
+      render :index
+   end
   end
 
   def edit
@@ -16,8 +20,12 @@ class Observer::TasteTagsController < ApplicationController
 
   def update
    @taste_tag = TasteTag.find(params[:id])
-   @taste_tag.update(taste_tag_params)
-   redirect_to observer_taste_tags_path
+   if @taste_tag.update(taste_tag_params)
+    redirect_to observer_taste_tags_path, notice: "保存しました"
+   else
+     flash.now[:alert] = "エラーがあります"
+     render :edit
+   end
   end
 
   private

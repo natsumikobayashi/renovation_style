@@ -1,15 +1,19 @@
 <div class="container">
-  <div class="row">
-    <div class="col">
-      テイストタグ編集
-    </div>
+  <div class="page-tittle mt-5">
+    テイストタグ編集
   </div>
-  <div class="row">
-    <div class="col">
-      <%= form_with model: @taste_tag, url: observer_taste_tag_path, method: :patch do |f| %>
-      <%= f.text_field :name %></td>
-      <%= f.submit '変更を保存' %>
-      <% end %>
+
+  <%= form_with model: @taste_tag, url: observer_taste_tag_path, method: :patch do |f| %>
+   <div class="form-group mt-3">
+    <div class="row">
+      <div class="col-lg-4">
+        <%= f.text_field :name, :placeholder => "テイスト名(10文字以下)", class: 'form-control' %>
+      </div>
+      <div class="col-lg-3">
+        <%= f.submit '変更を保存', class: "submitButton" %>
+      </div>
+     </div>
     </div>
-  </div>
+  <% end %>
+
 </div>

@@ -14,7 +14,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="form-item item-tittle">キャッチコピー</div>
-            <div><%= room.text_area :catchphrase, :placeholder => "5～40文字まで", cols: "30" %></div>
+            <div><%= room.text_area :catchphrase, :placeholder => "5～40文字まで", class: 'form-control' %></div>
           </div>
         </div>
       </div>
@@ -81,7 +81,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="form-item-comment item-tittle">お客様の悩み・要望</div>
-            <div><%= room.text_area :user_comment, cols: "38" %></div>
+            <div><%= room.text_area :user_comment, :placeholder => "10～100文字まで", class: 'form-control' %></div>
           </div>
         </div>
       </div>
@@ -90,7 +90,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="form-item-comment item-tittle">リフォームのコメント</div>
-            <div><%= room.text_area :owner_comment, cols: "38" %></div>
+            <div><%= room.text_area :owner_comment, :placeholder => "10～100文字まで", class: 'form-control' %></div>
           </div>
         </div>
       </div>

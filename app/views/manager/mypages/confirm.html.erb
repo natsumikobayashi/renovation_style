@@ -1,14 +1,19 @@
 <div class="container">
   <div class="row">
-    <div class="col">
-      一度退会すると投稿したデータも削除されます。<br>
-      再開される場合は、新規会員登録が必要です。<br>
-      本当に退会しますか？<br>
+    <div class="col-lg-7 text-center mx-auto confirm-message text-danger p-5">
+      <div>
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        一度退会すると投稿したデータも削除されます
+        <i class="fa-solid fa-triangle-exclamation"></i>
+      </div>
+       <div>再開される場合は、新規会員登録が必要です。</div>
+        <div>本当に退会しますか？</div>
+
       <button type="button" class="btn btn-default">
-       <%= link_to "退会しない", manager_mypage_path, class: "btn btn-primary" %>
+       <%= link_to "退会しない", manager_mypage_path, class: "btn-primary" %>
       </button>
       <button type="button" class="btn btn-default">
-       <%= link_to "退会する", manager_mypage_subscribe_path, method: :patch, data: {confirm: "本当に退会しますか？"}, class: "btn btn-danger" %>
+       <%= link_to "退会する",  subscribe_manager_mypage_path, method: :patch, data: {confirm: "本当に退会しますか？"}, class: "btn-danger" %>
       </button>
     </div>
   </div>

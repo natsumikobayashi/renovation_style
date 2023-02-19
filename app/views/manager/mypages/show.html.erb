@@ -4,7 +4,7 @@
     登録情報詳細・変更
   </div>
 
-  <%= form_with model: @manager, url: manager_mypage_path, metod: :patch do |f| %>
+  <%= form_with model: @manager, url: manager_mypage_path, method: :patch do |f| %>
   <%= render "layouts/error_messages", model: @manager,
    sort: ["会社名", "会員ID","住所","電話番号","メールアドレス", "ホームページ","会社紹介文","店舗外観・スタッフ写真","対応エリア","営業時間・定休日","パスワード"] %>
 
@@ -12,7 +12,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="form-item">会社名</div>
-            <div><%= f.text_field :name %></div>
+            <div><%= f.text_field :name, class: 'form-control' %></div>
           </div>
         </div>
       </div>
@@ -21,7 +21,7 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="form-item">会員ID</div>
-            <div><%= f.text_field :company_id, :placeholder => "任意の英数字を設定下さい" %></div>
+            <div><%= f.text_field :company_id, :placeholder => "任意の英数字を設定下さい", class: 'form-control' %></div>
           </div>
         </div>
       </div>
@@ -30,7 +30,7 @@
          <div class="row">
           <div class="col-lg-12">
            <div class="form-item">住所</div>
-           <div><%= f.text_field :address, :placeholder => "都道府県から入力下さい" %></div>
+           <div><%= f.text_field :address, :placeholder => "都道府県から入力下さい", class: 'form-control' %></div>
           </div>
          </div>
        </div>
@@ -39,7 +39,7 @@
          <div class="row">
           <div class="col-lg-12">
            <div class="form-item">電話番号</div>
-           <div><%= f.text_field :telephone_number, :placeholder => "ハイフンあり" %></div>
+           <div><%= f.text_field :telephone_number, :placeholder => "ハイフンあり", class: 'form-control' %></div>
           </div>
          </div>
        </div>
@@ -48,7 +48,7 @@
          <div class="row">
           <div class="col-lg-12">
            <div class="form-item">メールアドレス</div>
-           <div><%= f.email_field :email %></div>
+           <div><%= f.email_field :email, class: 'form-control' %></div>
           </div>
          </div>
        </div>
@@ -57,7 +57,7 @@
          <div class="row">
           <div class="col-lg-12">
            <div class="form-item">ホームページ</div>
-           <div><%= f.text_field :home_page, :placeholder => "URL" %></div>
+           <div><%= f.text_field :home_page, :placeholder => "URL", class: 'form-control' %></div>
           </div>
          </div>
        </div>
@@ -66,7 +66,7 @@
          <div class="row">
           <div class="col-lg-12">
            <div class="form-item">会社紹介文</div>
-           <div><%= f.text_area :catchphrase, :placeholder => "5～40文字以下", cols: "38" %></div>
+           <div><%= f.text_area :catchphrase, :placeholder => "5～40文字以下", class: 'form-control' %></div>
           </div>
          </div>
        </div>
@@ -103,7 +103,7 @@
          <div class="row">
          <div class="col-lg-12">
            <div class="form-item-comment">営業時間・定休日</div>
-           <div><%= f.text_field :reqular_holiday %></div>
+           <div><%= f.text_field :reqular_holiday, class: 'form-control' %></div>
           </div>
         </div>
        </div>
@@ -112,7 +112,7 @@
          <div class="row">
            <div class="col-lg-12">
             <div class="form-item">パスワード</div>
-            <div><%= f.password_field :password, autocomplete: "new-password", :placeholder => "6文字以上" %></div>
+            <div><%= f.password_field :password, autocomplete: "new-password", :placeholder => "6文字以上", class: 'form-control' %></div>
            </div>
          </div>
        </div>
@@ -120,7 +120,7 @@
        <div class="form-group item-tittle">
          <div class="row">
            <div class="col-lg-12">
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", :placeholder => "確認用" %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", :placeholder => "確認用", class: 'form-control' %>
           </div>
          </div>
        </div>

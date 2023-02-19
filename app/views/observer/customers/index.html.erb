@@ -1,35 +1,60 @@
 <div class="container">
-  <div class="tittle">ユーザー一覧</div>
+  <div class="page-tittle pt-5">
+    ユーザー一覧
+  </div>
 
-  <table>
-    <thead>
-      <th>登録日</th>
-      <th>名前</th>
-      <th>電話番号</th>
-      <th>メールアドレス</th>
-      <th>お気に入り数</th>
-      <th>問い合わせ数</th>
-      <th>退会ステータス</th>
-    </thead>
-    <tbody>
-     <% @customers.each do |customer| %>
-      <tr>
-        <td><%= l customer.created_at, format: :short %></td>
-        <td><%= customer.name %></td>
-        <td><%= customer.telephone_number %></td>
-        <td><%= customer.email %></td>
-        <td><%= customer.enquiries.count %></td>
-        <td><%= customer.favorites.count %></td>
-        <td>
-          <% if customer.is_deleted == false %>
-           有効
-          <% else %>
-           退会
-          <% end %>
-        </td>
-      </tr>
-     <% end %>
-    </tbody>
-  </table>
+ <div class="row text text-center m-1">
+   <div class="col-lg-2">
+     登録日
+   </div>
+   <div class="col-lg-2">
+     名前
+   </div>
+   <div class="col-lg-2">
+      電話番号
+   </div>
+   <div class="col-lg-3">
+      メールアドレス
+   </div>
+   <div class="col-lg-1">
+      <i class="fa-solid fa-heart"></i>
+   </div>
+   <div class="col-lg-1">
+      <i class="fa-regular fa-paper-plane"></i>
+   </div>
+   <div class="col-lg-1">
+      <i class="fa-solid fa-ban"></i>
+   </div>
+ </div>
+
+ <% @customers.each do |customer| %>
+  <div class="row text text-center m-1">
+    <div class="col-lg-2">
+     <%= l customer.created_at, format: :long %>
+    </div>
+    <div class="col-lg-2">
+      <%= customer.name %>
+    </div>
+    <div class="col-lg-2">
+       <%= customer.telephone_number %>
+    </div>
+    <div class="col-lg-3">
+       <%= customer.email %>
+    </div>
+    <div class="col-lg-1">
+       <%= customer.enquiries.count %>
+    </div>
+    <div class="col-lg-1">
+       <%= customer.favorites.count %>
+    </div>
+    <div class="col-lg-1">
+      <% if customer.is_deleted == false %>
+        有効
+      <% else %>
+        退会
+      <% end %>
+    </div>
+  </div>
+ <% end %>
 
 </div>

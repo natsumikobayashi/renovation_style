@@ -372,9 +372,72 @@ p,
 
 .nested-fields{
   background-color: #ede4e1;
+  width: 300px;
 }
 
 .imageItemedit{
     width: 200px;
   height: 150px;
+}
+
+.confirm-message{
+  font-size: 20px;
+  font-weight: bold;
+  background-color: yellow;
+}
+
+.btn-primary{
+  font-size: 1rem;
+  font-weight: 550;
+  line-height: 0.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 3rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #6A4623;
+  border-radius: 0.5rem;
+  background: #426ab3;
+  border: 2px solid #A69179;
+}
+
+.btn-primary:hover{
+  color: #a3d8f6 !important;
+}
+
+.btn-danger{
+  font-size: 1rem;
+  font-weight: 550;
+  line-height: 0.5;
+  position: relative;
+  display: inline-block;
+  padding: 1rem 3rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  text-align: center;
+  vertical-align: middle;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  color: #6A4623;
+  border-radius: 0.5rem;
+  background: #D93A49;
+  border: 2px solid #A69179;  
+}
+
+.btn-danger:hover{
+  color: #f79428 !important;
 }

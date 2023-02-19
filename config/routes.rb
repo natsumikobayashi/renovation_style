@@ -29,9 +29,8 @@ Rails.application.routes.draw do
     sessions: 'manager/sessions'
   }
     namespace :manager do
-    get '/top' => 'homes#top'
-    patch 'mypage/subscribe' => 'mypages#subscribe'
      resource :mypage, only:[:show, :update] do
+       patch 'subscribe' => 'mypages#subscribe'
        get 'confirm' => 'mypages#confirm'
      end
     resources :enquiries, only:[:index, :update, :show]

@@ -1,26 +1,40 @@
 <div class="container">
- Log In
+  <div class="page-tittle mt-5">
+     Log In
+  </div>
 
  <%= form_with model: @observer, url: new_observer_session_path do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+
+   <div class="form-group item-tittle">
+   <div class="row">
+    <div class="col-lg-3">
+     <div class="form-item">メールアドレス</div>
+     <div><%= f.email_field :email, autofocus: true, class: 'form-control' %></div>
+    </div>
+   </div>
   </div>
 
-  <div class="field">
-     Login ID<br />
-    <%= f.text_field :rogin_id, autofocus: true %>
+   <div class="form-group item-tittle">
+   <div class="row">
+    <div class="col-lg-3">
+     <div class="form-item">ログインID</div>
+     <div><%= f.text_field :rogin_id, autofocus: true, class: 'form-control' %></div>
+    </div>
+   </div>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autofocus: true %>
+   <div class="form-group item-tittle">
+   <div class="row">
+    <div class="col-lg-3">
+     <div class="form-item">パスワード</div>
+     <div><%= f.password_field :password, autofocus: true, class: 'form-control' %></div>
+    </div>
+   </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Log in", class: "btn btn-outline-dark" %>
+  <div class="actions m-3">
+    <%= f.submit "ログイン", class: "submitButton" %>
   </div>
 <% end %>
 
-<%= render "observer/shared/links" %>
 </div>
