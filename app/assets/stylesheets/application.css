@@ -88,7 +88,7 @@ a:hover {
 
 }
 
-.header {
+header {
   background-color: #cd9797;
 }
 
@@ -96,18 +96,17 @@ a:hover {
 .site-logo a{
   font-size: 45px;
   color: white;
-  margin-right: auto;
 }
 
 .header-item-list a {
-  padding: 10px;
-  height: auto;
-  margin-left: auto;
-  margin-right: 10px;
+  /*padding: 10px;*/
+  /*height: auto;*/
+  /*margin-left: auto;*/
+  /*margin-right: 10px;*/
   color: white;
   font-size: 25px;
-  text-align: center;
-  justify-content: flex-end;
+  /*text-align: center;*/
+  /*justify-content: flex-end;*/
 }
 
 
@@ -128,7 +127,7 @@ footer{
 
 
 .tittle{
-  font-size: 30px;
+  font-size: 4vmin;
   color: #918372;
   font-weight: bold;
 }
@@ -143,6 +142,7 @@ table{
 }
 .text{
   color: #7b5544;
+  font-size: 2vmin;
 }
 
 .item{
@@ -155,7 +155,7 @@ table{
 /*}*/
 
 .item-detail-text {
-  font-size: 18px;
+  font-size: 2.5vmin;
   color: #3E260C;
 }
 
@@ -435,9 +435,14 @@ p,
   color: #6A4623;
   border-radius: 0.5rem;
   background: #D93A49;
-  border: 2px solid #A69179;  
+  border: 2px solid #A69179;
 }
 
 .btn-danger:hover{
   color: #f79428 !important;
+}
+
+.pagination,
+a.pagination{
+  color: #6A4623;
 }

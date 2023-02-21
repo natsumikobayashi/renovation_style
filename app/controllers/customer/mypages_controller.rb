@@ -23,9 +23,14 @@ class Customer::MypagesController < ApplicationController
 
   def subscribe
     @customer = current_customer
-    @customer.update!(is_deleted: true)
-    reset_session
-    redirect_to root_path
+    if @customer.update(is_deleted: true)
+     reset_session
+     redirect_to root_path, notice: "退会しました"
+    else
+     flash.now[:alert] = "エラーがあります"
+     render :show
+   end
+
   end
 
   private

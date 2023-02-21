@@ -13,6 +13,7 @@ ja:
       manager: マネージャー
       room: お部屋
       taste_tag: テイスト
+      observer: 管理者
 
 
     attributes:
@@ -45,6 +46,10 @@ ja:
 
       taste_tag:
         name: 名前
+
+      observer:
+        email: メールアドレス
+        login_id: ログインID
 
 
 
@@ -229,3 +234,12 @@ ja:
       outstanding: "未対応"
       in_progress: "対応中"
       closed: "対応済"
+
+
+  views:
+   pagination:
+    first: <i class="fa-solid fa-angles-left"></i>
+    last: <i class="fa-solid fa-angles-right"></i>
+    previous: <i class="fa-solid fa-angle-left"></i>
+    next: <i class="fa-solid fa-angle-right"></i>
+    truncate: "..."

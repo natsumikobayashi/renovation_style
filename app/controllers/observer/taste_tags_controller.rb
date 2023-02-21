@@ -1,4 +1,5 @@
 class Observer::TasteTagsController < ApplicationController
+    before_action :authenticate_observer!
   def index
     @taste_tag = TasteTag.new
     @taste_tags = TasteTag.all

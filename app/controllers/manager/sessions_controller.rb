@@ -41,7 +41,7 @@ class Manager::SessionsController < Devise::SessionsController
   protected
 
   def configure_permitted_parameters
-   devise_parameter_sanitizer.permit(:sign_in, keys: [:name, :company_id, :address, :telephone_number, :home_page, :catchphrase, :images, :area_id, :reqular_holiday, :password_confirmation, :email, :password])
+   devise_parameter_sanitizer.permit(:sign_in, keys: [:company_id, :password_confirmation, :email, :password])
   end
 
   def manager_status
