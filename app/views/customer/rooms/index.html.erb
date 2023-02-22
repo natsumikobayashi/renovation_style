@@ -1,12 +1,19 @@
 <div class="container">
 
+ <div class="page-tittle text-center mt-5">
+  検索
+ </div>
+ <div class="text text-center mb-3">
+  ご希望のテイスト・間取り・ご自身のお住まいから検索できます
+ </div>
+
       <%= form_with scope: :search, url: customer_rooms_path, method: :get do |f| %>
-       <div class="row justify-content-around mt-5">
-        <div class="d-flex">
-          <div class="searchItemTittle m-auto font-weight-bold">テイスト</div>
-          <div class="searchItemVer d-flex align-items-center flex-wrap">
+       <div class="row">
+        <!--<div class="d-flex">-->
+          <div class="col-lg-2 col-sm-12 p-2 searchItemTittle font-weight-bold">テイスト</div>
+          <div class="col-lg-10 col-sm-12 searchItemVer d-flex align-items-center flex-wrap">
            <%= f.collection_check_boxes( :taste_tag_ids, TasteTag.all, :id, :name, checked:  @taste_tag_ids ) do |b| %>
-            <label class="searchItem d-flex align-items-center">
+            <label class="searchItem p-2 d-flex align-items-center">
              <%= b.check_box class:"chkgroup mr-1" do %>
               <%= b.check_box + b.text %>
     　　　      <% end %>
@@ -14,15 +21,15 @@
             </label>
            <% end %>
            </div>
-        </div>
+        <!--</div>-->
          </div>
 
-        <div class="row justify-content-around">
-        <div class="d-flex">
-         <div class="searchItemTittle m-auto font-weight-bold">間取り</div>
-        <div class="searchItemVer d-flex flex-wrap">
+        <div class="row">
+        <!--<div class="d-flex">-->
+         <div class="col-lg-2 col-sm-12 p-2 searchItemTittle font-weight-bold">間取り</div>
+        <div class="col-lg-10 col-sm-12 earchItemVer d-flex flex-wrap">
          <%= f.collection_check_boxes(:floor_plan_ids, FloorPlan.all, :id, :floor_name, checked: @floor_plan_ids) do |b| %>
-          <label class="searchItem d-flex align-items-center">
+          <label class="searchItem p-2 d-flex align-items-center">
            <%= b.check_box class:"chkgroup mr-1" do %>
             <%= b.check_box + b.text %>
   　　　      <% end %>
@@ -30,15 +37,15 @@
           </label>
          <% end %>
         </div>
-        </div>
+        <!--</div>-->
        </div>
 
-        <div class="row justify-content-around">
-         <div class="d-flex">
-          <div class="searchItemTittle m-auto font-weight-bold">対応エリア</div>
-          <div class="searchItemVer d-flex flex-wrap">
+        <div class="row">
+         <!--<div class="d-flex">-->
+          <div class="col-lg-2 col-sm-12 p-2 searchItemTittle font-weight-bold">対応エリア</div>
+          <div class="col-lg-10 col-sm-12 searchItemVer d-flex flex-wrap">
           <%= f.collection_check_boxes(:area_ids, Area.all, :id, :name, checked: @area_ids) do |b| %>
-           <label class="searchItem d-flex align-items-center">
+           <label class="searchItem p-2 d-flex align-items-center">
             <%= b.check_box class:"chkgroup mr-1" do %>
              <%= b.check_box + b.text %>
    　　　      <% end %>
@@ -46,10 +53,10 @@
            </label>
           <% end %>
           </div>
-         </div>
+         <!--</div>-->
         </div>
 
-     <div class="submit" style="text-align: center;">
+     <div class="col-sm-12 submit m-3" style="text-align: center;">
       <%= f.submit '検索', class: "submitButton m-2" %>
      </div>
     <% end %>
@@ -79,7 +86,7 @@
          <li class="manager-detail-name">
            <%= room.manager.name %>
          </li>
-         <li class="manager-detail-text">
+         <li class="room-detail-text">
            <%= room.manager.catchphrase %>
          </li>
        </ul>

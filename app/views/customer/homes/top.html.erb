@@ -11,7 +11,7 @@
     <% @rooms.each do |room| %>
      <div class="col-lg-4 col-xs-12 text-center">
       <%= link_to customer_room_path(room.id) do %>
-       <div>
+       <div class="image-box">
         <%= image_tag room.main_image, class: "itemImage" if room.main_image.attached?%>
        </div>
        <div class="item-detail-text font-weight-bold text-center">

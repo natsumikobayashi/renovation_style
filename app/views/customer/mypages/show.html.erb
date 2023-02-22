@@ -5,40 +5,40 @@
  </div>
 
   <div class="row d-flex align-items-center justify-content-center m-2">
-   <div class="col-lg-4 item-tittle text-right">
+   <div class="col-lg-4 col-sm-4 item-tittle text-right">
     名前
    </div>
-    <div class="col-lg-4 item-list">
+    <div class="col-lg-4 col-sm-4 item-list">
      <%= @customer.name %>
     </div>
   </div>
 
   <div class="row d-flex align-items-center justify-content-center m-2">
-   <div class="col-lg-4 item-tittle text-right">
+   <div class="col-lg-4 col-sm-4 item-tittle text-right">
     メールアドレス
    </div>
-   <div class="col-lg-4 item-list">
+   <div class="col-lg-4 col-sm-4 item-list">
     <%= @customer.email %>
    </div>
   </div>
 
   <div class="row d-flex align-items-center justify-content-center m-2">
-   <div class="col-lg-4 item-tittle text-right">
+   <div class="col-lg-4 col-sm-4 item-tittle text-right">
     電話番号
    </div>
-   <div class="col-lg-4 item-list">
+   <div class="col-lg-4 col-sm-4 item-list">
     <%= @customer.telephone_number %>
    </div>
   </div>
 
   <div class="row justify-content-center mt-5">
-    <div class="col-lg-3 text-center">
+    <div class="col-lg-3 col-sm-3 text-center">
      <%= link_to "編集", edit_customer_mypage_path, class: "btn" %>
     </div>
-    <div class="col-lg-3 text-center">
+    <div class="col-lg-3 col-sm-3 text-center">
      <%= link_to "問い合わせ履歴", customer_enquiries_path, class: "btn" %>
     </div>
-    <div class="col-lg-3 text-center">
+    <div class="col-lg-3 col-sm-3 text-center">
        <%= link_to '退会', subscribe_customer_mypage_path, method: :patch, data: {confirm: "退会すると過去の問い合わせ履歴が見れなくなります。本当に退会しますか？"}, class: "delete" %>
    </div>
   </div>

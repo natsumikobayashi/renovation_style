@@ -25,7 +25,7 @@ class Manager < ApplicationRecord
   # def get_manager_image(width,height)
   #   image.variant(resize_to_limit: [width, height]).processed
   # end
-  
+
   # 企業IDとメールアドレスでログインをする
   def self.find_for_database_authentication(warden_conditions)
     email = warden_conditions[:email].to_s.downcase.strip

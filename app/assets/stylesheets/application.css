@@ -94,7 +94,7 @@ header {
 
 .site-logo,
 .site-logo a{
-  font-size: 45px;
+  font-size: 7vmin;
   color: white;
 }
 
@@ -104,7 +104,8 @@ header {
   /*margin-left: auto;*/
   /*margin-right: 10px;*/
   color: white;
-  font-size: 25px;
+  font-size: 4vmin;
+
   /*text-align: center;*/
   /*justify-content: flex-end;*/
 }
@@ -139,6 +140,8 @@ footer{
 
 table{
   font-family: 'Kosugi Maru', sans-serif;
+  font-size: 2.3vmin;
+  color: #7b5544;
 }
 .text{
   color: #7b5544;
@@ -182,7 +185,7 @@ table{
 /*}*/
 
 .room-detail-tittle{
-   font-size: 40px;
+   font-size: 6vmin;
    color: #493C2F;
 }
 
@@ -192,7 +195,7 @@ table{
 
 p,
 .form-item{
-  font-size: 20px;
+  font-size: 4vmin;
   color: #8E745A;
   /*font-family: 'Merriweather', serif;*/
 }
@@ -220,11 +223,11 @@ p,
 
 .room-detail-text-tittle{
   color: #bc7575;
-  font-size: 25px;
+  font-size: 5vmin;
 }
 
 .room-detail-text{
-  font-size: 17px;
+  font-size: 2.3vmin;
   color: #7b5544;
 }
 
@@ -247,12 +250,12 @@ p,
 }
 
 .manager-detail-name{
-  font-size: 23px;
+  font-size: 4vmin;
 }
 
-.manager-detail-text{
-  font-size: 17px;
-}
+/*.manager-detail-text{*/
+  /*font-size: 17px;*/
+/*}*/
 
 
 .favorite{
@@ -273,7 +276,8 @@ p,
 }
 
 .searchItem {
-  width: 150px;
+  min-width: 160px;
+  max-width: 184px;
   text-align: left;
   font-size: 12px;
   accent-color: #937B69;
@@ -287,11 +291,11 @@ p,
 }
 
 .searchItemVer{
-  width: 750px;
+  /*width: 750px;*/
 }
 
 .searchItemTittle{
-  width: 150px;
+  /*max-width: 150px;*/
   text-align: center;
   color: #3E260C;
 
@@ -302,7 +306,7 @@ p,
 }*/
 
 .room-item-tittle{
-  font-size: 25px;
+  font-size: 3vmin;
   color: #3E260C;
 }
 
