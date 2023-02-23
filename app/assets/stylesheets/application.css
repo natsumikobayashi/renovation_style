@@ -94,7 +94,7 @@ header {
 
 .site-logo,
 .site-logo a{
-  font-size: 7vmin;
+  font-size: 50px;
   color: white;
 }
 
@@ -104,7 +104,7 @@ header {
   /*margin-left: auto;*/
   /*margin-right: 10px;*/
   color: white;
-  font-size: 4vmin;
+  font-size: 23px;
 
   /*text-align: center;*/
   /*justify-content: flex-end;*/
@@ -128,7 +128,7 @@ footer{
 
 
 .tittle{
-  font-size: 4vmin;
+  font-size: 25px;
   color: #918372;
   font-weight: bold;
 }
@@ -140,12 +140,12 @@ footer{
 
 table{
   font-family: 'Kosugi Maru', sans-serif;
-  font-size: 2.3vmin;
+  /*font-size: 2.3vmin;*/
   color: #7b5544;
 }
 .text{
   color: #7b5544;
-  font-size: 2vmin;
+  font-size: 15px;
 }
 
 .item{
@@ -157,18 +157,25 @@ table{
 /*  margin: 5px;*/
 /*}*/
 
-.item-detail-text {
-  font-size: 2.5vmin;
+.item-detail-text,
+.item-detail-text a{
+  font-size: 25px;
   color: #3E260C;
+}
+.image-box{
+  /*max-width: 60vw;*/
+  /*max-height: 40vh;*/
 }
 
 .itemImage {
-  width: 350px;
-  height: 250px;
+ width: 300px;
+ height: 200px;
+ object-fit: cover;
 }
 .mainitemImage{
-  width: 400px;
-  height: 300px;
+ width: 300px;
+ height: 200px;
+ object-fit: cover;
 }
 
 .favoriteitemImage{
@@ -180,12 +187,13 @@ table{
  color: #7b5544;
 }
 
+
 /*.more {*/
 /*  padding: 5px;*/
 /*}*/
 
 .room-detail-tittle{
-   font-size: 6vmin;
+   font-size: 20px;
    color: #493C2F;
 }
 
@@ -195,7 +203,7 @@ table{
 
 p,
 .form-item{
-  font-size: 4vmin;
+  font-size: 20px;
   color: #8E745A;
   /*font-family: 'Merriweather', serif;*/
 }
@@ -223,11 +231,11 @@ p,
 
 .room-detail-text-tittle{
   color: #bc7575;
-  font-size: 5vmin;
+  font-size: 20px;
 }
 
 .room-detail-text{
-  font-size: 2.3vmin;
+  font-size: 25px;
   color: #7b5544;
 }
 
@@ -250,7 +258,7 @@ p,
 }
 
 .manager-detail-name{
-  font-size: 4vmin;
+  font-size: 20px;
 }
 
 /*.manager-detail-text{*/
@@ -306,7 +314,7 @@ p,
 }*/
 
 .room-item-tittle{
-  font-size: 3vmin;
+  font-size: 20px;
   color: #3E260C;
 }
 
@@ -322,10 +330,10 @@ p,
  font-weight: bold;
 }
 
-.wrap {
+/*.wrap {*/
   /* header footerのサイズが変更になったときはここも*/
-  height: calc(100vh - 100px - 50px);
-}
+  /*height: calc(100vh - 100px - 50px);*/
+/*}*/
 
 .delete:hover{
   background-color: #D9341D;
@@ -446,7 +454,36 @@ p,
   color: #f79428 !important;
 }
 
-.pagination,
-a.pagination{
+
+a.page-link {
   color: #6A4623;
+}
+
+/*@media screen and (max-width: 1024px) {*/
+  /*.site-logo a {*/
+    /*font-size: 25px;*/
+  /*}*/
+/*}*/
+
+@media (max-width: 420px){
+  .itemImage{
+  width: 80%;
+  height: 80%;
+  }
+  .mainitemImage{
+  width: 80%;
+  height: 80%;
+ }
+ .item-detail-text a,
+ .item-detail-text {
+   font-size: 14px;
+   line-height: 20px;
+ }
+ .site-logo,
+ .site-logo a{
+   font-size: 30px;
+ }
+ .header-item-list a{
+   font-size: 15px;
+ }
 }

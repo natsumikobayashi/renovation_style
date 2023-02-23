@@ -12,43 +12,46 @@
   </div>
 
  <% if current_manager.rooms.exists? %>
-  <div class="row">
-    <div class="col-lg-2 text">
-      投稿日
-    </div>
-    <div class="col-lg-4 text">
-      キャッチコピー
-    </div>
-    <div class="col-lg-2 text">
-      テイスト・間取り
-    </div>
-    <div class="col-lg-3 text">
-      詳細ボタン
+  <div class="d-none d-lg-block">
+    <div class="row">
+      <div class="col-lg-3 text">
+        投稿日
+      </div>
+      <div class="col-lg-5 text">
+        部屋情報
+      </div>
+      <div class="col-lg-4 text">
+        詳細ボタン
+      </div>
     </div>
   </div>
-
   <% @rooms.each do |room| %>
-  　<div class="row">
-  　  <div class="col-lg-2 text">
-  　   <%= l room.created_at, format: :long %>
-   　 </div>
-  　  <div class="col-lg-4 text">
-  　   <%= room.catchphrase %>
-  　  </div>
-  　  <div class="col-lg-2 text">
-  　    <span>
-  　      <%= room.taste_tag.name %>
-  　    </span>
-  　    <span>
-  　      <%= room.floor_plan.floor_name %>
-  　    </span>
-  　  </div>
-  　  <div class="col-lg-3 text">
-   　  <%= link_to '詳細', manager_room_path(room.id), class: "btn" %>
-   　 </div>
-  　</div>
+  <div class="row mb-4">
+      <div class="col-lg-3 text mb-2">
+        <div class="d-block d-lg-none">
+          投稿日
+        </div>
+       <%= l room.created_at, format: :long %>
+      </div>
+      <div class="col-lg-5 text mb-2">
+        <div class="d-block d-lg-none">
+          部屋情報
+        </div>
+       <div>
+         <%= room.catchphrase %>
+       </div>
+       <div>
+         #<%= room.taste_tag.name %> #<%= room.floor_plan.floor_name %>
+        </div>
+      </div>
+      <div class="col-lg-4 text">
+        <div class="d-block d-lg-none">
+          詳細ボタン
+        </div>
+       <%= link_to '詳細', manager_room_path(room.id), class: "btn" %>
+    </div>
+   </div>
   <% end %>
-
   <% else %>
 
   <div class="row">
@@ -58,7 +61,7 @@
      </div>
      <%= image_tag '段ボール箱　12.png', :size => '300x200' %>
    </div>
-  </div>
+    </div>
 
   <% end %>
 
