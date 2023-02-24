@@ -15,9 +15,13 @@
     <div class="row itemList d-flex text-center align-items-center justify-content-between p-1">
      <div class="col-lg-1"><%= l enquiry.created_at, format: :short %></div>
      <div class="col-lg-4">
+      <% if enquiry.room.is_deleted == false %>
        <%= link_to customer_room_path(enquiry.room_id) do %>
         <%= enquiry.room.catchphrase %>
        <% end %>
+      <% else %>
+       現在掲載終了しております
+      <% end %>
      </div>
      <div class="col-lg-4"><%= enquiry.manager.name %></div>
      <div class="col-lg-3">

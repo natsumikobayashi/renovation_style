@@ -7,6 +7,8 @@ class CreateRooms < ActiveRecord::Migration[6.1]
       t.references :manager,    null: false
       t.references :taste_tag,  null: false
       t.references :floor_plan, null: false
+      t.boolean :is_deleted,   null: false, default: false
+
 
       t.timestamps
     end

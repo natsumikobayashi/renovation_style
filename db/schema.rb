@@ -144,6 +144,7 @@ ActiveRecord::Schema.define(version: 2023_01_25_133420) do
     t.integer "manager_id", null: false
     t.integer "taste_tag_id", null: false
     t.integer "floor_plan_id", null: false
+    t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["floor_plan_id"], name: "index_rooms_on_floor_plan_id"

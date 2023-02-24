@@ -21,8 +21,12 @@
     部屋情報
    </div>
    <div class="col-lg-8 enquiey-detail">
-    <%= link_to customer_room_path(@enquiry.room_id) do %>
-      <%= @enquiry.room.catchphrase %>
+    <% if @enquiry.room.is_deleted == false %>
+     <%= link_to customer_room_path(@enquiry.room_id) do %>
+       <%= @enquiry.room.catchphrase %>
+     <% end %>
+    <% else %>
+      現在掲載終了しております
     <% end %>
    </div>
   </div>

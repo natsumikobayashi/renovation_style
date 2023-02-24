@@ -1,6 +1,8 @@
 class Customer::RoomsController < ApplicationController
+  before_action :room_status, only: [:show]
+
   def index
-    @rooms = Room.all.page(params[:page]).per(10)
+    @rooms = Room.where(is_deleted: 'false').page(params[:page]).per(10)
 
      if params[:search]
        @taste_tag_ids = params[:search][:taste_tag_ids]
@@ -20,5 +22,11 @@ class Customer::RoomsController < ApplicationController
   def show
     @room = Room.find(params[:id])
     @enquiry = Enquiry.new
+  end
+
+  private
+
+  def room_status
+    @room = Room.where(is_deleted: 'false')
   end
 end

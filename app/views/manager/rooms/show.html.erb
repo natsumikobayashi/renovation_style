@@ -95,6 +95,19 @@
     </div>
   </div>
 
+  <div class="row m-2">
+    <div class="col-lg-3 item-tittle">
+      掲載・保留
+    </div>
+    <div class="col-lg-9 text">
+      <%if @room.is_deleted  == false %>
+       掲載中
+      <% else %>
+       保留
+      <% end %>
+    </div>
+  </div>
+
     <div class="m-3">
       <%= link_to '編集', edit_manager_room_path(@room.id), class: "btn" %>
     </div>
