@@ -196,7 +196,7 @@ footer{
 }
 
 .explanation{
-  font-size: 16px;
+  font-size: 14px;
   color: #918372;
 }
 
@@ -225,10 +225,13 @@ table{
 /*  margin: 5px;*/
 /*}*/
 
+.room-tittle,
+.room-tittle a,
 .item-detail-text,
 .item-detail-text a{
   font-size: 17px;
-  color: #3E260C;
+  /*color: #3E260C;*/
+  color: #918372;
 }
 /*.image-box{*/
   /*max-width: 60vw;*/
@@ -240,6 +243,7 @@ table{
  height: 200px;
  object-fit: cover;
 }
+
 .mainitemImage{
  width: 400px;
  height: 300px;
@@ -256,34 +260,23 @@ table{
   height: 200px;
   object-fit: contain;
 }
+
+.noimage{
+  width: 400px;
+  height: 300px;
+}
+
 .favorite-list-item-text{
  /*width: 430px;*/
  color: #7b5544;
 }
 
-
-/*.more {*/
-/*  padding: 5px;*/
-/*}*/
-
-.room-detail-tittle{
-   font-size: 30px;
-   color: #493C2F;
-}
-
-/*.room-detail-image{*/
-/* text-align: center;*/
-/*}*/
-
 p,
 .form-item{
   font-size: 20px;
   color: #8E745A;
-  /*font-family: 'Merriweather', serif;*/
-}
-
-.form-item{
   width: 150px;
+  /*font-family: 'Merriweather', serif;*/
 }
 
 .item-tittle{
@@ -299,23 +292,18 @@ p,
   font-family: 'Kosugi Maru', sans-serif;
 }
 
-/*.room-detail-text{*/
-/*text-align: center;*/
-/*}*/
-
-.room-detail-text-tittle{
+.room-detail-tittle-catch{
+  font-size: 25px;
+  color: #918372;
+}
+.room-detail-tittle{
   color: #bc7575;
-  font-size: 25px;
+  font-size: 23px;
 }
 
-.room-detail-text{
-  font-size: 25px;
-  color: #7b5544;
-}
-
-/*.room-detail-text-item {*/
+/*.room-detail{*/
+/*  font-size: 25px;*/
 /*  color: #7b5544;*/
-/*  font-size: 17px;*/
 /*}*/
 
 .room-item{
@@ -328,28 +316,21 @@ p,
 }
 
 .manager-detail{
-  color: #7b5544;
+  /*color: #7b5544;*/
+  font-size: 16px;
 }
 
 .manager-detail-name{
-  font-size: 20px;
+  font-size: 17px;
 }
-
-/*.manager-detail-text{*/
-  /*font-size: 17px;*/
-/*}*/
-
 
 .favorite{
   text-align: center;
 }
 
-/*.enquiry-btn{*/
-/*  text-align: center;*/
-/*}*/
-
-.line_button{
+.like_button{
   color: #f5afd0;
+  font-size: 16px;
 }
 
 .ul,
@@ -368,46 +349,31 @@ p,
   margin-bottom: auto;
 }
 
+.searchbox{
+   border: 2px solid #dcc6b9;
+}
+
 .searchItem label {
   margin: 0;
 }
 
-.searchItemVer{
-  /*width: 750px;*/
-}
-
 .searchItemTittle{
-  /*max-width: 150px;*/
+  font-size: 17px;
   text-align: center;
   color: #3E260C;
-
+  background-color: #F4EDE6;
 }
 
-/*.searchItemHeader {
-  width: 90px;
-}*/
-
-.room-item-tittle{
-  font-size: 20px;
-  color: #3E260C;
-}
-
-.page-tittle{
-  font-size: 30px;
-  color: #8E745A;
-  /*font-family: 'Merriweather', serif;*/
-}
+/*.room-item-tittle{*/
+/*  font-size: 20px;*/
+/*  color: #3E260C;*/
+/*}*/
 
 .link{
  color: #6A3427;
  font-size: 20px;
  font-weight: bold;
 }
-
-/*.wrap {*/
-  /* header footerのサイズが変更になったときはここも*/
-  /*height: calc(100vh - 100px - 50px);*/
-/*}*/
 
 .delete:hover{
   background-color: #D9341D;
@@ -504,11 +470,12 @@ a.page-link {
   height: 170px;
   object-fit: contain;
 }
- .item-detail-text a,
- .item-detail-text {
-   font-size: 14px;
-   line-height: 20px;
- }
+
+.noimage{
+  width: 60%;
+  height: 70%;
+}
+
  .site-logo,
  .site-logo a{
    font-size: 30px;
@@ -524,7 +491,7 @@ a.page-link {
   font-size: 16px;
 }
 .page-tittle{
-  font-size: 17px;
+  font-size: 27px;
 }
 
 .explanation-tittle{
@@ -532,30 +499,67 @@ a.page-link {
 }
 
 .explanation{
-  font-size: 14px;
+  font-size: 12px;
 }
 .text{
   font-size: 16px;
 }
+
+.room-tittle a,
+.room-tittle,
 .item-detail-text,
 .item-detail-text a{
   font-size: 14px;
 }
+
+.room-detail-tittle-catch{
+  font-size: 20px;
+  /*color: #3E260C;*/
+}
+
 .room-detail-tittle{
-   font-size: 23px;
+   font-size: 18px;
+}
+/*.room-item-tittle{*/
+/*  font-size: 10px;*/
+/*}*/
+.room-manager{
+  width: 80%;
+}
+
+.manager-detail{
+  /*color: #7b5544;*/
+  font-size: 14px;
+}
+
+.room-detail{
+  width: 80%;
+}
+
+.room-detail-text{
+  font-size: 13px;
+}
+
+.searchItemTittle{
+  font-size: 14px;
+}
+
+.like_button{
+  font-size: 13px;
 }
 
 p,
 .form-item{
   font-size: 16px;
-}
-
-.form-item{
   width: 80%;
 }
 
+/*.form-item{*/
+/*  width: 80%;*/
+/*}*/
+
 .item-tittle{
-  font-size: 10px;
+  font-size: 17px;
 }
 
 .item-list{
@@ -563,30 +567,16 @@ p,
   font-size: 10px;
 }
 
-.room-detail-text-tittle{
-  font-size: 23px;
+.manager-name{
+  font-size: 17px;
+  color: #7b5544;
 }
-
-.room-detail-text{
-  font-size: 13px;
-}
-
-.manager-detail-name{
-  font-size: 20px;
 }
 
 .searchItem {
-  min-width: 30%;
-  max-width: 80%;
-  font-size: 6px;
-}
-
-.room-item-tittle{
-  font-size: 10px;
-}
-
-.page-tittle{
-  font-size: 15px;
+  min-width: 40%;
+  max-width: 40%;
+  font-size: 14px;
 }
 
 .link{
@@ -605,14 +595,6 @@ p,
   font-size: 8px;
 }
 .date{
-  width: 80%;
-}
-
-.room-detail{
-  width: 80%;
-}
-
-.room-manager{
   width: 80%;
 }
 
@@ -637,6 +619,10 @@ p,
   font-size: 10px;
 }
 
+table{
+  font-size: 14px;
+}
+
  .btn-primary,
  .btn-danger,
  .btn,
@@ -645,7 +631,7 @@ p,
  a.btn,
  a.delete,
  .submitButtonComplete{
-  font-size: 1rem;
+  font-size: 14px;
   font-weight: 550;
   line-height: 0.5;
   display: inline-block;

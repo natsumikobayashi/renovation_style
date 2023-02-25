@@ -1,10 +1,11 @@
 <div class="container text-align-center">
 
-    <div class="room-detail-tittle font-weight-bold text-center pt-5">
+ <% if @room.is_deleted == false %>
+
+  <div class="row">
+    <div class="col-lg-12 col-sm-12 room-detail-tittle-catch font-weight-bold text-center pt-5">
       <%= @room.catchphrase %>
     </div>
-
-    <div class="row">
      <div class="col-lg-6 col-sm-12" style="text-align: center;">
       <div>
        <%= image_tag @room.main_image, class: "mainitemImage" if @room.main_image.attached? %>
@@ -12,11 +13,11 @@
       <div class="d-flex justify-content-around">
        <% if @room.image_before.attached? %>
         <div class="m-2">
-         <p class="text-align-center">Before</p>
+         <div class="text text-align-center">Before</div>
           <%= image_tag @room.image_before, class: "floorImage" if @room.image_before.attached? %>
         </div>
         <div class="m-2">
-         <p class="text-align-center">After</p>
+         <div class="text text-align-center">After</div>
           <%= image_tag @room.image_after, class: "floorImage" if @room.image_after.attached? %>
         </div>
        <% else %>
@@ -27,7 +28,7 @@
       </div>
      <% @room.room_images.each do |room_image| %>
       <div class="m-2">
-       <p><%= room_image.name %></p>
+       <div class="text"><%= room_image.name %></div>
        <%= image_tag room_image.image, class: "itemImage" if room_image.image.attached? %>
       </div>
      <% end %>
@@ -36,7 +37,7 @@
      <div class="col-lg-6 col-sm-12">
       <div class="room-detail-text" style="text-align: center;">
        <div class="m-4">
-        <div class="room-detail-text-tittle">リフォーム前のお悩み
+        <div class="room-detail-tittle">リフォーム前のお悩み
          <i class="fa-regular fa-comment"></i>
         </div>
         <div class="text">
@@ -44,7 +45,7 @@
         </div>
        </div>
        <div class="m-4">
-        <div class="room-detail-text-tittle">リフォーム会社のコメント
+        <div class="room-detail-tittle">リフォーム会社のコメント
          <i class="fa-regular fa-lightbulb"></i>
         </div>
         <div class="text">
@@ -58,9 +59,9 @@
 
 
      <div class="manager p-3" style="text-align: center;">
-      <div class="room-detail-text-tittle">施工会社 <i class="fa-solid fa-building"></i></div>
-       <ul class="manager-detail" style="list-style: none;">
-        <li class="manager-detail-name">
+      <div class="room-detail-tittle">施工会社 <i class="fa-solid fa-building"></i></div>
+       <ul class="manager" style="list-style: none;">
+        <li class="manager-name">
          <%= @room.manager.name %>
         </li>
         <li class="text">
@@ -68,11 +69,11 @@
        </li>
       </ul>
        <% @room.manager.images.each do |image| %>
-        <div class="image-bo">
+        <div class="image-box">
          <%= image_tag image, class: "itemImage" %>
         </div>
        <% end %>
-      <table class="mx-auto m-2 text">
+      <table class="mx-auto m-2 manager-detail">
         <tr>
           <td>会社住所</td>
           <td><%= @room.manager.address %></td>
@@ -123,5 +124,22 @@
 
   </div>
  </div>
+
+ <% else %>
+
+  <div class="row">
+   <div class="col-lg-12 col-sm-12 text-center">
+    <div class="tittle">掲載終了のため表示できません</div>
+    <%= image_tag '段ボール箱　12.png', class: "noimage" %>
+
+   <div class="col-lg-12 col-sm-12">
+    <%= link_to "問い合わせ一覧に戻る", customer_enquiries_path, class: "btn" %>
+   </div>
+
+   </div>
+  </div>
+
+ <% end %>
+
 
 </div>

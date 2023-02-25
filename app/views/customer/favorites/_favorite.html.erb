@@ -2,16 +2,16 @@
   <% if customer_signed_in? %>
    <% if current_customer.favorites.find_by(room_id: room.id) %>
      <%= link_to customer_unfavorite_path(room.id), method: :delete, remote: true do %>
-      <div class="line_button"><i class="fa-solid fa-heart fa-4x"></i></div>
+      <div class="like_button"><i class="fa-solid fa-heart fa-4x"></i></div>
      <% end %>
     <% else %>
      <%= link_to customer_favorite_path(room.id), method: :post, remote: true do %>
-      <div class="line_button"><i class="fa-regular fa-heart fa-4x"></i>️️</div>
+      <div class="like_button"><i class="fa-regular fa-heart fa-4x"></i>️️</div>
      <% end %>
     <% end %>
    <% else %>
    <%= link_to new_customer_registration_path do %>
-    <div class="line_button"><i class="fa-regular fa-heart fa-4x"></i>️️</div>
+    <div class="like_button"><i class="fa-regular fa-heart fa-4x"></i>️️</div>
     <% end %>
   <% end %>
 </div>

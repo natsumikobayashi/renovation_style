@@ -1,20 +1,22 @@
 <div class="container">
 
- <div class="page-tittle text-center mt-5">
-  検索
+ <div class="row">
+  <div class="page-tittle text-center mt-5">
+   検索
+  </div>
  </div>
 
  <div class="row">
-  <div class="col-lg-12 col-sm-7 text text-center mb-3">
+  <div class="col-lg-12 col-sm-7 explanation text-center mb-3">
     ご希望のテイスト・間取り・ご自身のお住まいから検索できます
   </div>
  </div>
 
       <%= form_with scope: :search, url: customer_rooms_path, method: :get do |f| %>
-       <div class="row">
+       <div class="row searchbox">
         <!--<div class="d-flex">-->
           <div class="col-lg-2 col-sm-12 p-2 searchItemTittle font-weight-bold">テイスト</div>
-          <div class="col-lg-10 col-sm-12 searchItemVer d-flex align-items-center flex-wrap">
+          <div class="col-lg-10 col-sm-10 text d-flex align-items-center flex-wrap">
            <%= f.collection_check_boxes( :taste_tag_ids, TasteTag.all, :id, :name, checked:  @taste_tag_ids ) do |b| %>
             <label class="searchItem p-2 d-flex align-items-center">
              <%= b.check_box class:"chkgroup mr-1" do %>
@@ -27,10 +29,10 @@
         <!--</div>-->
          </div>
 
-        <div class="row">
+        <div class="row searchbox">
         <!--<div class="d-flex">-->
          <div class="col-lg-2 col-sm-12 p-2 searchItemTittle font-weight-bold">間取り</div>
-        <div class="col-lg-10 col-sm-12 earchItemVer d-flex flex-wrap">
+        <div class="col-lg-10 col-sm-10 text d-flex flex-wrap">
          <%= f.collection_check_boxes(:floor_plan_ids, FloorPlan.all, :id, :floor_name, checked: @floor_plan_ids) do |b| %>
           <label class="searchItem p-2 d-flex align-items-center">
            <%= b.check_box class:"chkgroup mr-1" do %>
@@ -43,10 +45,10 @@
         <!--</div>-->
        </div>
 
-        <div class="row">
+        <div class="row searchbox">
          <!--<div class="d-flex">-->
           <div class="col-lg-2 col-sm-12 p-2 searchItemTittle font-weight-bold">対応エリア</div>
-          <div class="col-lg-10 col-sm-12 searchItemVer d-flex flex-wrap">
+          <div class="col-lg-10 col-sm-10 text d-flex flex-wrap">
           <%= f.collection_check_boxes(:area_ids, Area.all, :id, :name, checked: @area_ids) do |b| %>
            <label class="searchItem p-2 d-flex align-items-center">
             <%= b.check_box class:"chkgroup mr-1" do %>
@@ -59,37 +61,37 @@
          <!--</div>-->
         </div>
 
-     <div class="col-sm-12 submit m-3" style="text-align: center;">
+     <div class="col-sm-12 submit mt-3 mb-3" style="text-align: center;">
       <%= f.submit '検索', class: "submitButton m-2" %>
      </div>
     <% end %>
 
   <% @rooms.each do |room| %>
-    <div class="row m-3 align-items-center">
+    <div class="row mb-3 align-items-center">
      <div class="col-lg-5 col-xs-12" style="text-align: center; align-items: center;">
       <%= link_to customer_room_path(room.id) do %>
         <%= image_tag room.main_image, class: "mainitemImage" if room.main_image.attached? %>
      <% end %>
      </div>
      <div class="col-lg-7 col-xs-12">
-       <div class="room-item-tittle font-weight-bold" style="text-align: center">
+       <div class="room-tittle font-weight-bold" style="text-align: center">
         <%= room.catchphrase %>
        </div>
 
       <ul style="list-style: none; text-align: center" >
-        <li class="room-detail-text">
+        <li class="explanation">
          <%= room.owner_comment %>
         </li>
-        <li class="room-detail-text">
+        <li class="explanation">
           #<%= room.taste_tag.name %> #<%= room.floor_plan.floor_name %>
         </li>
       </ul>
       <div style="vertical-align: middle;">
        <ul class="manager-detail" style="list-style: none; text-align: center">
-         <li class="manager-detail-name">
+         <li class="manager-name">
            <%= room.manager.name %>
          </li>
-         <li class="room-detail-text">
+         <li class="explanation">
            <%= room.manager.catchphrase %>
          </li>
        </ul>
