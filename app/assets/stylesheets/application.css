@@ -226,12 +226,16 @@ table{
 /*}*/
 
 .room-tittle,
-.room-tittle a,
+.room-tittle a{
+  font-size: 18px;
+  color: #7b5544;
+}
+
 .item-detail-text,
 .item-detail-text a{
   font-size: 17px;
   /*color: #3E260C;*/
-  color: #918372;
+  color: #7b5544;
 }
 /*.image-box{*/
   /*max-width: 60vw;*/
@@ -266,10 +270,10 @@ table{
   height: 300px;
 }
 
-.favorite-list-item-text{
+/*.favorite-list-item-text{*/
  /*width: 430px;*/
- color: #7b5544;
-}
+/* color: #7b5544;*/
+/*}*/
 
 p,
 .form-item{
@@ -350,7 +354,15 @@ p,
 }
 
 .searchbox{
-   border: 2px solid #dcc6b9;
+  border-top: 2px solid #dcc6b9;
+  border-right: 2px solid #dcc6b9;
+  border-left: 2px solid #dcc6b9;
+}
+.searchbox-last{
+  border-top: 2px solid #dcc6b9;
+  border-right: 2px solid #dcc6b9;
+  border-left: 2px solid #dcc6b9;
+  border-bottom: 2px solid #dcc6b9;
 }
 
 .searchItem label {
@@ -417,6 +429,10 @@ p,
 
 }
 
+.item-tittle{
+  text-align: right;
+}
+
 .no-favorite{
   font-size: 20px;
   color: #BC9A78;
@@ -442,6 +458,11 @@ a.page-link {
   color: #6A4623;
 }
 
+.day{
+  background-color:
+
+}
+
 /*@media screen and (max-width: 1024px) {*/
   /*.site-logo a {*/
     /*font-size: 25px;*/
@@ -449,7 +470,11 @@ a.page-link {
 /*}*/
 
 @media (max-width: 420px){
-  .itemImage{
+
+  /*#field{*/
+  /*  width: 80%;*/
+  /*}*/
+ .itemImage{
   width: 70%;
   height: 60%;
   }
@@ -457,9 +482,11 @@ a.page-link {
   width: 80%;
   height: 80%;
  }
+
  .favoriteitemImage{
-  width: 80%;
-  height: 80%;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 .imageItemedit{
     width: 80%;
@@ -506,10 +533,12 @@ a.page-link {
 }
 
 .room-tittle a,
-.room-tittle,
+.room-tittle{
+  font-size: 14px;
+}
 .item-detail-text,
 .item-detail-text a{
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .room-detail-tittle-catch{
@@ -545,8 +574,9 @@ a.page-link {
 }
 
 .like_button{
-  font-size: 13px;
+  font-size: 10px;
 }
+
 
 p,
 .form-item{
@@ -554,24 +584,21 @@ p,
   width: 80%;
 }
 
-/*.form-item{*/
-/*  width: 80%;*/
-/*}*/
-
 .item-tittle{
   font-size: 17px;
+  text-align: start;
 }
 
 .item-list{
   width: 80%;
-  font-size: 10px;
+  font-size: 16px;
 }
 
 .manager-name{
   font-size: 17px;
   color: #7b5544;
 }
-}
+
 
 .searchItem {
   min-width: 40%;
@@ -580,7 +607,7 @@ p,
 }
 
 .link{
- font-size: 10px;
+ font-size: 16px;
 }
 
 .delete:hover{
@@ -588,7 +615,11 @@ p,
 }
 
 .itembar{
-  font-size: 10px;
+  font-size: 17px;
+}
+
+.data{
+  background-color: #F4EDE6;
 }
 
 .itemList{
@@ -599,7 +630,7 @@ p,
 }
 
 .enquiey-detail{
-  font-size: 9px;
+  font-size: 16px;
 }
 
 .confirm-text{
@@ -623,6 +654,11 @@ table{
   font-size: 14px;
 }
 
+.day{
+  font-size: 16px;
+  background-color: #F4EDE6;
+}
+
  .btn-primary,
  .btn-danger,
  .btn,
@@ -631,7 +667,7 @@ table{
  a.btn,
  a.delete,
  .submitButtonComplete{
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 550;
   line-height: 0.5;
   display: inline-block;

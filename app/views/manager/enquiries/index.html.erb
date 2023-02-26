@@ -4,33 +4,41 @@
   </div>
 
   <% if current_manager.enquiries.exists? %>
-  <div class="row itembar">
-    <div class="col-lg-1">
-      日付
+    <div class="d-none d-lg-block">
+      <div class="row itembar">
+        <div class="col-lg-1">
+          日付
+        </div>
+        <div class="col-lg-2">
+          名前
+        </div>
+        <div class="col-lg-2">
+          電話番号
+        </div>
+        <div class="col-lg-3">
+          メールアドレス
+        </div>
+        <div class="col-lg-2">
+          ステータス
+        </div>
+        <div class="col-lg-2">
+          詳細ボタン
+        </div>
+      </div>
     </div>
-    <div class="col-lg-2">
-      名前
-    </div>
-    <div class="col-lg-2">
-      電話番号
-    </div>
-    <div class="col-lg-3">
-      メールアドレス
-    </div>
-    <div class="col-lg-2">
-      ステータス
-    </div>
-    <div class="col-lg-2">
-      詳細ボタン
-    </div>
-  </div>
 
   <% @enquiries.each do |enquiry| %>
   <div class="row text mt-2">
     <div class="col-lg-1">
+      <div class="d-block d-lg-none">
+        投稿日
+      </div>
       <%= l enquiry.created_at, format: :short %>
     </div>
     <div class="col-lg-2">
+      <div class="d-block d-lg-none">
+        投稿日
+      </div>
       <%= enquiry.customer.name %>
     </div>
     <div class="col-lg-2">

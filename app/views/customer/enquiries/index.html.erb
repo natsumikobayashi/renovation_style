@@ -5,28 +5,41 @@
   </div>
 
  <% if current_customer.enquiries.exists? %>
-  <div class="row itembar d-flex font-weight-bold text-center">
-    <div class="col-lg-1">日付</div>
-    <div class="col-lg-4">部屋情報</div>
+  <div class="d-none d-lg-block">
+   <div class="row itembar d-flex font-weight-bold text-center">
+    <div class="col-lg-2">日付</div>
+    <div class="col-lg-3">部屋情報</div>
     <div class="col-lg-4">リフォーム会社</div>
+   </div>
   </div>
 
   <% @enquiries.each do |enquiry| %>
-    <div class="row itemList d-flex text-center align-items-center justify-content-between p-1">
-     <div class="col-lg-1"><%= l enquiry.created_at, format: :short %></div>
-     <div class="col-lg-4">
-      <% if enquiry.room.is_deleted == false %>
-       <%= link_to customer_room_path(enquiry.room_id) do %>
-        <%= enquiry.room.catchphrase %>
-       <% end %>
-      <% else %>
-       現在掲載終了しております
-      <% end %>
+    <div class="row itemList d-flex text-center align-items-center justify-content-between p-1 mb-2">
+
+     <div class="col-lg-2 col-sm-12 day">
+       <%= l enquiry.created_at, format: :long %>
      </div>
-     <div class="col-lg-4"><%= enquiry.manager.name %></div>
-     <div class="col-lg-3">
-         <%= link_to '詳細', customer_enquiry_path(enquiry.id), class: "btn" %></div>
-   </div>
+
+     <div class="col-lg-3 text font-weight-bold">
+       <% if enquiry.room.is_deleted == false %>
+        <%= link_to customer_room_path(enquiry.room_id) do %>
+         <%= enquiry.room.catchphrase %>
+        <% end %>
+       <% else %>
+        部屋情報は掲載終了しております
+       <% end %>
+      </div>
+
+     <div class="col-lg-4 text font-weight-bold">
+      <%= enquiry.manager.name %>
+     </div>
+
+     <div class="col-lg-3 mt-2">
+      <%= link_to '詳細', customer_enquiry_path(enquiry.id), class: "btn" %>
+     </div>
+
+    </div>
+
   <% end %>
 
   <% else %>

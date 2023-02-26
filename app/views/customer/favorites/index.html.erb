@@ -1,28 +1,28 @@
 <div class="container">
- <div class="page-tittle text-center">
+ <div class="page-tittle text-center mt-5 mb-2">
    お気に入り一覧
  </div>
 
  <% if current_customer.favorites.exists? %>
   <% @favorites.each do |favorite| %>
-  <div class="row favorite-list d-flex text-center align-items-sm-center p-2">
-    <div class="col-lg-2">
+  <div class="row favorite-list d-flex text-center align-items-sm-center mb-2">
+    <div class="col-lg-2 col-5">
       <%= image_tag favorite.room.main_image, class: "favoriteitemImage" if favorite.room.main_image.attached?%>
     </div>
-    <div class="col-lg-5 favorite-list-item-text" style="text-align: center;">
+    <div class="col-lg-5 col-7 favorite-list-item-text m-auto" style="text-align: center;">
      <div class="item-detail-text">
         <%= link_to customer_room_path(favorite.room_id) do %>
          <%= favorite.room.catchphrase %>
         <% end %>
      </div>
-     <div>
+     <div class="d-lg-block d-none text">
       #<%= favorite.room.taste_tag.name %> #<%= favorite.room.floor_plan.floor_name %>
      </div>
-     <div>
+     <div class="item-detail-text text">
        <%= favorite.room.manager.name %>
      </div>
     </div>
-     <div class="col-lg-4">
+     <div class="col-lg-4 col-5 mt-2">
       <% if current_customer.enquiries.find_by(room_id: favorite.room_id) %>
         <%= link_to "問い合わせ済み", customer_enquiry_path(favorite.room_id), class: "btn" %>
       <% else %>
@@ -34,7 +34,7 @@
       <% end %>
     </div>
 
-    <div class="col-lg-1 favorite-list-item" id="favorite-link-<%= favorite.room_id %>">
+    <div class="col-lg-1 col-7 mt-2" id="favorite-link-<%= favorite.room_id %>">
     <%= render 'customer/favorites/favorite', room: favorite.room %>
     </div>
   </div>
