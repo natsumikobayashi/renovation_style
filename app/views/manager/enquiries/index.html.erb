@@ -30,16 +30,12 @@
   <% @enquiries.each do |enquiry| %>
   <div class="row text mt-2">
     <div class="col-lg-1">
-      <div class="d-block d-lg-none">
-        投稿日
+      <div class="day item-tittle d-block d-lg-none">
+        <%= l enquiry.created_at, format: :long %>
       </div>
-      <%= l enquiry.created_at, format: :short %>
     </div>
     <div class="col-lg-2">
-      <div class="d-block d-lg-none">
-        投稿日
-      </div>
-      <%= enquiry.customer.name %>
+      <%= enquiry.customer.name %> 様
     </div>
     <div class="col-lg-2">
       <%= enquiry.customer.telephone_number %>

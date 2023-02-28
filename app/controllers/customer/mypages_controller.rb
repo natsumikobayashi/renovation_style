@@ -14,6 +14,8 @@ class Customer::MypagesController < ApplicationController
       redirect_to customer_mypage_path, notice: "保存しました"
     else
       flash.now[:alert] = "エラーがあります"
+      @customer = current_customer
+      render :edit
     end
 
   end
@@ -29,13 +31,13 @@ class Customer::MypagesController < ApplicationController
     else
      flash.now[:alert] = "エラーがあります"
      render :show
-   end
-
+    end
   end
 
   private
 
   def mypage_params
     params.require(:customer).permit(:name, :email, :telephone_number)
+    # :password, :password_confirmation
   end
 end

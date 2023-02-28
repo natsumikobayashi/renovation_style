@@ -2,52 +2,74 @@
   <div class="page-tittle pt-5">
     ユーザー一覧
   </div>
-
- <div class="row text text-center m-1">
-   <div class="col-lg-2">
-     登録日
-   </div>
-   <div class="col-lg-2">
-     名前
-   </div>
-   <div class="col-lg-2">
-      電話番号
-   </div>
-   <div class="col-lg-3">
-      メールアドレス
-   </div>
-   <div class="col-lg-1">
-      <i class="fa-solid fa-heart"></i>
-   </div>
-   <div class="col-lg-1">
-      <i class="fa-regular fa-paper-plane"></i>
-   </div>
-   <div class="col-lg-1">
-      <i class="fa-solid fa-ban"></i>
-   </div>
- </div>
+  <div class="d-none d-lg-block">
+    <div class="row text mb-1">
+      <div class="col-lg-2">
+         登録日
+      </div>
+      <div class="col-lg-2">
+         名前
+      </div>
+      <div class="col-lg-2">
+          電話番号
+      </div>
+      <div class="col-lg-3">
+          メールアドレス
+      </div>
+      <div class="col-lg-1">
+          <i class="fa-solid fa-heart"></i>
+      </div>
+      <div class="col-lg-1">
+          <i class="fa-regular fa-paper-plane"></i>
+      </div>
+      <div class="col-lg-1">
+          <i class="fa-solid fa-ban"></i>
+      </div>
+    </div>
+  </div>
 
  <% @customers.each do |customer| %>
-  <div class="row text text-center m-1">
+  <div class="row text mb-3  customer">
     <div class="col-lg-2">
-     <%= l customer.created_at, format: :long %>
+      <div class="d-lg-block d-none">
+        <%= l customer.created_at, format: :long %>
+      </div>
     </div>
-    <div class="col-lg-2">
+
+    <div class="col-lg-2 d-flex">
+      <div class="d-lg-none d-block">
+         名前：
+      </div>
       <%= customer.name %>
     </div>
-    <div class="col-lg-2">
+    <div class="col-lg-2 d-flex">
+      <div class="d-lg-none d-block">
+         電話番号：
+      </div>
        <%= customer.telephone_number %>
     </div>
-    <div class="col-lg-3">
+    <div class="col-lg-3 d-flex">
+      <div class="d-lg-none d-block">
+         メールアドレス：
+      </div>
        <%= customer.email %>
     </div>
-    <div class="col-lg-1">
+    <div class="col-lg-1 d-flex">
+      <div class="d-lg-none d-block">
+         問い合わせ数：
+      </div>
        <%= customer.enquiries.count %>
     </div>
-    <div class="col-lg-1">
+    <div class="col-lg-1 d-flex">
+      <div class="d-lg-none d-block">
+         お気に入り数：
+      </div>
        <%= customer.favorites.count %>
     </div>
-    <div class="col-lg-1">
+    <div class="col-lg-1 d-flex">
+      <div class="d-lg-none d-block">
+         ステータス：
+      </div>
       <% if customer.is_deleted == false %>
         有効
       <% else %>

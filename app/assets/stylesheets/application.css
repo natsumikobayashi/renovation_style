@@ -243,11 +243,16 @@ table{
 /*}*/
 
 .itemImage {
- width: 300px;
- height: 200px;
+ width: 400px;
+ height: 300px;
  object-fit: cover;
 }
 
+.managerImage{
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+}
 .mainitemImage{
  width: 400px;
  height: 300px;
@@ -283,10 +288,12 @@ p,
   /*font-family: 'Merriweather', serif;*/
 }
 
-.item-tittle{
+.item-tittle,
+.form-tittle{
   font-size: 20px;
   color: #8E745A;
   font-weight: bold;
+  text-align: right;
 }
 
 .item-list{
@@ -314,8 +321,8 @@ p,
   display: flex;
 }
 
-.manager{
-  /*text-align: center;*/
+.manager,
+.customer{
   background-color: #F4EDE6;
 }
 
@@ -420,6 +427,7 @@ p,
   color: #8E745A;
   font-size: 18px;
   font-family: 'Kosugi Maru', sans-serif;
+  overflow-wrap: break-word;
 }
 
 .confirm-text{
@@ -429,9 +437,9 @@ p,
 
 }
 
-.item-tittle{
-  text-align: right;
-}
+/*.item-tittle{*/
+/*  text-align: right;*/
+/*}*/
 
 .no-favorite{
   font-size: 20px;
@@ -454,13 +462,17 @@ p,
   background-color: yellow;
 }
 
-a.page-link {
+.page-link a {
   color: #6A4623;
 }
 
-.day{
-  background-color:
+/*.day{*/
+/*  background-color;*/
+/*}*/
 
+.enquiry-message{
+  color: #7b5544;
+  font-size: 16px;
 }
 
 /*@media screen and (max-width: 1024px) {*/
@@ -475,12 +487,12 @@ a.page-link {
   /*  width: 80%;*/
   /*}*/
  .itemImage{
-  width: 70%;
-  height: 60%;
+  width: 100%;
+  height: 100%;
   }
   .mainitemImage{
-  width: 80%;
-  height: 80%;
+  width: 100%;
+  height: 100%;
  }
 
  .favoriteitemImage{
@@ -496,6 +508,11 @@ a.page-link {
   width: 170px;
   height: 170px;
   object-fit: contain;
+}
+
+.managerImage{
+  width: 70%;
+  height: 100%;
 }
 
 .noimage{
@@ -522,14 +539,19 @@ a.page-link {
 }
 
 .explanation-tittle{
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .explanation{
-  font-size: 12px;
+  font-size: 11px;
 }
 .text{
-  font-size: 16px;
+  font-size: 14px;
+}
+
+.enquiry-message{
+  font-size: 14px;
+  text-align: start;
 }
 
 .room-tittle a,
@@ -603,7 +625,7 @@ p,
 .searchItem {
   min-width: 40%;
   max-width: 40%;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .link{
@@ -634,7 +656,7 @@ p,
 }
 
 .confirm-text{
-  font-size: 10px;
+  font-size: 13px;
 }
 
 .no-favorite{
@@ -682,10 +704,14 @@ table{
   text-align: center;
   vertical-align: middle;
   text-decoration: none;
+  color: #6A4623;
   letter-spacing: 0.1em;
   border-radius: 0.25rem;
-  border: 1px solid ;
+  border: 1px solid #A69179;
 }
+
+
+
 .line_button{
  font-size: 16px;
 }

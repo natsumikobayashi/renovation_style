@@ -134,14 +134,14 @@
 
      <% if flash[:alert].present? %>
        <div class="position-absolute w-100" style="top: 0;">
-        <div class="alert alert-danger text-center">
+        <div class="alert alert-danger text-center text">
           <%= flash[:alert] %>
         </div>
         </div>
       <% end %>
       <% if flash[:notice].present? %>
       <div class="position-absolute w-100" style="top: 0;">
-        <div class="alert alert-success text-center">
+        <div class="alert alert-success text-center text">
           <%= flash[:notice] %>
         </div>
        </div>

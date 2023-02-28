@@ -44,6 +44,9 @@ ja:
         main_image: メイン画像
         image_after: 間取り図(after)
 
+      room_image:
+       name: 室内画像のカテゴリ
+
       taste_tag:
         name: 名前
 

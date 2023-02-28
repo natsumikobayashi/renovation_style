@@ -7,10 +7,10 @@
    <%= render "layouts/error_messages", model: f.object,sort: ["名前"] %>
    <div class="form-group mt-3">
     <div class="row align-items-center">
-      <div class="col-lg-4">
+      <div class="col-lg-4 col-8">
         <%= f.text_field :name, :placeholder => "テイスト名(10文字以下)", class: 'form-control' %>
       </div>
-      <div class="col-lg-3 text-center">
+      <div class="col-lg-3 col-4 text-center">
         <%= f.submit '新規登録', class: "submitButton" %>
       </div>
     </div>
@@ -18,18 +18,18 @@
   <% end %>
 
   <div class="row text align-items-center">
-    <div class="col-lg-12 font-weight-bold">
+    <div class="col-lg-12 col-12 font-weight-bold">
       名前
     </div>
   </div>
 
   <% @taste_tags.each do |taste_tag| %>
-   <div class="row text align-items-center m-1">
-     <div class="col-lg-4">
+   <div class="row text align-items-center mb-1">
+     <div class="col-lg-4 col-8">
        <%= taste_tag.name %>
      </div>
-     <div class="col-lg-3 text-center">
-       <%= link_to '編集する', edit_observer_taste_tag_path(taste_tag.id), class: "btn" %>
+     <div class="col-lg-3 col-4 text-center">
+       <%= link_to '編集', edit_observer_taste_tag_path(taste_tag.id), class: "btn" %>
      </div>
     </div>
   <% end %>

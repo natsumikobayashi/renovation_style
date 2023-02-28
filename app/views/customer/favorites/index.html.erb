@@ -5,39 +5,41 @@
 
  <% if current_customer.favorites.exists? %>
   <% @favorites.each do |favorite| %>
-  <div class="row favorite-list d-flex text-center align-items-sm-center mb-2">
-    <div class="col-lg-2 col-5">
-      <%= image_tag favorite.room.main_image, class: "favoriteitemImage" if favorite.room.main_image.attached?%>
-    </div>
-    <div class="col-lg-5 col-7 favorite-list-item-text m-auto" style="text-align: center;">
-     <div class="item-detail-text">
-        <%= link_to customer_room_path(favorite.room_id) do %>
-         <%= favorite.room.catchphrase %>
+   <% if favorite.room.is_deleted == false %>
+    <div class="row favorite-list d-flex text-center align-items-sm-center mb-2">
+      <div class="col-lg-2 col-5">
+        <%= image_tag favorite.room.main_image, class: "favoriteitemImage" if favorite.room.main_image.attached?%>
+      </div>
+      <div class="col-lg-5 col-7 favorite-list-item-text m-auto" style="text-align: center;">
+       <div class="item-detail-text">
+          <%= link_to customer_room_path(favorite.room_id) do %>
+           <%= favorite.room.catchphrase %>
+          <% end %>
+       </div>
+       <div class="d-lg-block d-none text">
+        #<%= favorite.room.taste_tag.name %> #<%= favorite.room.floor_plan.floor_name %>
+       </div>
+       <div class="item-detail-text text">
+         <%= favorite.room.manager.name %>
+       </div>
+      </div>
+       <div class="col-lg-4 col-5 mt-2">
+        <% if current_customer.enquiries.find_by(room_id: favorite.room_id) %>
+          <%= link_to "問い合わせ済み", customer_enquiry_path(favorite.room_id), class: "btn" %>
+        <% else %>
+         <%= form_with model: @enquiry, url: customer_enquiries_new_path do |f| %>
+          <%= f.hidden_field :room_id, :value => favorite.room_id %>
+          <%= f.hidden_field :manager_id, :value => favorite.room.manager_id %>
+          <%= f.submit "問い合わせをする", class: "submitButton" %>
+         <% end %>
         <% end %>
-     </div>
-     <div class="d-lg-block d-none text">
-      #<%= favorite.room.taste_tag.name %> #<%= favorite.room.floor_plan.floor_name %>
-     </div>
-     <div class="item-detail-text text">
-       <%= favorite.room.manager.name %>
-     </div>
-    </div>
-     <div class="col-lg-4 col-5 mt-2">
-      <% if current_customer.enquiries.find_by(room_id: favorite.room_id) %>
-        <%= link_to "問い合わせ済み", customer_enquiry_path(favorite.room_id), class: "btn" %>
-      <% else %>
-       <%= form_with model: @enquiry, url: customer_enquiries_new_path do |f| %>
-        <%= f.hidden_field :room_id, :value => favorite.room_id %>
-        <%= f.hidden_field :manager_id, :value => favorite.room.manager_id %>
-        <%= f.submit "問い合わせをする", class: "submitButton" %>
-       <% end %>
-      <% end %>
-    </div>
+      </div>
 
-    <div class="col-lg-1 col-7 mt-2" id="favorite-link-<%= favorite.room_id %>">
-    <%= render 'customer/favorites/favorite', room: favorite.room %>
+      <div class="col-lg-1 col-7 mt-2" id="favorite-link-<%= favorite.room_id %>">
+      <%= render 'customer/favorites/favorite', room: favorite.room %>
+      </div>
     </div>
-  </div>
+   <% end %>
   <% end %>
 
   <% else %>
@@ -47,7 +49,7 @@
      <div class="no-favorite">
       登録がありません
      </div>
-     <%= image_tag '段ボール箱　12.png', :size => '300x200' %>
+     <%= image_tag '段ボール箱　12.png', :size => '200x150' %>
    </div>
   </div>
 

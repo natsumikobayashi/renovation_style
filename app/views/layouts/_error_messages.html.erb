@@ -5,8 +5,8 @@
       <% sort.each do |column_name| %>
        <% model.errors.full_messages.each do |message| %>
          <% if message.include?(column_name) %>
-          <li><%= message %></li>
-         <% end %> 
+          <li class="text"><%= message %></li>
+         <% end %>
       <% end %>
     <% end %>
     </ul>

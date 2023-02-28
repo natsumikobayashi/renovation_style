@@ -66,45 +66,59 @@
      </div>
     <% end %>
 
-  <% @rooms.each do |room| %>
-    <div class="row mb-3 align-items-center">
-     <div class="col-lg-5 col-xs-12" style="text-align: center; align-items: center;">
-      <%= link_to customer_room_path(room.id) do %>
-        <%= image_tag room.main_image, class: "mainitemImage" if room.main_image.attached? %>
-     <% end %>
-     </div>
-     <div class="col-lg-7 col-xs-12">
-       <div class="room-tittle font-weight-bold" style="text-align: center">
-        <%= room.catchphrase %>
+   <% if @rooms.exists? %>
+    <% @rooms.each do |room| %>
+      <div class="row mb-5 align-items-center">
+       <div class="col-lg-5 col-xs-12" style="text-align: center; align-items: center;">
+        <%= link_to customer_room_path(room.id) do %>
+          <%= image_tag room.main_image, class: "mainitemImage" if room.main_image.attached? %>
+       <% end %>
        </div>
+       <div class="col-lg-7 col-xs-12">
+         <div class="room-tittle font-weight-bold" style="text-align: center">
+          <%= room.catchphrase %>
+         </div>
 
-      <ul style="list-style: none; text-align: center" >
-        <li class="explanation">
-         <%= room.owner_comment %>
-        </li>
-        <li class="explanation">
-          #<%= room.taste_tag.name %> #<%= room.floor_plan.floor_name %>
-        </li>
-      </ul>
-      <div style="vertical-align: middle;">
-       <ul class="manager-detail" style="list-style: none; text-align: center">
-         <li class="manager-name">
-           <%= room.manager.name %>
-         </li>
-         <li class="explanation">
-           <%= room.manager.catchphrase %>
-         </li>
-       </ul>
+        <ul style="list-style: none; text-align: center" >
+          <li class="explanation">
+           <%= room.owner_comment %>
+          </li>
+          <li class="explanation">
+            #<%= room.taste_tag.name %> #<%= room.floor_plan.floor_name %>
+          </li>
+        </ul>
+        <div style="vertical-align: middle;">
+         <ul class="manager-detail" style="list-style: none; text-align: center">
+           <li class="manager-name">
+             <%= room.manager.name %>
+           </li>
+           <li class="explanation">
+             <%= room.manager.catchphrase %>
+           </li>
+         </ul>
+         </div>
+        <div class="d-flex justify-content-around" style="align-items: center">
+         <%= link_to '詳細を見る', customer_room_path(room.id), class: "btn" %>
+          <div style="text-align:center;" id="favorite-link-<%= room.id %>">
+           <%= render 'customer/favorites/favorite', room: room %>
+          </div>
        </div>
-      <div class="d-flex justify-content-around" style="align-items: center">
-       <%= link_to '詳細を見る', customer_room_path(room.id), class: "btn" %>
-        <div style="text-align:center;" id="favorite-link-<%= room.id %>">
-         <%= render 'customer/favorites/favorite', room: room %>
-        </div>
-     </div>
-     </div>
-    </div>
+       </div>
+      </div>
     <% end %>
+   <% else %>
+     <div class="row mb-5 align-items-center">
+      <div class="col-lg-12 col-xs-12 text" style="text-align: center; align-items: center;">
+       <div class="text">
+        該当するお部屋がありません
+       </div>
+       <div>
+        <%= image_tag '段ボール箱　12.png', :size => '200x140' %>
+       </div>
+      </div>
+     </div>
+   <% end %>
+
 
   <div class="pagination justify-content-center">
    <%= paginate @rooms, theme: 'paginate' %>
