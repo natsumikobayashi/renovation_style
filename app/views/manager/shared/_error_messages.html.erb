@@ -1,6 +1,7 @@
 <% if resource.errors.any? %>
   <div class="alert alert-warning text">
     <ul>
+
       <% sort.each do |column_name| %>
        <% resource.errors.full_messages.each do |message| %>
         <% if message.include?(column_name) %>

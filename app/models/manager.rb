@@ -7,10 +7,9 @@ class Manager < ApplicationRecord
 
   has_many :enquiries
   has_many :rooms
-  has_many :manager_images
+  has_many_attached :manager_images
 
-  accepts_nested_attributes_for :manager_images, allow_destroy: true
-  validates_associated :manager_images
+  #accepts_nested_attributes_for :manager_images, allow_destroy: true
 
   validates :name, presence: true
   validates :company_id, presence: true
@@ -22,6 +21,18 @@ class Manager < ApplicationRecord
   length: { minimum: 5, maximum: 40 }
   validates :area_id, presence: true
   validates :reqular_holiday, presence: true
+ # validates :manager_images, attached_file_presence: true
+  #validate :manager_images_presence
+   validates :manager_images, attached: true
+
+
+ # def manager_images_presence
+
+   # if manager_images.count == 0
+     # errors.add(:, "ddddd")
+   # end
+ # end
+
   #validates :password, presence: true
 
   # def get_manager_image(width,height)

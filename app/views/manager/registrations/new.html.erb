@@ -8,9 +8,9 @@
    全項目入力必須です。
  </div>
 
-  <%= form_with model: @manager, url: registration_path(resource_name) do |f| %>
+  <%= form_with model: @manager, url: manager_registration_path() do |f| %>
    <%= render "manager/shared/error_messages", resource: resource,
-   sort: ["会社名", "会員ID","住所","電話番号","メールアドレス", "ホームページ","会社紹介文","店舗外観・スタッフ写真","対応エリア","営業時間・定休日","パスワード"] %>
+   sort: ["会社名", "会員ID","住所","電話番号","メールアドレス", "ホームページ","会社紹介文","画像","対応エリア","営業時間・定休日","パスワード"] %>
 
        <div class="form-group">
          <div class="row">
@@ -79,12 +79,7 @@
          <div class="row">
           <div class="col-lg-5">
            <div class="form-item-comment">店舗外観・スタッフなどの写真を選択ください(複数選択可)</div>
-           <div><%= f.fields_for :manager_images do |manager_image| %>
-             <%= render 'manager/mypages/manager_image_fields', f: manager_image %>
-             <% end %>
-            <div class="links mt-2">
-              <%#= link_to_add_association '＋画像追加', f, :manager_images, class: "btn" %>
-            </div>
+           <div><%= f.file_field :manager_images, multiple: true %>
           </div>
          </div>
        </div>

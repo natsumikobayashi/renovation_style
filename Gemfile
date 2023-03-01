@@ -64,3 +64,5 @@ gem 'cocoon'
 gem 'enum_help'
 
 gem 'devise-i18n'
+
+gem 'active_storage_validations'

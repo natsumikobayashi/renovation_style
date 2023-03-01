@@ -6,7 +6,7 @@
 
   <%= form_with model: @manager, url: manager_mypage_path, method: :patch do |f| %>
   <%= render "layouts/error_messages", model: @manager,
-   sort: ["会社名", "会員ID","住所","電話番号","メールアドレス", "ホームページ","会社紹介文","店舗外観・スタッフ写真","対応エリア","営業時間・定休日","パスワード"] %>
+   sort: ["会社名", "会員ID","住所","電話番号","メールアドレス", "ホームページ","会社紹介文","画像","対応エリア","営業時間・定休日","パスワード"] %>
 
       <div class="form-group">
         <div class="row">

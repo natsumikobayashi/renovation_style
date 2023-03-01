@@ -8,12 +8,6 @@ class Manager::RegistrationsController < Devise::RegistrationsController
     manager_mypage_path
   end
 
-  protected
-
-  def configure_permitted_parameters
-   devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :company_id, :address, :telephone_number, :home_page, :catchphrase, :area_id,
-   :reqular_holiday, :password_confirmation, :email, :password, manager_images_attributes:[:id, :manager_id, :image, :_destroy]])
-  end
 
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
@@ -26,7 +20,24 @@ class Manager::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   # def create
   #   super
+
   # end
+
+    # def manager_params
+    #   params.permit(:sign_up, keys: [:name, :company_id, :address, :telephone_number, :home_page, :catchphrase, :area_id,
+    #   :reqular_holiday, :password_confirmation, :email, :password, manager_images_attributes:[:id, :manager_id, :image, :_destroy]])
+    # end
+
+  protected
+
+  def configure_permitted_parameters
+   devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :company_id, :address, :telephone_number, :home_page, :catchphrase, :area_id,
+   :reqular_holiday, :password_confirmation, :email, :password, manager_images: []])
+  end
+
+
+
+
 
   # GET /resource/edit
   # def edit

@@ -31,7 +31,7 @@ class Room < ApplicationRecord
   validates :taste_tag_id, presence: true
 
   validates :floor_plan_id, presence: true
-  
+
 
   def get_room_image(width,height)
     image.variant(resize_to_limit: [width, height]).processed
