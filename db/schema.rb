@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_25_133420) do
+ActiveRecord::Schema.define(version: 2023_03_01_021441) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -93,6 +93,13 @@ ActiveRecord::Schema.define(version: 2023_01_25_133420) do
     t.string "floor_name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "manager_images", force: :cascade do |t|
+    t.integer "manager_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["manager_id"], name: "index_manager_images_on_manager_id"
   end
 
   create_table "managers", force: :cascade do |t|

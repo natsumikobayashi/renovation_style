@@ -44,6 +44,7 @@ class Manager::RoomsController < ApplicationController
   private
 
   def room_params
-    params.require(:room).permit(:catchphrase, :user_comment, :owner_comment, :taste_tag_id, :manager_id, :floor_plan_id, :main_image, :image_before, :image_after, :is_deleted, room_images_attributes:[:id, :room_id, :name, :image, :_destroy])
+    params.require(:room).permit(:catchphrase, :user_comment, :owner_comment, :taste_tag_id, :manager_id, :floor_plan_id, :main_image, :image_before,
+    :image_after, :is_deleted, room_images_attributes:[:id, :room_id, :name, :image, :_destroy])
   end
 end

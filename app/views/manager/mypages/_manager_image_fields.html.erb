@@ -1,0 +1,8 @@
+<div class="nested-fields">
+  <div class="form-group">
+    <label>画像を選択ください(after)</label>
+    <%= f.file_field :manager_image, accept: "image/*" %>
+    <%= image_tag f.object.manager_image.variant(resize_to_limit: [300, 200]) if f.object.manager_image.attached? %>
+  </div>
+  <%= link_to_remove_association "削除", f %>
+</div>

@@ -4,7 +4,7 @@
  </div>
 
  <div class="confirm-text">
-   リフォーム情報を投稿するために会員登録が必要です。
+   リフォーム情報を投稿するために会員登録が必要です。<br class="d-lg-none d-block">
    全項目入力必須です。
  </div>
 
@@ -12,108 +12,113 @@
    <%= render "manager/shared/error_messages", resource: resource,
    sort: ["会社名", "会員ID","住所","電話番号","メールアドレス", "ホームページ","会社紹介文","店舗外観・スタッフ写真","対応エリア","営業時間・定休日","パスワード"] %>
 
-       <div class="form-group item-tittle">
+       <div class="form-group">
          <div class="row">
            <div class="col-lg-5">
-            <div class="form-item text-justify">会社名</div>
+            <div class="form-item">会社名</div>
             <div><%= f.text_field :name, class: 'form-control' %></div>
            </div>
          </div>
        </div>
 
-       <div class="form-group item-tittle">
+       <div class="form-group">
          <div class="row">
            <div class="col-lg-5">
-           <div class="form-item text-justify">会員ID</div>
+           <div class="form-item">会員ID</div>
            <div><%= f.text_field :company_id, :placeholder => "任意の英数字を設定下さい", class: 'form-control' %></div>
           </div>
          </div>
        </div>
 
-       <div class="form-group item-tittle">
+       <div class="form-group">
          <div class="row">
           <div class="col-lg-5">
-           <div class="form-item text-justify">住所</div>
+           <div class="form-item">住所</div>
            <div><%= f.text_field :address, :placeholder => "都道府県から入力下さい", class: 'form-control' %></div>
           </div>
          </div>
        </div>
 
-       <div class="form-group item-tittle">
+       <div class="form-group">
          <div class="row">
           <div class="col-lg-5">
-           <div class="form-item text-justify">電話番号</div>
+           <div class="form-item">電話番号</div>
            <div><%= f.text_field :telephone_number, :placeholder => "ハイフンあり", class: 'form-control' %></div>
           </div>
          </div>
        </div>
 
-       <div class="form-group item-tittle">
+       <div class="form-group">
          <div class="row">
           <div class="col-lg-5">
-           <div class="form-item text-justify">メールアドレス</div>
+           <div class="form-item">メールアドレス</div>
            <div><%= f.email_field :email, class: 'form-control' %></div>
           </div>
          </div>
        </div>
 
-       <div class="form-group item-tittle">
+       <div class="form-group">
          <div class="row">
           <div class="col-lg-5">
-           <div class="form-item text-justify">ホームページ</div>
+           <div class="form-item">ホームページ</div>
            <div><%= f.text_field :home_page, :placeholder => "URL", class: 'form-control' %></div>
           </div>
          </div>
        </div>
 
-       <div class="form-group item-tittle">
+       <div class="form-group">
          <div class="row">
           <div class="col-lg-5">
-           <div class="form-item text-justify">会社紹介文</div>
+           <div class="form-item">会社紹介文</div>
            <div><%= f.text_area :catchphrase, :placeholder => "5～40文字以下", class: 'form-control' %></div>
           </div>
          </div>
        </div>
 
-       <div class="form-group item-tittle">
+       <div class="form-group">
          <div class="row">
           <div class="col-lg-5">
-           <div class="form-item-comment text-justify">店舗外観・スタッフなどの写真を選択ください(複数選択可)</div>
-           <div><%= f.file_field :images, multiple: true, accept: "image/*" %></div>
+           <div class="form-item-comment">店舗外観・スタッフなどの写真を選択ください(複数選択可)</div>
+           <div><%= f.fields_for :manager_images do |manager_image| %>
+             <%= render 'manager/mypages/manager_image_fields', f: manager_image %>
+             <% end %>
+            <div class="links mt-2">
+              <%#= link_to_add_association '＋画像追加', f, :manager_images, class: "btn" %>
+            </div>
           </div>
          </div>
        </div>
 
-       <div class="form-group item-tittle">
+       <div class="form-group">
          <div class="row">
           <div class="col-lg-5">
-           <div class="form-item text-justify">対応エリア</div>
-           <div class="text-justify">
+           <div class="form-item">対応エリア</div>
+           <div class="form-item">
              <%= f.collection_select(:area_id, Area.all, :id, :name, prompt: "選択してください") %>
             </div>
           </div>
          </div>
        </div>
 
-       <div class="form-group item-tittle">
+       <div class="form-group">
          <div class="row">
          <div class="col-lg-5">
-           <div class="form-item-comment text-justify">営業時間・定休日</div>
+           <div class="form-item-comment">営業時間・定休日</div>
            <div><%= f.text_field :reqular_holiday, class: 'form-control' %></div>
           </div>
         </div>
        </div>
 
-       <div class="form-group item-tittle">
+       <div class="form-group">
          <div class="row">
            <div class="col-lg-5">
-            <div class="form-item text-justify">パスワード</div>
+            <div class="form-item">パスワード</div>
             <div><%= f.password_field :password, autocomplete: "new-password", :placeholder => "6文字以上", class: 'form-control' %></div>
            </div>
          </div>
        </div>
 
-       <div class="form-group item-tittle">
+       <div class="form-group">
          <div class="row">
            <div class="col-lg-5">
             <%= f.password_field :password_confirmation, autocomplete: "new-password", :placeholder => "確認用", class: 'form-control' %>

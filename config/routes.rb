@@ -33,6 +33,9 @@ Rails.application.routes.draw do
        patch 'subscribe' => 'mypages#subscribe'
        get 'confirm' => 'mypages#confirm'
      end
+    delete 'managers/:manager_image_id/delete_manager_image' => 'managers#delete_manager_image'
+    resources :manager_images, only: [:destroy]
+    
     resources :enquiries, only:[:index, :update, :show]
     post 'rooms/confirm' => 'rooms#confirm'
     delete 'rooms/:room_image_id/delete_floor_image' => 'rooms#delete_floor_image'

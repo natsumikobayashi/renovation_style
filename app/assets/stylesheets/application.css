@@ -243,8 +243,8 @@ table{
 /*}*/
 
 .itemImage {
- width: 400px;
- height: 300px;
+ width: 360px;
+ height: 270px;
  object-fit: cover;
 }
 
@@ -285,7 +285,13 @@ p,
   font-size: 20px;
   color: #8E745A;
   width: 150px;
-  /*font-family: 'Merriweather', serif;*/
+  font-weight: bold;
+}
+
+.form-item-comment{
+  font-size: 20px;
+  color: #8E745A;
+  font-weight: bold;
 }
 
 .item-tittle,
@@ -401,9 +407,9 @@ p,
 }
 
 .itembar{
-  font-size: 20px;
+  font-size: 16px;
   color: #8E745A;
-  /*font-weight: bold;*/
+  font-weight: bold;
 }
 
 .itemList{
@@ -417,6 +423,11 @@ p,
 
 .room-detail{
   width: 350px;
+}
+
+.manager-name{
+  font-size: 18px;
+  color: #7b5544;
 }
 
 .room-manager{
@@ -546,7 +557,7 @@ p,
   font-size: 11px;
 }
 .text{
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .enquiry-message{
@@ -606,6 +617,10 @@ p,
   width: 80%;
 }
 
+.form-item-comment{
+  font-size: 16px;
+}
+
 .item-tittle{
   font-size: 17px;
   text-align: start;
@@ -617,8 +632,7 @@ p,
 }
 
 .manager-name{
-  font-size: 17px;
-  color: #7b5544;
+  font-size: 14px;
 }
 
 

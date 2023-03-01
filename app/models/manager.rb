@@ -7,8 +7,10 @@ class Manager < ApplicationRecord
 
   has_many :enquiries
   has_many :rooms
-  has_many_attached :images
+  has_many :manager_images
 
+  accepts_nested_attributes_for :manager_images, allow_destroy: true
+  validates_associated :manager_images
 
   validates :name, presence: true
   validates :company_id, presence: true
