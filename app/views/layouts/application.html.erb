@@ -134,14 +134,14 @@
 
      <% if flash[:alert].present? %>
        <div class="position-absolute w-100" style="top: 0;">
-        <div class="alert alert-danger text-center text">
+        <div class="alert alert-danger text-center alert-text">
           <%= flash[:alert] %>
         </div>
         </div>
       <% end %>
       <% if flash[:notice].present? %>
       <div class="position-absolute w-100" style="top: 0;">
-        <div class="alert alert-success text-center text">
+        <div class="alert alert-success text-center alert-text">
           <%= flash[:notice] %>
         </div>
        </div>
@@ -151,11 +151,14 @@
   </main>
 
   <footer class="d-flex" style="justify-content: space-around">
-   <div class="links">
-    <%= link_to new_manager_session_path do %>
-    リフォーム会社の方はこちら<i class="fa-regular fa-hand-point-up"></i>
-    <% end %>
-   </div>
+   <% if observer_signed_in? %>
+    <% else %>
+      <div class="links">
+       <%= link_to new_manager_session_path do %>
+        リフォーム会社の方はこちら<i class="fa-regular fa-hand-point-up"></i>
+       <% end %>
+      </div>
+   <% end %>
  </footer>
 
  </body>

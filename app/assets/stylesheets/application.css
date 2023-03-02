@@ -560,6 +560,10 @@ p,
   font-size: 13px;
 }
 
+.alert-text{
+  font-size: 12px;
+}
+
 .enquiry-message{
   font-size: 14px;
   text-align: start;

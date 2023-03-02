@@ -1,6 +1,6 @@
 <!--部分テンプレート-->
 <% if model.errors.any? %>
-  <div class="alert alert-warning">
+  <div class="alert alert-warning alert-text">
     <ul class="error">
       <% sort.each do |column_name| %>
        <% model.errors.full_messages.each do |message| %>

@@ -34,7 +34,7 @@ ja:
         area_id: 対応エリア
         reqular_holiday: 営業時間・定休日
         password: パスワード
-        manager_images: 画像
+        image: 画像
 
       room:
         catchphrase: キャッチコピー

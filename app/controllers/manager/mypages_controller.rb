@@ -34,7 +34,7 @@ class Manager::MypagesController < ApplicationController
   def mypage_params
     params.require(:manager).permit(:name, :company_id, :address,
     :telephone_number, :email, :home_page, :catchphrase, :area_id,
-    :reqular_holiday, manager_images_attributes:[:id, :manager_id, :_destroy])
+    :reqular_holiday, :image)
   end
 
 end

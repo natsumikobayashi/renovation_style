@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Observer::SessionsController < Devise::SessionsController
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
   def after_sign_in_path_for(resource)
      observer_managers_path
   end
@@ -25,8 +27,11 @@ class Observer::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  # protected
+  protected
 
+  def configure_permitted_parameters
+   devise_parameter_sanitizer.permit(:sign_in, keys: [:login_id, :password_confirmation, :email, :password])
+  end
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])

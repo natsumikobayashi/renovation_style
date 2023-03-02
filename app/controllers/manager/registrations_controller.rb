@@ -32,7 +32,7 @@ class Manager::RegistrationsController < Devise::RegistrationsController
 
   def configure_permitted_parameters
    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :company_id, :address, :telephone_number, :home_page, :catchphrase, :area_id,
-   :reqular_holiday, :password_confirmation, :email, :password, manager_images: []])
+   :reqular_holiday, :password_confirmation, :email, :password, :image])
   end
 
 

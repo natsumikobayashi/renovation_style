@@ -5,9 +5,9 @@ class Manager < ApplicationRecord
          :recoverable, :rememberable, :validatable, authentication_keys: [:company_id, :email]
   belongs_to :area
 
-  has_many :enquiries
-  has_many :rooms
-  has_many_attached :manager_images
+  has_many :enquiries, inverse_of: :manager, dependent: :destroy
+  has_many :rooms, inverse_of: :manager, dependent: :destroy
+  has_one_attached :image
 
   #accepts_nested_attributes_for :manager_images, allow_destroy: true
 
@@ -23,7 +23,7 @@ class Manager < ApplicationRecord
   validates :reqular_holiday, presence: true
  # validates :manager_images, attached_file_presence: true
   #validate :manager_images_presence
-   validates :manager_images, attached: true
+   validates :image, attached: true
 
 
  # def manager_images_presence

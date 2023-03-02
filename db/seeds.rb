@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 if Observer.find_by(email: 'test@test') == nil
-  Observer.create!(email: 'test@test', password: 'testpass', rogin_id: 'testid')
+  Observer.create!(email: 'test@test', password: 'testpass', login_id: 'testid')
 end
 
 Area.create!(name: '全国')

@@ -74,16 +74,15 @@
        <div class="form-group">
          <div class="row">
           <div class="col-lg-12">
-           <div class="form-item-comment">店舗外観・スタッフなどの写真を選択ください(複数選択可)</div>
+           <div class="form-item-comment">店舗外観・スタッフなどの画像</div>
            <div class="image pt-1">
-             <div class="form-item">現在の写真</div>
-              <%# if @manager.manager_image.attached? %>
-               <% @manager.manager_images.each do |manager_image| %>
-                 <%= image_tag manager_image, class: "itemImage" %>
-               <% end %>
-              <%# end %>
+             <div class="text">現在の画像</div>
+              <%= image_tag f.object.image, class: "managerImage" %>
+             <div class="text">変更する場合はこちらから選択<i class="fa-regular fa-circle-down"></i></div>
+             <div>
+               <%= f.file_field :image, accept: "image/*" %>
             </div>
-           <div><%= f.file_field :images, multiple: true, accept: "image/*" %></div>
+            </div>
           </div>
          </div>
        </div>
@@ -92,7 +91,9 @@
          <div class="row">
           <div class="col-lg-12">
            <div class="form-item">対応エリア</div>
-           <div><%= f.collection_select(:area_id, Area.all, :id, :name, prompt: "選択してください") %></div>
+           <div>
+             <%= f.collection_select(:area_id, Area.all, :id, :name, prompt: "選択してください") %>
+            </div>
           </div>
          </div>
        </div>
