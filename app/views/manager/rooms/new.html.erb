@@ -31,7 +31,7 @@
       <div class="form-group">
         <div class="row">
           <div class="col-lg-12">
-            <div class="form-item">間取り図 (before)</div>
+            <div class="form-item-comment">間取り図 (before) ※間取り変更がない場合は不要</div>
             <div><%= room.file_field :image_before, accept: "image/*" %></div>
           </div>
         </div>
@@ -40,7 +40,7 @@
       <div class="form-group">
         <div class="row">
           <div class="col-lg-12">
-            <div class="form-item">間取り図 (after)</div>
+            <div class="form-item-comment">間取り図 (after)</div>
             <div><%= room.file_field :image_after, accept: "image/*" %></div>
           </div>
         </div>
