@@ -48,7 +48,7 @@ class Manager::SessionsController < Devise::SessionsController
    @manager = Manager.find_by(email: params[:manager][:email])
    return if !@manager
    if @manager.valid_password?(params[:manager][:password]) && @manager.is_deleted == true
-    redirect_to manager_top_path
+    redirect_to new_manager_registration_path
    end
   end
 
