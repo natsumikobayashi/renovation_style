@@ -22,6 +22,7 @@
         </div>
        <% else %>
         <div class="m-2">
+         <div class="text text-align-center">間取り図</div>
          <%= image_tag @room.image_after, class: "floorImage" if @room.image_after.attached? %>
         </div>
        <% end %>

@@ -21,6 +21,9 @@ class Manager::MypagesController < ApplicationController
   def subscribe
     @manager = current_manager
     if @manager.update(is_deleted: true)
+        @manager.rooms.each do |room|
+          room.update(is_deleted: true)
+        end
      reset_session
      redirect_to new_manager_registration_path, notice: "退会しました"
     else

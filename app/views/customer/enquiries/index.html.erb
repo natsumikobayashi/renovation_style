@@ -26,12 +26,16 @@
          <%= enquiry.room.catchphrase %>
         <% end %>
        <% else %>
-        部屋情報は掲載終了しております
+        掲載終了しております
        <% end %>
       </div>
 
      <div class="col-lg-4 text font-weight-bold">
-      <%= enquiry.manager.name %>
+      <% if enquiry.manager.is_deleted == false %>
+       <%= enquiry.manager.name %>
+      <% else %>
+       退会しております
+      <% end %>
      </div>
 
      <div class="col-lg-3 mt-2">

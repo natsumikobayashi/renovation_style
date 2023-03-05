@@ -15,13 +15,14 @@ ja:
       taste_tag: テイスト
       observer: 管理者
 
-
     attributes:
       customer:
         name: 名前
         telephone_number: 電話番号
         email: メールアドレス
         password: パスワード
+        password_confirmation: パスワード
+
 
       manager:
         name: 会社名
@@ -34,6 +35,7 @@ ja:
         area_id: 対応エリア
         reqular_holiday: 営業時間・定休日
         password: パスワード
+        password_confirmation: パスワード
         image: 画像
 
       room:
@@ -55,6 +57,8 @@ ja:
       observer:
         email: メールアドレス
         login_id: ログインID
+        password_confirmation: パスワード
+        password: パスワード
 
       manager_image:
         image: 画像
@@ -141,7 +145,7 @@ ja:
     messages:
       accepted: を受諾してください
       blank: を入力してください
-      confirmation: と%{attribute}の入力が一致しません
+      confirmation: が一致しません
       empty: を入力してください
       equal_to: は%{count}にしてください
       even: は偶数にしてください
