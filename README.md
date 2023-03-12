@@ -39,3 +39,15 @@ https://docs.google.com/spreadsheets/d/1nzNMsWnrC88zPGE4Oubkcl6Yv9imD-X-fLubw4v1
 ## 使用素材
 - 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
 - 使用しない場合は、使用素材の項目をREADMEから削除してください。
+-
+
+## 環境構築手順書
+1. バンドルインストール
+```
+bundle install
+```
+2. yarnを使用して、bootstrapとpopperをインストール
+
+```
+yarn add jquery bootstrap@4.5 popper.js
+```
