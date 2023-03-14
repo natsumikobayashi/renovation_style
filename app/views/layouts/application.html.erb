@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%#= favicon_link_tag() %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -116,7 +117,7 @@
                <% end %>
                <%= link_to customer_mypage_path do %>
                 <li class="nav-item p-1">
-                 <i class="fa-regular fa-user size"></i> Mypage
+                 <i class="far fa-user size"></i> Mypage
                 </li>
                <% end %>
 
