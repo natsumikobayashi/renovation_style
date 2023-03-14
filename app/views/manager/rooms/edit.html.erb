@@ -30,7 +30,7 @@
              <%= image_tag room.object.main_image, class: "itemImage"  %>
             </figure>
             <div class="text">
-              変更する<i class="fa-regular fa-circle-right"></i>
+              変更する
               <%= room.file_field :main_image, accept: "image?*" %>
             </div>
           </div>
@@ -46,7 +46,7 @@
              <%= image_tag room.object.image_before, class: "floorImage" %>
             </figure>
             <div class="text">
-              変更する<i class="fa-regular fa-circle-right"></i>
+              変更する
               <%= room.file_field :image_before, accept: "image/*" %>
             </div>
           </div>
@@ -57,7 +57,7 @@
              <%= image_tag room.object.image_after, class: "floorImage" %>
             </figure>
             <div class="text">
-              変更する<i class="fa-regular fa-circle-right"></i>
+              変更する
               <%= room.file_field :image_after, accept: "image/*" %>
           </div>
         </div>

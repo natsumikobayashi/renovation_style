@@ -22,114 +22,107 @@
 
    <header>
      <nav class="navbar navbar-expand-lg navbar-light">
-      <!--<div class="container">-->
+    　<% if observer_signed_in? || manager_signed_in? %>
+        <div class="site-logo">Renovation Style</div>
+      <% else %>
+        <div class="site-logo"><%= link_to "Renovation Style", root_path %></div>
+      <% end %>
+      <div>
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+       </button>
+      </div>
 
-    <!--<div class="d-flex p-1 align-items-center w-100">-->
-    <!--<div class="p-1 align-items-center w-100">-->
-       　<% if observer_signed_in? || manager_signed_in? %>
-           <div class="site-logo">Renovation Style</div>
-         <% else %>
-           <div class="site-logo"><%= link_to "Renovation Style", root_path %></div>
-         <% end %>
-       <div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-         <span class="navbar-toggler-icon"></span>
-        </button>
-       </div>
+      <div class="collapse navbar-collapse header-item-list" id="navbarNavDropdown">
+       <ul class="navbar-nav ml-auto">
+         <% if observer_signed_in? %>
+            <%= link_to observer_customers_path do %>
+             <li class="nav-item p-2">
+              <i class="fas fa-users"></i> Costomers
+             </li>
+            <% end %>
+            <%= link_to observer_managers_path do %>
+             <li class="nav-item p-2">
+              <i class="far fa-building"></i> Companies
+             </li>
+            <% end %>
+            <%= link_to observer_taste_tags_path do %>
+             <li class="nav-item p-2">
+              <i class="fas fa-hashtag"></i> Tastetag
+             </li>
+            <% end %>
+            <%= link_to destroy_observer_session_path, method: :delete do %>
+              <li class="nav-item p-2">
+               <i class="fas fa-sign-out-alt"></i> Log out
+              </li>
+            <% end %>
 
-        <div class="collapse navbar-collapse header-item-list" id="navbarNavDropdown">
-          <ul class="navbar-nav ml-auto">
-            <% if observer_signed_in? %>
-               <%= link_to observer_customers_path do %>
-                <li class="nav-item p-2">
-                 <i class="fa-solid fa-users size"></i> Costomers
-                </li>
-               <% end %>
-               <%= link_to observer_managers_path do %>
-                <li class="nav-item p-2">
-                 <i class="fa-regular fa-building size"></i> Companies
-                </li>
-               <% end %>
-               <%= link_to observer_taste_tags_path do %>
-                <li class="nav-item p-2">
-                 <i class="fa-solid fa-tags size"></i> Tastetag
-                </li>
-               <% end %>
-               <%= link_to destroy_observer_session_path, method: :delete do %>
-                 <li class="nav-item p-2">
-                  <i class="fa-solid fa-right-from-bracket size"></i> Log out
-                 </li>
-               <% end %>
-
-             <% elsif manager_signed_in? %>
-               <%= link_to destroy_manager_session_path, method: :delete do %>
-                <li class="nav-item p-2">
-                 <i class="fa-solid fa-right-from-bracket size"></i> Log out
-                </li>
-               <% end %>
-               <%= link_to manager_enquiries_path do %>
-                <li class="nav-item p-2">
-                 <i class="fa-regular fa-envelope size"></i> Enquiry
-                </li>
-               <% end %>
-               <%= link_to manager_rooms_path do %>
-                <li class="nav-item p-2">
-                 <i class="fa-regular fa-pen-to-square size"></i> Post
-                </li>
-               <% end %>
-               <%= link_to manager_mypage_path do %>
-                <li class="nav-item p-2">
-                 <i class="fa-regular fa-user size"></i> Mypage
-                </li>
-               <% end %>
-
-             <% elsif customer_signed_in? %>
-               <%= link_to customer_rooms_path do %>
-               <li class="nav-item p-2">
-                <i class="fa-solid fa-magnifying-glass size"></i> Search
-               </li>
-               <% end %>
-               <%= link_to customer_favorites_path do %>
-               <li class="nav-item p-2">
-                <i class="fa-regular fa-heart size"></i> Favorite
-               </li>
-               <% end %>
-               <%= link_to customer_mypage_path do %>
-               <li class="nav-item p-2">
-                <i class="fa-regular fa-user size"></i> Mypage
-               </li>
-               <% end %>
-               <%= link_to  destroy_customer_session_path, method: :delete do %>
-                <li class="nav-item p-2">
-                 <i class="fa-solid fa-right-from-bracket size"></i> Log out
-                </li>
-               <% end %>
-
-             <% else %>
-              <% if request.fullpath.include? "/observer" %>
-               <% elsif request.fullpath.include? "/manager" %>
-              <% else %>
-               <%= link_to customer_rooms_path do %>
-                <li class="nav-item p-1">
-                 <i class="fa-solid fa-magnifying-glass size"></i> Search
-                </li>
-               <% end %>
-               <%= link_to customer_mypage_path do %>
-                <li class="nav-item p-1">
-                 <i class="far fa-user size"></i> Mypage
-                </li>
-               <% end %>
-
-              <% end %>
+           <% elsif manager_signed_in? %>
+             <%= link_to destroy_manager_session_path, method: :delete do %>
+              <li class="nav-item p-2">
+               <i class="fas fa-sign-out-alt"></i> Log out
+              </li>
              <% end %>
+             <%= link_to manager_enquiries_path do %>
+              <li class="nav-item p-2">
+               <i class="far fa-envelope"></i> Enquiry
+              </li>
+             <% end %>
+             <%= link_to manager_rooms_path do %>
+              <li class="nav-item p-2">
+               <i class="fas fa-pen-nib"></i> Post
+              </li>
+             <% end %>
+             <%= link_to manager_mypage_path do %>
+              <li class="nav-item p-2">
+               <i class="far fa-user size"></i> Mypage
+              </li>
+             <% end %>
+
+           <% elsif customer_signed_in? %>
+             <%= link_to customer_rooms_path do %>
+              <li class="nav-item p-2">
+               <i class="fas fa-search"></i> Search
+              </li>
+             <% end %>
+             <%= link_to customer_favorites_path do %>
+              <li class="nav-item p-2">
+               <i class="far fa-heart"></i> Favorite
+              </li>
+             <% end %>
+             <%= link_to customer_mypage_path do %>
+              <li class="nav-item p-2">
+               <i class="far fa-user size"></i> Mypage
+              </li>
+             <% end %>
+             <%= link_to  destroy_customer_session_path, method: :delete do %>
+              <li class="nav-item p-2">
+               <i class="fas fa-sign-out-alt"></i> Log out
+              </li>
+             <% end %>
+
+            <% else %>
+             <% if request.fullpath.include? "/observer" %>
+              <% elsif request.fullpath.include? "/manager" %>
+             <% else %>
+              <%= link_to customer_rooms_path do %>
+               <li class="nav-item p-1">
+                <i class="fas fa-search"></i> Search
+               </li>
+              <% end %>
+              <%= link_to customer_mypage_path do %>
+               <li class="nav-item p-1">
+                <i class="far fa-user size"></i> Mypage
+               </li>
+              <% end %>
+
+            <% end %>
+          <% end %>
         </ul>
       </div>
-     <!--</div>-->
 
-
-    <!--</div>-->
-   </nav>
+     </nav>
   </header>
    <main class="flex-grow-1 justify-content-center align-items-center position-relative">
 
@@ -156,7 +149,7 @@
     <% else %>
       <div class="links">
        <%= link_to new_manager_session_path do %>
-        リフォーム会社の方はこちら<i class="fa-regular fa-hand-point-up"></i>
+        リフォーム会社の方はこちら<i class="far fa-hand-point-up"></i>
        <% end %>
       </div>
    <% end %>
