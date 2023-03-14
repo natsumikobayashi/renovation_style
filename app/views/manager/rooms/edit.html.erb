@@ -43,9 +43,11 @@
            <div class="form-item">間取り(before)</div>
             <figure class="text m-2">
              <figcaption>現在の画像</figcaption>
-             <% if room.object.image_before.attached? %>
-               <%= image_tag room.object.image_before, class: "floorImage" %>
-             <% end %>
+              <% if room.object.image_before.attached? %>
+                  <%= image_tag room.object.image_before, class: "floorImage" %>
+                <% else %>
+                  <%= image_tag 'noimage-760x460.png', class: "floorImage" %>
+              <% end %>
             </figure>
             <div class="text">
               変更する
