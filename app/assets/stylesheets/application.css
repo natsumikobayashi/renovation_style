@@ -24,9 +24,10 @@ body {
   height: 100%;
   font-family: 'Merriweather', 'Kosugi Maru', sans-serif !important;
 }
-main{
-  flex: 1;
-}
+
+/*main{*/
+/*  flex: 1;*/
+/*}*/
 
 .btn,
 btn,
@@ -177,6 +178,7 @@ footer{
   height: 40px;
   text-align: center;
   align-items: center;
+  margin-top: auto;
 }
 
 .links a{
