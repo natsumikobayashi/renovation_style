@@ -25,11 +25,9 @@ body {
   font-family: 'Merriweather', 'Kosugi Maru', sans-serif !important;
 }
 
-main{
-  min-height: calc( 100svh - 60px - 40px);
-/*  padding-bottom: 40px;*/
-
-}
+/*main{*/
+/*  min-height: calc( 100vh - 60px - 40px);*/
+/*}*/
 .btn,
 btn,
 .submitButton,
