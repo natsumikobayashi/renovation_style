@@ -1,0 +1,12 @@
+<div class="taste-tag-link">
+  <% taste_tags.each do |f| %>
+   <div class="row text align-items-center mb-1">
+     <div class="col-lg-4 col-8">
+       <%= f.name %>
+     </div>
+     <div class="col-lg-3 col-4 text-center">
+       <%= link_to '編集', edit_observer_taste_tag_path(f.id), class: "btn" %>
+     </div>
+    </div>
+  <% end %>
+</div>
