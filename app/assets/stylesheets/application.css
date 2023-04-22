@@ -492,6 +492,20 @@ p,
   font-size: 16px;
 }
 
+.pagination-item,
+.pagination-item a{
+  font-size: 18px;
+  color: #8E745A;
+  margin: 10px;
+}
+
+.active{
+  font-weight: bold;
+  font-size: 18px;
+  color: #cd9797;
+  margin: 5px;
+}
+
 /*@media screen and (max-width: 1024px) {*/
   /*.site-logo a {*/
     /*font-size: 25px;*/
@@ -738,6 +752,14 @@ table{
 
 .line_button{
  font-size: 16px;
+}
+
+.pagination,
+.pagination a,
+.pagination-item,
+.pagination-item a,
+.active{
+  font-size: 15px;
 }
 
 /*.submitButtonComplete{*/

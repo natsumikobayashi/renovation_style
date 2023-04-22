@@ -2,7 +2,7 @@ class Observer::TasteTagsController < ApplicationController
     before_action :authenticate_observer!
   def index
     @taste_tag = TasteTag.new
-    @taste_tags = TasteTag.all
+    @taste_tags = TasteTag.page(params[:page]).per(10)
   end
 
   def create

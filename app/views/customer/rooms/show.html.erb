@@ -69,11 +69,9 @@
          <%= @room.manager.catchphrase %>
        </li>
       </ul>
-       <%# @room.manager.manager_images.each do |image| %>
-        <div class="image-box">
-         <%= image_tag @room.manager.image, class: "managerImage" %>
-        </div>
-       <%# end %>
+      <div class="image-box">
+       <%= image_tag @room.manager.image, class: "managerImage" %>
+      </div>
       <table class="mx-auto m-2 manager-detail">
         <tr>
           <td>会社住所</td>
