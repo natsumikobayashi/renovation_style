@@ -14,7 +14,6 @@ class Room < ApplicationRecord
 
   accepts_nested_attributes_for :room_images, allow_destroy: true
   validates_associated :room_images
-  #画像をまとめて登録してくれる
 
   validates :main_image, presence: true
   validates :image_after, presence: true

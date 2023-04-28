@@ -14,42 +14,9 @@
 
       <%= form_with scope: :search, url: customer_rooms_path, method: :get do |f| %>
        <div class="row searchbox">
-        <!--<div class="d-flex">-->
-          <div class="col-lg-2 col-sm-12 p-2 searchItemTittle font-weight-bold">テイスト</div>
-          <div class="col-lg-10 col-sm-10 text d-flex align-items-center flex-wrap">
-           <%= f.collection_check_boxes( :taste_tag_ids, TasteTag.all, :id, :name, checked:  @taste_tag_ids ) do |b| %>
-            <label class="searchItem p-2 d-flex align-items-center">
-             <%= b.check_box class:"chkgroup mr-1" do %>
-              <%= b.check_box + b.text %>
-    　　　      <% end %>
-              <%= b.label {b.text} %>
-            </label>
-           <% end %>
-           </div>
-        <!--</div>-->
-         </div>
-
-        <div class="row searchbox">
-        <!--<div class="d-flex">-->
-         <div class="col-lg-2 col-sm-12 p-2 searchItemTittle font-weight-bold">間取り</div>
-        <div class="col-lg-10 col-sm-10 text d-flex flex-wrap">
-         <%= f.collection_check_boxes(:floor_plan_ids, FloorPlan.all, :id, :floor_name, checked: @floor_plan_ids) do |b| %>
-          <label class="searchItem p-2 d-flex align-items-center">
-           <%= b.check_box class:"chkgroup mr-1" do %>
-            <%= b.check_box + b.text %>
-  　　　      <% end %>
-            <%= b.label {b.text} %>
-          </label>
-         <% end %>
-        </div>
-        <!--</div>-->
-       </div>
-
-        <div class="row searchbox-last">
-         <!--<div class="d-flex">-->
-          <div class="col-lg-2 col-sm-12 p-2 searchItemTittle font-weight-bold">対応エリア</div>
-          <div class="col-lg-10 col-sm-10 text d-flex flex-wrap">
-          <%= f.collection_check_boxes(:area_ids, Area.all, :id, :name, checked: @area_ids) do |b| %>
+         <div class="col-lg-2 col-sm-12 p-2 searchItemTittle font-weight-bold">テイスト</div>
+         <div class="col-lg-10 col-sm-10 text d-flex align-items-center flex-wrap">
+          <%= f.collection_check_boxes( :taste_tag_ids, TasteTag.all, :id, :name, checked:  @taste_tag_ids ) do |b| %>
            <label class="searchItem p-2 d-flex align-items-center">
             <%= b.check_box class:"chkgroup mr-1" do %>
              <%= b.check_box + b.text %>
@@ -58,12 +25,40 @@
            </label>
           <% end %>
           </div>
-         <!--</div>-->
+        </div>
+
+        <div class="row searchbox">
+         <div class="col-lg-2 col-sm-12 p-2 searchItemTittle font-weight-bold">間取り</div>
+         <div class="col-lg-10 col-sm-10 text d-flex flex-wrap">
+          <%= f.collection_check_boxes(:floor_plan_ids, FloorPlan.all, :id, :floor_name, checked: @floor_plan_ids) do |b| %>
+           <label class="searchItem p-2 d-flex align-items-center">
+            <%= b.check_box class:"chkgroup mr-1" do %>
+             <%= b.check_box + b.text %>
+   　　　      <% end %>
+             <%= b.label {b.text} %>
+           </label>
+          <% end %>
+         </div>
+       </div>
+
+        <div class="row searchbox-last">
+         <div class="col-lg-2 col-sm-12 p-2 searchItemTittle font-weight-bold">対応エリア</div>
+         <div class="col-lg-10 col-sm-10 text d-flex flex-wrap">
+          <%= f.collection_check_boxes(:area_ids, Area.all, :id, :name, checked: @area_ids) do |b| %>
+           <label class="searchItem p-2 d-flex align-items-center">
+            <%= b.check_box class:"chkgroup mr-1" do %>
+             <%= b.check_box + b.text %>
+   　　　      <% end %>
+             <%= b.label {b.text} %>
+           </label>
+          <% end %>
+         </div>
         </div>
 
      <div class="col-sm-12 submit mt-3 mb-3" style="text-align: center;">
       <%= f.submit '検索', class: "submitButton m-2" %>
      </div>
+
     <% end %>
 
    <% if @rooms.exists? %>
@@ -123,5 +118,6 @@
   <div class="pagination justify-content-center">
    <%= paginate @rooms, theme: 'paginate' %>
   </div>
- </div>S
+
+ </div>
 </div>
