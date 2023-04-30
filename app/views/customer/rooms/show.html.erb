@@ -27,12 +27,21 @@
         </div>
        <% end %>
       </div>
-     <% @room.room_images.each do |room_image| %>
-      <div class="m-2">
-       <div class="text"><%= room_image.name %></div>
-       <%= image_tag room_image.image, class: "itemImage" if room_image.image.attached? %>
+
+      <div class="swiper">
+       <div class="swiper-wrapper">
+        <% @room.room_images.each do |room_image| %>
+         <div class="swiper-slide mb-2">
+          <div class="text"><%= room_image.name %></div>
+          <%= image_tag room_image.image, class: "itemImage" if room_image.image.attached? %>
+         </div>
+        <% end %>
+       </div>
+       <div class="swiper-pagination"></div>
+       <div class="swiper-button-prev"></div>
+       <div class="swiper-button-next"></div>
       </div>
-     <% end %>
+
      </div>
 
      <div class="col-lg-6 col-sm-12">
@@ -142,3 +151,8 @@
 
 
 </div>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<%= javascript_pack_tag "swiper.js" %>

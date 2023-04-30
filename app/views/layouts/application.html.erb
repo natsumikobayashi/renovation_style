@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%#= favicon_link_tag() %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%#= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 
    <link rel="preconnect" href="https://fonts.googleapis.com">
    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,9 +60,9 @@
             <% end %>
 
            <% elsif manager_signed_in? %>
-             <%= link_to destroy_manager_session_path, method: :delete do %>
+             <%= link_to manager_mypage_path do %>
               <li class="nav-item p-2">
-               <i class="fas fa-sign-out-alt"></i> Log out
+               <i class="far fa-user size"></i> Mypage
               </li>
              <% end %>
              <%= link_to manager_enquiries_path do %>
@@ -73,9 +75,9 @@
                <i class="fas fa-pen-nib"></i> Post
               </li>
              <% end %>
-             <%= link_to manager_mypage_path do %>
+             <%= link_to destroy_manager_session_path, method: :delete do %>
               <li class="nav-item p-2">
-               <i class="far fa-user size"></i> Mypage
+               <i class="fas fa-sign-out-alt"></i> Log out
               </li>
              <% end %>
 

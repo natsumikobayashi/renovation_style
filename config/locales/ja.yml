@@ -55,8 +55,8 @@ ja:
         name: 名前
 
       observer:
-        email: メールアドレス
         login_id: ログインID
+        email: メールアドレス
         password_confirmation: パスワード
         password: パスワード
 

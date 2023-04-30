@@ -30,7 +30,7 @@ class Observer::SessionsController < Devise::SessionsController
   protected
 
   def configure_permitted_parameters
-   devise_parameter_sanitizer.permit(:sign_in, keys: [:login_id, :password_confirmation, :email, :password])
+   devise_parameter_sanitizer.permit(:sign_in, keys: [:login_id, :email, :password, :password_confirmation])
   end
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params
