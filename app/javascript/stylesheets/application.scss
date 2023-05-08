@@ -456,6 +456,14 @@ p,
   --swiper-pagination-color: #e8dfd9;
 }
 
+#back a {
+  position: fixed;
+  right: 20px;
+  bottom: 35px;
+  color: #8E745A;
+  font-size: 40px;
+}
+
 @media (max-width: 420px){
 
  .itemImage{
@@ -698,6 +706,12 @@ table{
 .pagination-item a,
 .active{
   font-size: 15px;
+}
+
+#back a {
+  right: 10px;
+  font-size: 30px;
+  bottom: 40px;
 }
 
 }

@@ -119,5 +119,13 @@
    <%= paginate @rooms, theme: 'paginate' %>
   </div>
 
+  <span id="back">
+   <a href="#">
+    <i class="fas fa-arrow-alt-circle-up"></i>
+   </a>
+  </span>
+
+  <%= javascript_pack_tag "scroll.js" %>
+
  </div>
 </div>
