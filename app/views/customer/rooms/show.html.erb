@@ -31,7 +31,7 @@
       <div class="swiper">
        <div class="swiper-wrapper">
         <% @room.room_images.each do |room_image| %>
-         <div class="swiper-slide mb-2">
+         <div class="swiper-slide">
           <div class="text"><%= room_image.name %></div>
           <%= image_tag room_image.image, class: "itemImage" if room_image.image.attached? %>
          </div>
@@ -117,7 +117,7 @@
    <div class="enquiry-btn m-3" style="text-align: center;">
      <% if customer_signed_in? %>
       <% if current_customer.enquiries.find_by(room_id: @room.id) %>
-       <%= link_to "問い合わせ済み", customer_enquiry_path(@room.id), class: "btn" %>
+       <%= link_to "問い合わせ済み", customer_enquiries_path, class: "btn" %>
       <% else %>
        <%= form_with model: @enquiry, url: customer_enquiries_new_path do |f| %>
        <%= f.hidden_field :room_id, :value => @room.id %>

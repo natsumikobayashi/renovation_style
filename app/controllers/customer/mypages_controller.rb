@@ -20,9 +20,6 @@ class Customer::MypagesController < ApplicationController
 
   end
 
-  def index
-  end
-
   def subscribe
     @customer = current_customer
     if @customer.update(is_deleted: true)

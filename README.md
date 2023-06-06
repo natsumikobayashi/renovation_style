@@ -23,14 +23,14 @@
 施工したお部屋をアピールし新規顧客獲得したいとき
 空室に困っているオーナーにリフォーム提案をするとき
 
-## 設計書
-<...>
+## 設計書のURL
+https://docs.google.com/spreadsheets/d/1nzNMsWnrC88zPGE4Oubkcl6Yv9imD-X-fLubw4v1paI/edit?usp=sharing
 
 ##実装機能リストのURL
 https://docs.google.com/spreadsheets/d/1nzNMsWnrC88zPGE4Oubkcl6Yv9imD-X-fLubw4v1paI/edit?usp=sharing
 
 ## 開発環境
-- OS：Linux(CentOS)
+- OS：Linux(AmazonLinux2)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
