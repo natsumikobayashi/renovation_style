@@ -35,6 +35,5 @@ class Customer::MypagesController < ApplicationController
 
   def mypage_params
     params.require(:customer).permit(:name, :email, :telephone_number)
-    # :password, :password_confirmation
   end
 end
