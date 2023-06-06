@@ -9,7 +9,6 @@ class Observer::TasteTagsController < ApplicationController
     @taste_tags = TasteTag.page(params[:page]).per(10)
     @taste_tag = TasteTag.new(taste_tag_params)
     if @taste_tag.save
-      #redirect_to observer_taste_tags_path, notice: "保存しました"
     else
       flash.now[:alert] = "エラーがあります"
       @taste_tags = TasteTag.all
